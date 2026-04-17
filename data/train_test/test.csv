@@ -1,0 +1,25 @@
+text,intent
+reproduce musica,music_play
+termina la app de noticias,close_app
+activa la luz del pasillo,lights_on
+programa alarma para las 7,set_alarm
+quita la luz del cuarto,lights_off
+deten el televisor,tv_off
+abre youtube,open_app
+pon temperatura en 20,set_temperature
+que clima hay,get_weather
+asegura la puerta principal,lock_door
+enciende la tele,tv_on
+silencia la musica,music_pause
+prende las luces del comedor,lights_on
+pon la musica mas bajito,music_volume_down
+apaga la luz del cuarto,lights_off
+corta el aire acondicionado,ac_off
+que horas son,get_time
+abre la puerta del patio,unlock_door
+desactiva la alarma de las 7,cancel_alarm
+enciende el ac,ac_on
+quita las luces del comedor,lights_off
+enciende la luz del pasillo,lights_on
+ajusta el termostato a 20,set_temperature
+sube volumen,music_volume_up

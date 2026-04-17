@@ -1,0 +1,121 @@
+text,intent
+enciende la luz de la sala,lights_on
+prende la luz de la sala,lights_on
+activa la luz de la sala,lights_on
+enciende las luces del comedor,lights_on
+prende las luces del comedor,lights_on
+activa las luces del comedor,lights_on
+enciende la luz del pasillo,lights_on
+prende la luz del pasillo,lights_on
+activa la luz del pasillo,lights_on
+enciende la luz del cuarto,lights_on
+prende la luz del cuarto,lights_on
+activa la luz del cuarto,lights_on
+enciende la luz de la cocina,lights_on
+prende la luz de la cocina,lights_on
+activa la luz de la cocina,lights_on
+apaga la luz de la sala,lights_off
+desactiva la luz de la sala,lights_off
+quita la luz de la sala,lights_off
+apaga las luces del comedor,lights_off
+desactiva las luces del comedor,lights_off
+quita las luces del comedor,lights_off
+apaga la luz del pasillo,lights_off
+desactiva la luz del pasillo,lights_off
+quita la luz del pasillo,lights_off
+apaga la luz del cuarto,lights_off
+desactiva la luz del cuarto,lights_off
+quita la luz del cuarto,lights_off
+apaga la luz de la cocina,lights_off
+desactiva la luz de la cocina,lights_off
+quita la luz de la cocina,lights_off
+sube el volumen de la musica,music_volume_up
+sube volumen,music_volume_up
+aumenta el volumen,music_volume_up
+pon la musica mas fuerte,music_volume_up
+incrementa el volumen,music_volume_up
+baja el volumen de la musica,music_volume_down
+baja volumen,music_volume_down
+disminuye el volumen,music_volume_down
+pon la musica mas bajito,music_volume_down
+reduce el volumen,music_volume_down
+reproduce musica,music_play
+pon musica,music_play
+quiero escuchar musica,music_play
+inicia la reproduccion,music_play
+pon mi playlist favorita,music_play
+pausa la musica,music_pause
+pausa reproduccion,music_pause
+deten la musica,music_pause
+silencia la musica,music_pause
+para la reproduccion,music_pause
+que hora es,get_time
+dime la hora,get_time
+me dices la hora,get_time
+hora actual,get_time
+que horas son,get_time
+como esta el clima,get_weather
+que clima hay,get_weather
+dime el clima,get_weather
+va a llover hoy,get_weather
+temperatura actual,get_weather
+sube la temperatura a 24 grados,set_temperature
+ajusta el termostato a 24,set_temperature
+pon temperatura en 24,set_temperature
+configura el termostato en 24,set_temperature
+cambia la temperatura a 24,set_temperature
+baja la temperatura a 20 grados,set_temperature
+ajusta el termostato a 20,set_temperature
+pon temperatura en 20,set_temperature
+configura el termostato en 20,set_temperature
+cambia la temperatura a 20,set_temperature
+abre netflix,open_app
+abre youtube,open_app
+abre spotify,open_app
+abre la aplicacion de camaras,open_app
+inicia la app de noticias,open_app
+cierra netflix,close_app
+cierra youtube,close_app
+cierra spotify,close_app
+cierra la aplicacion de camaras,close_app
+termina la app de noticias,close_app
+bloquea la puerta principal,lock_door
+asegura la puerta principal,lock_door
+cierra con llave la puerta principal,lock_door
+bloquea la puerta del patio,lock_door
+asegura la puerta del patio,lock_door
+desbloquea la puerta principal,unlock_door
+abre la puerta principal,unlock_door
+quita el seguro de la puerta principal,unlock_door
+desbloquea la puerta del patio,unlock_door
+abre la puerta del patio,unlock_door
+enciende el aire acondicionado,ac_on
+prende el aire acondicionado,ac_on
+activa el aire acondicionado,ac_on
+arranca el aire acondicionado,ac_on
+enciende el ac,ac_on
+apaga el aire acondicionado,ac_off
+desactiva el aire acondicionado,ac_off
+deten el aire acondicionado,ac_off
+corta el aire acondicionado,ac_off
+apaga el ac,ac_off
+enciende la television,tv_on
+prende la tv,tv_on
+activa la television,tv_on
+enciende la tele,tv_on
+prende el televisor,tv_on
+apaga la television,tv_off
+apaga la tv,tv_off
+desactiva la television,tv_off
+apaga la tele,tv_off
+deten el televisor,tv_off
+pon alarma para las 7 am,set_alarm
+crea una alarma para las 7,set_alarm
+activa alarma para las 7,set_alarm
+programa alarma para las 7,set_alarm
+configura alarma para las 7,set_alarm
+cancela la alarma de las 7,cancel_alarm
+elimina la alarma de las 7,cancel_alarm
+desactiva la alarma de las 7,cancel_alarm
+quita la alarma de las 7,cancel_alarm
+borra la alarma de las 7,cancel_alarm

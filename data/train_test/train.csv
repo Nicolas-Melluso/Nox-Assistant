@@ -1,0 +1,97 @@
+text,intent
+temperatura actual,get_weather
+activa alarma para las 7,set_alarm
+apaga la tv,tv_off
+sube el volumen de la musica,music_volume_up
+inicia la reproduccion,music_play
+cierra la aplicacion de camaras,close_app
+cancela la alarma de las 7,cancel_alarm
+que hora es,get_time
+pausa reproduccion,music_pause
+me dices la hora,get_time
+enciende la luz de la sala,lights_on
+quita el seguro de la puerta principal,unlock_door
+hora actual,get_time
+quiero escuchar musica,music_play
+apaga la television,tv_off
+configura alarma para las 7,set_alarm
+va a llover hoy,get_weather
+incrementa el volumen,music_volume_up
+pon mi playlist favorita,music_play
+activa las luces del comedor,lights_on
+apaga la luz del pasillo,lights_off
+desactiva la luz de la sala,lights_off
+baja volumen,music_volume_down
+enciende la luz de la cocina,lights_on
+abre netflix,open_app
+para la reproduccion,music_pause
+activa la television,tv_on
+dime la hora,get_time
+enciende las luces del comedor,lights_on
+crea una alarma para las 7,set_alarm
+prende la luz del pasillo,lights_on
+pon la musica mas fuerte,music_volume_up
+prende el aire acondicionado,ac_on
+apaga el ac,ac_off
+cambia la temperatura a 20,set_temperature
+dime el clima,get_weather
+configura el termostato en 20,set_temperature
+ajusta el termostato a 24,set_temperature
+bloquea la puerta del patio,lock_door
+quita la luz de la cocina,lights_off
+desactiva la luz de la cocina,lights_off
+baja el volumen de la musica,music_volume_down
+bloquea la puerta principal,lock_door
+pon temperatura en 24,set_temperature
+abre spotify,open_app
+desactiva la luz del pasillo,lights_off
+apaga el aire acondicionado,ac_off
+asegura la puerta del patio,lock_door
+pon musica,music_play
+apaga las luces del comedor,lights_off
+cierra con llave la puerta principal,lock_door
+cierra netflix,close_app
+prende la luz del cuarto,lights_on
+desbloquea la puerta principal,unlock_door
+pausa la musica,music_pause
+cierra spotify,close_app
+desbloquea la puerta del patio,unlock_door
+desactiva las luces del comedor,lights_off
+prende la luz de la cocina,lights_on
+cierra youtube,close_app
+deten la musica,music_pause
+apaga la luz de la cocina,lights_off
+baja la temperatura a 20 grados,set_temperature
+prende el televisor,tv_on
+deten el aire acondicionado,ac_off
+prende la luz de la sala,lights_on
+aumenta el volumen,music_volume_up
+configura el termostato en 24,set_temperature
+enciende la luz del cuarto,lights_on
+activa la luz de la sala,lights_on
+disminuye el volumen,music_volume_down
+como esta el clima,get_weather
+activa la luz de la cocina,lights_on
+sube la temperatura a 24 grados,set_temperature
+apaga la luz de la sala,lights_off
+borra la alarma de las 7,cancel_alarm
+inicia la app de noticias,open_app
+pon alarma para las 7 am,set_alarm
+activa el aire acondicionado,ac_on
+desactiva la luz del cuarto,lights_off
+activa la luz del cuarto,lights_on
+arranca el aire acondicionado,ac_on
+quita la luz de la sala,lights_off
+desactiva la television,tv_off
+quita la luz del pasillo,lights_off
+enciende la television,tv_on
+cambia la temperatura a 24,set_temperature
+quita la alarma de las 7,cancel_alarm
+reduce el volumen,music_volume_down
+abre la puerta principal,unlock_door
+enciende el aire acondicionado,ac_on
+desactiva el aire acondicionado,ac_off
+apaga la tele,tv_off
+elimina la alarma de las 7,cancel_alarm
+abre la aplicacion de camaras,open_app
+prende la tv,tv_on
