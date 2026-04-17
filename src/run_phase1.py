@@ -8,7 +8,7 @@ from predict import predict_intent
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Ejecuta Fase 1 completa del proyecto")
-    parser.add_argument("--version", default="v1", help="Version del modelo: v1 o v2")
+    parser.add_argument("--version", default="v1", help="Version del modelo: v1, v2 o v3")
     parser.add_argument(
         "--predict-text",
         default="enciende las luces del patio",

@@ -1,25 +1,35 @@
 text,intent
-reproduce musica,music_play
-termina la app de noticias,close_app
-activa la luz del pasillo,lights_on
-programa alarma para las 7,set_alarm
-quita la luz del cuarto,lights_off
-deten el televisor,tv_off
-abre youtube,open_app
-pon temperatura en 20,set_temperature
-que clima hay,get_weather
-asegura la puerta principal,lock_door
-enciende la tele,tv_on
-silencia la musica,music_pause
-prende las luces del comedor,lights_on
-pon la musica mas bajito,music_volume_down
-apaga la luz del cuarto,lights_off
+cambia la temperatura a 24,set_temperature
+pon musica,music_play
+abre netflix,open_app
+cierra youtube,close_app
+quita la luz de la sala,lights_off
+desconecta la television,tv_off
+enciende la television,tv_on
+activa alarma para las 7,set_alarm
+borra la alarma de las 7,cancel_alarm
+desactiva la luz de la cocina,lights_off
+enciende las luces del comedor,lights_on
 corta el aire acondicionado,ac_off
-que horas son,get_time
-abre la puerta del patio,unlock_door
-desactiva la alarma de las 7,cancel_alarm
-enciende el ac,ac_on
-quita las luces del comedor,lights_off
-enciende la luz del pasillo,lights_on
-ajusta el termostato a 20,set_temperature
+sube la temperatura a 24 grados,set_temperature
+va a llover hoy,get_weather
+activa la luz del cuarto,lights_on
 sube volumen,music_volume_up
+incrementa el volumen,music_volume_up
+deja apagado el aire acondicionado,ac_off
+pon la musica mas bajito,music_volume_down
+activa la luz del pasillo,lights_on
+pausa reproduccion,music_pause
+quita el seguro de la puerta del patio,unlock_door
+bloquea la puerta principal,lock_door
+pon en marcha el aire acondicionado,ac_on
+activa la television,tv_on
+apaga la tv,tv_off
+termina la app de noticias,close_app
+activa el aire acondicionado,ac_on
+me dices la hora,get_time
+cierra con llave la puerta principal,lock_door
+quita la luz de la cocina,lights_off
+haz la musica mas suave,music_volume_down
+lanza la aplicacion de noticias,open_app
+quita llave a la puerta de entrada,unlock_door

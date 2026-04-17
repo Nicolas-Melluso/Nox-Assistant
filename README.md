@@ -50,6 +50,7 @@ Construir un asistente de voz inteligente que:
 - src/evaluate.py: evalua el modelo con accuracy, reporte y matriz de confusion.
 - src/predict.py: prueba predicciones de ejemplo con frases nuevas.
 - src/run_phase1.py: ejecuta toda la Fase 1 con un solo comando.
+- src/chat_nox.py: consola interactiva para probar intenciones en tiempo real.
 - data/raw/intent_dataset.csv: dataset base editable por ti.
 - models/intent_model.joblib: modelo entrenado (se genera despues de entrenar).
 
@@ -91,6 +92,12 @@ python src/run_phase1.py --version v1
 
 # 7) Entrenar la segunda version y probar una frase manual
 python src/run_phase1.py --version v2 --predict-text "desbloquea la puerta del patio"
+
+# 8) Entrenar la tercera version experimental
+python src/run_phase1.py --version v3 --predict-text "cierra la app de noticias"
+
+# 9) Probar NOX en modo interactivo
+python src/chat_nox.py --version v3
 ```
 
 ## 📌 Estado actual
@@ -98,4 +105,7 @@ python src/run_phase1.py --version v2 --predict-text "desbloquea la puerta del p
 - Fase 1 implementada (baseline funcionando).
 - Accuracy inicial aproximada: 0.71.
 - Accuracy v2 aproximada: 0.79.
-- Siguiente mejora: balancear dataset por intencion para subir recall en clases con pocos ejemplos.
+- Se entreno una v3 experimental con dataset ampliado.
+- Accuracy v3 aproximada: 0.71 sobre el dataset ampliado.
+- Aprendizaje importante: mas datos o mas complejidad no garantizan mejora si el split cambia y las nuevas frases agregan ambiguedad.
+- Siguiente mejora: estabilizar el split, revisar clases ambiguas y crear una v4 guiada por errores.

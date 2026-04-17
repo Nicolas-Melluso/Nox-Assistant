@@ -119,3 +119,55 @@ elimina la alarma de las 7,cancel_alarm
 desactiva la alarma de las 7,cancel_alarm
 quita la alarma de las 7,cancel_alarm
 borra la alarma de las 7,cancel_alarm
+apaga por completo el aire acondicionado,ac_off
+deja apagado el aire acondicionado,ac_off
+desconecta el aire acondicionado,ac_off
+quita el aire acondicionado,ac_off
+deten el ac ahora,ac_off
+enciende ya el aire acondicionado,ac_on
+pon en marcha el aire acondicionado,ac_on
+deja prendido el aire acondicionado,ac_on
+activa el ac ahora,ac_on
+enciende el sistema de aire,ac_on
+sal de netflix,close_app
+sal de youtube,close_app
+sal de spotify,close_app
+cierra la app de noticias,close_app
+cerra la aplicacion de camaras,close_app
+abre la app de netflix,open_app
+abre la app de youtube,open_app
+abre la app de spotify,open_app
+lanza la aplicacion de noticias,open_app
+ejecuta la app de camaras,open_app
+baja mucho el volumen,music_volume_down
+pon el volumen mas bajo,music_volume_down
+haz la musica mas suave,music_volume_down
+reduce bastante el volumen,music_volume_down
+quita volumen a la musica,music_volume_down
+sube mucho el volumen,music_volume_up
+pon el volumen mas alto,music_volume_up
+haz la musica mas fuerte,music_volume_up
+dale mas volumen a la musica,music_volume_up
+sube el sonido de la musica,music_volume_up
+enciende la tv del salon,tv_on
+prende la tele del cuarto,tv_on
+activa el televisor de la sala,tv_on
+enciende el smart tv,tv_on
+pon la television en marcha,tv_on
+apaga la tv del salon,tv_off
+apaga el televisor del cuarto,tv_off
+desconecta la television,tv_off
+deja apagada la tele,tv_off
+deten la tv ahora,tv_off
+bloquea la puerta de entrada,lock_door
+asegura la puerta de entrada,lock_door
+pon seguro a la puerta principal,lock_door
+cierra con seguro la puerta del patio,lock_door
+deja bloqueada la puerta principal,lock_door
+desbloquea la puerta de entrada,unlock_door
+quita el seguro de la puerta del patio,unlock_door
+abre el seguro de la puerta principal,unlock_door
+deja libre la puerta principal,unlock_door
+quita llave a la puerta de entrada,unlock_door
+encende la compu,turn_on_pc
+mutear microfono,mute_microphone

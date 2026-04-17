@@ -116,12 +116,32 @@ custom-voice-assistant/
 
 **Próximos pasos:** revisar confusion matrix, balancear clases débiles y crear una v3 orientada a datos
 
+### Session 4 (17-04-2026)
+- Se analizaron errores concretos de v2 sobre el test set
+- Se ampliaron ejemplos en clases problemáticas: ac_on/ac_off, tv_on/tv_off, open_app/close_app, volume_up/volume_down, lock/unlock
+- Se creó una v3 experimental y una consola interactiva en src/chat_nox.py
+- Se verificó que v3 quedó entrenada y exportada como models/intent_model_v3.joblib
+
+**Resultados clave:**
+- Dataset ampliado: 170 ejemplos
+- v2 sobre dataset ampliado: 0.7059
+- v3 sobre dataset ampliado: 0.7059
+- La consola interactiva funciona y detecta intenciones por texto
+
+**Aprendizajes:**
+- Agregar datos sin revisar cuidadosamente el split puede bajar la métrica global
+- El archivo .joblib solo existe si el entrenamiento ya se ejecutó y se exportó
+- NOX hoy es un prototipo de NLU, no un asistente completo
+
+**Próximos pasos:** fijar un split reproducible para comparar versiones sobre el mismo conjunto y luego entrenar una v4 basada en errores reales
+
 ---
 
 ## ⚠️ Problemas Encontrados
 - Dataset inicial desbalanceado en varias intenciones
 - Algunas clases tienen soporte 1 en test, lo que reduce estabilidad de métricas
 - Accuracy base aceptable para arranque, pero insuficiente para uso productivo
+- La ampliacion de dataset cambio el comportamiento del split y redujo la comparabilidad directa con metricas anteriores
 
 ---
 
@@ -135,12 +155,14 @@ custom-voice-assistant/
 - [x] Script de predicción implementado
 - [x] Automatización de Fase 1 implementada
 - [x] Modelo v2 entrenado y comparado contra v1
+- [x] Consola interactiva de NOX implementada
+- [x] Modelo v3 entrenado y validado
 
 ---
 
 ## 🚀 En Progreso
-- [ ] Balanceo de dataset para mejorar recall por intención
-- [ ] Segunda iteración de entrenamiento (v2)
+- [ ] Estabilizar comparacion entre versiones con el mismo split de evaluacion
+- [ ] Diseñar v4 guiada por errores reales y no solo por ampliar datos
 
 ---
 

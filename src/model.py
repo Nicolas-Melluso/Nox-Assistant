@@ -45,6 +45,31 @@ def build_pipeline(version: str) -> Pipeline:
             ]
         )
 
+    if version == "v3":
+        return Pipeline(
+            steps=[
+                (
+                    "tfidf",
+                    TfidfVectorizer(
+                        ngram_range=(1, 3),
+                        min_df=1,
+                        max_df=0.98,
+                        sublinear_tf=True,
+                        strip_accents="unicode",
+                    ),
+                ),
+                (
+                    "clf",
+                    LinearSVC(
+                        C=1.2,
+                        class_weight="balanced",
+                        dual="auto",
+                        max_iter=6000,
+                    ),
+                ),
+            ]
+        )
+
     return Pipeline(
         steps=[
             (
@@ -90,7 +115,7 @@ def train_model(version: str = "v1") -> Path:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Entrena el clasificador de intenciones")
-    parser.add_argument("--version", default="v1", help="Version del modelo: v1 o v2")
+    parser.add_argument("--version", default="v1", help="Version del modelo: v1, v2 o v3")
     args = parser.parse_args()
 
     model_path = train_model(version=args.version)

@@ -1,0 +1,3 @@
+text,predicted_intent,correct_intent
+Encende la compu,music_pause,turn_on_pc
+Mutear microfono,close_app,mute_microphone
