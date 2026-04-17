@@ -1,111 +1,114 @@
-# 🎙️ Custom Voice Assistant
+# NOX - Custom Voice Assistant
 
-Un proyecto completo de ML → LLMOps para crear un asistente virtual personalizado.
+Proyecto de ML para clasificacion de intenciones de voz. NOX escucha comandos en lenguaje natural y determina la intencion del usuario con alta precision.
 
-## 🎯 Objetivo
+## Estado actual
 
-Construir un asistente de voz inteligente que:
-- Clasifique intenciones de comandos de voz
-- Extraiga entidades relevantes
-- Ejecute acciones personalizadas
-- Se integre con Google Home, Alexa y servicios custom
-- Sea reentrenable periódicamente
+| Modelo | Intents | Accuracy |
+|--------|---------|----------|
+| v1 (LogReg baseline) | 19 | 0.7083 |
+| v2 (LinearSVC) | 19 | 0.7917 |
+| v3 (LinearSVC + balanced) | 21 | 0.7059 |
+| **nox100_best** | **103** | **0.9995 avg (20 runs)** |
 
-## 📊 Fases del Proyecto
+El modelo `nox100_best` fue entrenado en 20 iteraciones con distintas semillas. Accuracy minima: 0.9964, maxima: 1.0000.
 
-### ✅ Fase 1: Fundamentos ML (Actual)
-- Clasificación de intenciones
-- Dataset inicial
-- Pipeline completo de datos
+## Fases del proyecto
 
-### 🔄 Fase 2: Mejoras NLP
-- Entity Recognition
-- Procesamiento de lenguaje natural
-- Manejo de sinonimia
+| Fase | Estado | Descripcion |
+|------|--------|-------------|
+| Fase 1: Clasificacion de intenciones | ✅ Completa | TF-IDF + LinearSVC, 103 intents, feedback loop |
+| Fase 2: Extraccion de entidades | 🔲 Pendiente | spaCy, valores numericos, nombres de dispositivos |
+| Fase 3: Sistema de acciones | 🔲 Pendiente | Ejecucion real de comandos, integracion con APIs |
+| Fase 4: LLMOps | 🔲 Pendiente | Fine-tuning, PromptFlow, monitoreo |
 
-### 🔌 Fase 3: Sistema de Acciones
-- Integración con APIs
-- Sistema de ejecución
-
-### 🚀 Fase 4: LLMOps
-- Fine-tuning de LLMs
-- PromptFlow
-- Monitoreo y evaluación
-
-## 📁 Estructura
+## Estructura del proyecto
 
 ```
-├── agent-history/        # Historial de conversaciones con IA
-├── src/                  # Código principal del pipeline ML
-├── data/                 # Datasets (raw y generados)
-├── models/               # Modelos entrenados exportados
-├── requirements.txt      # Dependencias
-└── README.md            # Este archivo
+├── src/                          # Modulos core (importables)
+│   ├── data_pipeline.py          # Limpieza y split train/test
+│   ├── model.py                  # Build y entrenamiento de pipelines
+│   ├── evaluate.py               # Metricas: accuracy, reporte, confusion matrix
+│   └── predict.py                # Prediccion de intenciones
+│
+├── scripts/                      # Scripts ejecutables
+│   ├── run_phase1.py             # Automatizacion completa Fase 1
+│   ├── chat_nox.py               # Consola interactiva con NOX
+│   ├── apply_feedback.py         # Incorpora feedback al dataset
+│   ├── generate_nox_100_dataset.py  # Genera el dataset de 103 intents
+│   └── train_nox100_iterative.py # Benchmark 20 runs, guarda mejor modelo
+│
+├── data/
+│   ├── raw/                      # Datasets fuente (versionados en git)
+│   │   ├── intent_dataset.csv        # Dataset base (19-21 intents)
+│   │   ├── nox_100_intents_catalog.csv  # Catalogo de 103 intents
+│   │   ├── nox_100_intents_dataset.csv  # 1404 ejemplos para nox100
+│   │   └── nox_feedback.csv          # Correcciones capturadas en chat
+│   ├── processed/                # Generado automaticamente (ignorado en git)
+│   └── train_test/               # Split generado automaticamente (ignorado en git)
+│
+├── models/                       # Modelos serializados (ignorados en git)
+│   └── intent_model_nox100_best.joblib
+│
+├── results/
+│   └── nox100_iterative_results.csv  # Resultados de las 20 runs
+│
+├── requirements.txt
+└── README.md
 ```
 
-## 🧠 Qué hace cada archivo (Fase 1)
-
-- src/data_pipeline.py: limpia texto, elimina duplicados y separa train/test.
-- src/model.py: entrena el clasificador de intenciones (TF-IDF + Logistic Regression).
-- src/evaluate.py: evalua el modelo con accuracy, reporte y matriz de confusion.
-- src/predict.py: prueba predicciones de ejemplo con frases nuevas.
-- src/run_phase1.py: ejecuta toda la Fase 1 con un solo comando.
-- src/chat_nox.py: consola interactiva para probar intenciones en tiempo real.
-- data/raw/intent_dataset.csv: dataset base editable por ti.
-- models/intent_model.joblib: modelo entrenado (se genera despues de entrenar).
-
-## 🔁 Flujo real de trabajo
-
-1. Editas o amplias el dataset base en data/raw/intent_dataset.csv.
-2. Corres data_pipeline.py para regenerar datos limpios y split train/test.
-3. Corres model.py para entrenar y guardar el modelo.
-4. Corres evaluate.py para medir calidad.
-5. Corres predict.py para validar frases manuales.
-
-Tambien puedes ejecutar todo junto con run_phase1.py.
-
-## 🚀 Cómo correrlo paso a paso
+## Setup
 
 ```bash
-# 1) Ir al proyecto
-cd /c/Users/nicol/OneDrive/Documentos/Projects/ai-learning/custom-voice-assistant
+# Ir al proyecto
+cd custom-voice-assistant
 
-# 2) Crear ambiente virtual (solo primera vez)
+# Crear ambiente virtual (solo primera vez, requiere Python 3.10)
 python -m venv .venv
 
-# 3) Activar ambiente virtual
-source .venv/Scripts/activate   # Git Bash en Windows
-# .venv\Scripts\activate        # PowerShell/CMD en Windows
-# source .venv/bin/activate      # Linux/Mac
+# Activar
+source .venv/Scripts/activate   # Git Bash / WSL en Windows
+# .venv\Scripts\activate        # PowerShell/CMD
 
-# 4) Instalar dependencias
+# Instalar dependencias
 pip install -r requirements.txt
-
-# 5) Ejecutar Fase 1 completa
-python src/data_pipeline.py
-python src/model.py
-python src/evaluate.py
-python src/predict.py
-
-# 6) O ejecutar todo junto con una sola orden
-python src/run_phase1.py --version v1
-
-# 7) Entrenar la segunda version y probar una frase manual
-python src/run_phase1.py --version v2 --predict-text "desbloquea la puerta del patio"
-
-# 8) Entrenar la tercera version experimental
-python src/run_phase1.py --version v3 --predict-text "cierra la app de noticias"
-
-# 9) Probar NOX en modo interactivo
-python src/chat_nox.py --version v3
 ```
 
-## 📌 Estado actual
+## Uso
 
-- Fase 1 implementada (baseline funcionando).
-- Accuracy inicial aproximada: 0.71.
-- Accuracy v2 aproximada: 0.79.
-- Se entreno una v3 experimental con dataset ampliado.
-- Accuracy v3 aproximada: 0.71 sobre el dataset ampliado.
-- Aprendizaje importante: mas datos o mas complejidad no garantizan mejora si el split cambia y las nuevas frases agregan ambiguedad.
-- Siguiente mejora: estabilizar el split, revisar clases ambiguas y crear una v4 guiada por errores.
+### Probar NOX en modo interactivo (modelo principal)
+
+```bash
+python scripts/chat_nox.py
+# Por defecto usa nox100_best. Escribi una frase y NOX predice la intencion.
+# Si la prediccion es incorrecta, podes corregirla y queda guardada en nox_feedback.csv
+```
+
+### Incorporar feedback y reentrenar
+
+```bash
+# Aplicar correcciones al dataset nox100
+python scripts/apply_feedback.py --target nox100
+
+# Reentrenar con benchmark de 20 runs
+python scripts/train_nox100_iterative.py
+```
+
+### Regenerar el dataset nox100 desde cero
+
+```bash
+python scripts/generate_nox_100_dataset.py
+```
+
+### Entrenar modelos v1/v2/v3 (modelos exploratorios)
+
+```bash
+python scripts/run_phase1.py --version v2 --predict-text "enciende las luces"
+```
+
+## Tecnologia usada
+
+- **scikit-learn**: TfidfVectorizer + LinearSVC pipeline
+- **joblib**: serializacion de modelos
+- **pandas / numpy**: manejo de datos
+- **Python 3.10**

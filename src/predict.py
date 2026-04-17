@@ -22,7 +22,11 @@ def predict_intent(text: str, version: str = "v1") -> str:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Predice la intencion de uno o varios textos")
-    parser.add_argument("--version", default="v1", help="Version del modelo: v1 o v2")
+    parser.add_argument(
+        "--version",
+        default="v1",
+        help="Version del modelo: v1, v2, v3 o alias nox/nox100/best",
+    )
     parser.add_argument("--text", help="Texto unico a clasificar")
     args = parser.parse_args()
 

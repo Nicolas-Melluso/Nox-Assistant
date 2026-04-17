@@ -4,6 +4,7 @@ __pycache__/
 
 # Virtual environments
 .venv/
+.venv-py314-backup/
 venv/
 env/
 
@@ -23,12 +24,15 @@ Thumbs.db
 .env
 .env.*
 
-# ML generated artifacts
+# ML generated artifacts (grandes, se regeneran)
 models/*.joblib
 models/*.pkl
 data/processed/
 data/train_test/
 
-# Keep source datasets and project history tracked
+# Historial de sesiones con IA (privado, no es codigo del proyecto)
+agent-history/
+
+# Datasets fuente: versionados
 !data/raw/
 !agent-history/

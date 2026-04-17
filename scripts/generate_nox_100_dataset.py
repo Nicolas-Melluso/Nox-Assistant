@@ -1,0 +1,176 @@
+from pathlib import Path
+
+import pandas as pd
+
+
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+RAW_DIR = PROJECT_ROOT / "data" / "raw"
+CATALOG_PATH = RAW_DIR / "nox_100_intents_catalog.csv"
+DATASET_PATH = RAW_DIR / "nox_100_intents_dataset.csv"
+
+
+INTENT_SPECS = [
+    ("pc_shutdown", "apaga la pc"),
+    ("pc_restart", "reinicia la pc"),
+    ("pc_sleep", "pon la pc en suspension"),
+    ("pc_lock", "bloquea la pc"),
+    ("pc_unlock", "desbloquea la pc"),
+    ("pc_hibernate", "hiberna la pc"),
+    ("volume_up", "sube el volumen"),
+    ("volume_down", "baja el volumen"),
+    ("volume_mute", "silencia el volumen"),
+    ("volume_unmute", "quita el silencio del volumen"),
+    ("brightness_up", "sube el brillo"),
+    ("brightness_down", "baja el brillo"),
+    ("wifi_on", "activa el wifi"),
+    ("wifi_off", "desactiva el wifi"),
+    ("bluetooth_on", "activa el bluetooth"),
+    ("bluetooth_off", "desactiva el bluetooth"),
+    ("airplane_mode_on", "activa el modo avion"),
+    ("airplane_mode_off", "desactiva el modo avion"),
+    ("night_mode_on", "activa el modo noche"),
+    ("night_mode_off", "desactiva el modo noche"),
+    ("open_spotify", "abre spotify"),
+    ("close_spotify", "cierra spotify"),
+    ("open_youtube", "abre youtube"),
+    ("close_youtube", "cierra youtube"),
+    ("open_netflix", "abre netflix"),
+    ("close_netflix", "cierra netflix"),
+    ("open_discord", "abre discord"),
+    ("close_discord", "cierra discord"),
+    ("open_whatsapp", "abre whatsapp"),
+    ("close_whatsapp", "cierra whatsapp"),
+    ("open_steam", "abre steam"),
+    ("close_steam", "cierra steam"),
+    ("open_chrome", "abre chrome"),
+    ("close_chrome", "cierra chrome"),
+    ("open_edge", "abre edge"),
+    ("close_edge", "cierra edge"),
+    ("browser_new_tab", "abre una nueva pestana"),
+    ("browser_close_tab", "cierra la pestana actual"),
+    ("browser_next_tab", "ve a la siguiente pestana"),
+    ("browser_prev_tab", "ve a la pestana anterior"),
+    ("browser_refresh", "recarga la pagina"),
+    ("browser_back", "vuelve a la pagina anterior"),
+    ("browser_forward", "avanza a la siguiente pagina"),
+    ("browser_home", "ve a la pagina de inicio"),
+    ("browser_search_web", "busca en la web noticias de tecnologia"),
+    ("browser_open_history", "abre el historial del navegador"),
+    ("media_play", "reproduce el contenido multimedia"),
+    ("media_pause", "pausa el contenido multimedia"),
+    ("media_next_track", "pon la siguiente cancion"),
+    ("media_prev_track", "pon la cancion anterior"),
+    ("media_stop", "deten la reproduccion multimedia"),
+    ("media_seek_forward", "adelanta la reproduccion diez segundos"),
+    ("media_seek_backward", "retrocede la reproduccion diez segundos"),
+    ("media_shuffle_on", "activa el modo aleatorio"),
+    ("media_shuffle_off", "desactiva el modo aleatorio"),
+    ("media_repeat_on", "activa repetir reproduccion"),
+    ("media_repeat_off", "desactiva repetir reproduccion"),
+    ("create_file", "crea un archivo nuevo"),
+    ("delete_file", "elimina un archivo"),
+    ("rename_file", "renombra un archivo"),
+    ("move_file", "mueve un archivo"),
+    ("copy_file", "copia un archivo"),
+    ("create_folder", "crea una carpeta"),
+    ("delete_folder", "elimina una carpeta"),
+    ("empty_recycle_bin", "vacía la papelera de reciclaje"),
+    ("open_downloads", "abre la carpeta de descargas"),
+    ("open_documents", "abre la carpeta de documentos"),
+    ("open_desktop_folder", "abre la carpeta del escritorio"),
+    ("open_screenshots_folder", "abre la carpeta de capturas de pantalla"),
+    ("send_email", "envia un correo electronico"),
+    ("read_unread_emails", "lee los correos no leidos"),
+    ("send_whatsapp_message", "envia un mensaje de whatsapp"),
+    ("call_contact", "llama al contacto principal"),
+    ("join_meeting", "unete a la reunion de zoom"),
+    ("start_screen_recording", "inicia la grabacion de pantalla"),
+    ("stop_screen_recording", "deten la grabacion de pantalla"),
+    ("take_screenshot", "toma una captura de pantalla"),
+    ("start_timer", "inicia un temporizador de diez minutos"),
+    ("stop_timer", "deten el temporizador"),
+    ("set_alarm", "configura una alarma para las siete"),
+    ("cancel_alarm", "cancela la alarma"),
+    ("get_time", "dime la hora actual"),
+    ("get_date", "dime la fecha de hoy"),
+    ("get_weather", "dime el clima de hoy"),
+    ("get_cpu_usage", "muestra el uso de cpu"),
+    ("get_ram_usage", "muestra el uso de memoria ram"),
+    ("get_battery_status", "muestra el estado de la bateria"),
+    ("get_network_status", "muestra el estado de la red"),
+    ("open_task_manager", "abre el administrador de tareas"),
+    ("close_background_apps", "cierra aplicaciones en segundo plano"),
+    ("smart_lights_on", "enciende las luces inteligentes"),
+    ("smart_lights_off", "apaga las luces inteligentes"),
+    ("smart_lights_dim", "atenua las luces inteligentes"),
+    ("smart_lights_brighten", "aumenta el brillo de las luces inteligentes"),
+    ("thermostat_set_temp", "ajusta el termostato a veinticuatro grados"),
+    ("thermostat_temp_up", "sube la temperatura del termostato"),
+    ("thermostat_temp_down", "baja la temperatura del termostato"),
+    ("door_lock", "bloquea la puerta principal"),
+    ("door_unlock", "desbloquea la puerta principal"),
+    ("camera_view_frontdoor", "muestra la camara de la puerta principal"),
+]
+
+
+PREFIXES = [
+    "",
+    "nox ",
+    "por favor ",
+    "nox por favor ",
+    "puedes ",
+    "quiero que ",
+    "necesito que ",
+    "ahora ",
+    "de inmediato ",
+    "cuando puedas ",
+]
+
+SUFFIXES = [
+    "",
+    " ahora",
+    " por favor",
+    " en este momento",
+    " rapidamente",
+    " sin demoras",
+]
+
+
+def build_utterances(core_command: str) -> list[str]:
+    utterances: set[str] = set()
+    for prefix in PREFIXES:
+        for suffix in SUFFIXES:
+            utterances.add(f"{prefix}{core_command}{suffix}".strip())
+            if len(utterances) >= 14:
+                return sorted(utterances)
+    return sorted(utterances)
+
+
+def main() -> None:
+    RAW_DIR.mkdir(parents=True, exist_ok=True)
+
+    if len(INTENT_SPECS) != 100:
+        raise ValueError(f"Se esperaban 100 intents, se encontraron {len(INTENT_SPECS)}")
+
+    catalog_rows = []
+    dataset_rows = []
+
+    for intent, command in INTENT_SPECS:
+        catalog_rows.append({"intent": intent, "canonical_command": command})
+        for utterance in build_utterances(command):
+            dataset_rows.append({"text": utterance, "intent": intent})
+
+    catalog_df = pd.DataFrame(catalog_rows)
+    dataset_df = pd.DataFrame(dataset_rows).drop_duplicates().reset_index(drop=True)
+
+    catalog_df.to_csv(CATALOG_PATH, index=False)
+    dataset_df.to_csv(DATASET_PATH, index=False)
+
+    print(f"Catalogo generado: {CATALOG_PATH}")
+    print(f"Total intents: {catalog_df['intent'].nunique()}")
+    print(f"Dataset generado: {DATASET_PATH}")
+    print(f"Total ejemplos: {len(dataset_df)}")
+
+
+if __name__ == "__main__":
+    main()

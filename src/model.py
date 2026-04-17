@@ -16,6 +16,8 @@ MODEL_PATH = MODELS_DIR / "intent_model.joblib"
 
 
 def get_model_path(version: str) -> Path:
+    if version in {"nox", "nox100", "best"}:
+        return MODELS_DIR / "intent_model_nox100_best.joblib"
     if version == "v1":
         return MODEL_PATH
     return MODELS_DIR / f"intent_model_{version}.joblib"
@@ -93,6 +95,12 @@ def build_pipeline(version: str) -> Pipeline:
 
 
 def train_model(version: str = "v1") -> Path:
+    if version in {"nox", "nox100", "best"}:
+        raise ValueError(
+            "Las versiones nox/nox100/best son alias de inferencia. "
+            "Entrena con v1, v2 o v3."
+        )
+
     if not TRAIN_PATH.exists():
         raise FileNotFoundError(
             "No existe train.csv. Ejecuta primero: python src/data_pipeline.py"

@@ -1,0 +1,1405 @@
+text,intent
+apaga la pc,pc_shutdown
+apaga la pc ahora,pc_shutdown
+apaga la pc en este momento,pc_shutdown
+apaga la pc por favor,pc_shutdown
+apaga la pc rapidamente,pc_shutdown
+apaga la pc sin demoras,pc_shutdown
+nox apaga la pc,pc_shutdown
+nox apaga la pc ahora,pc_shutdown
+nox apaga la pc en este momento,pc_shutdown
+nox apaga la pc por favor,pc_shutdown
+nox apaga la pc rapidamente,pc_shutdown
+nox apaga la pc sin demoras,pc_shutdown
+por favor apaga la pc,pc_shutdown
+por favor apaga la pc ahora,pc_shutdown
+nox reinicia la pc,pc_restart
+nox reinicia la pc ahora,pc_restart
+nox reinicia la pc en este momento,pc_restart
+nox reinicia la pc por favor,pc_restart
+nox reinicia la pc rapidamente,pc_restart
+nox reinicia la pc sin demoras,pc_restart
+por favor reinicia la pc,pc_restart
+por favor reinicia la pc ahora,pc_restart
+reinicia la pc,pc_restart
+reinicia la pc ahora,pc_restart
+reinicia la pc en este momento,pc_restart
+reinicia la pc por favor,pc_restart
+reinicia la pc rapidamente,pc_restart
+reinicia la pc sin demoras,pc_restart
+nox pon la pc en suspension,pc_sleep
+nox pon la pc en suspension ahora,pc_sleep
+nox pon la pc en suspension en este momento,pc_sleep
+nox pon la pc en suspension por favor,pc_sleep
+nox pon la pc en suspension rapidamente,pc_sleep
+nox pon la pc en suspension sin demoras,pc_sleep
+pon la pc en suspension,pc_sleep
+pon la pc en suspension ahora,pc_sleep
+pon la pc en suspension en este momento,pc_sleep
+pon la pc en suspension por favor,pc_sleep
+pon la pc en suspension rapidamente,pc_sleep
+pon la pc en suspension sin demoras,pc_sleep
+por favor pon la pc en suspension,pc_sleep
+por favor pon la pc en suspension ahora,pc_sleep
+bloquea la pc,pc_lock
+bloquea la pc ahora,pc_lock
+bloquea la pc en este momento,pc_lock
+bloquea la pc por favor,pc_lock
+bloquea la pc rapidamente,pc_lock
+bloquea la pc sin demoras,pc_lock
+nox bloquea la pc,pc_lock
+nox bloquea la pc ahora,pc_lock
+nox bloquea la pc en este momento,pc_lock
+nox bloquea la pc por favor,pc_lock
+nox bloquea la pc rapidamente,pc_lock
+nox bloquea la pc sin demoras,pc_lock
+por favor bloquea la pc,pc_lock
+por favor bloquea la pc ahora,pc_lock
+desbloquea la pc,pc_unlock
+desbloquea la pc ahora,pc_unlock
+desbloquea la pc en este momento,pc_unlock
+desbloquea la pc por favor,pc_unlock
+desbloquea la pc rapidamente,pc_unlock
+desbloquea la pc sin demoras,pc_unlock
+nox desbloquea la pc,pc_unlock
+nox desbloquea la pc ahora,pc_unlock
+nox desbloquea la pc en este momento,pc_unlock
+nox desbloquea la pc por favor,pc_unlock
+nox desbloquea la pc rapidamente,pc_unlock
+nox desbloquea la pc sin demoras,pc_unlock
+por favor desbloquea la pc,pc_unlock
+por favor desbloquea la pc ahora,pc_unlock
+hiberna la pc,pc_hibernate
+hiberna la pc ahora,pc_hibernate
+hiberna la pc en este momento,pc_hibernate
+hiberna la pc por favor,pc_hibernate
+hiberna la pc rapidamente,pc_hibernate
+hiberna la pc sin demoras,pc_hibernate
+nox hiberna la pc,pc_hibernate
+nox hiberna la pc ahora,pc_hibernate
+nox hiberna la pc en este momento,pc_hibernate
+nox hiberna la pc por favor,pc_hibernate
+nox hiberna la pc rapidamente,pc_hibernate
+nox hiberna la pc sin demoras,pc_hibernate
+por favor hiberna la pc,pc_hibernate
+por favor hiberna la pc ahora,pc_hibernate
+nox sube el volumen,volume_up
+nox sube el volumen ahora,volume_up
+nox sube el volumen en este momento,volume_up
+nox sube el volumen por favor,volume_up
+nox sube el volumen rapidamente,volume_up
+nox sube el volumen sin demoras,volume_up
+por favor sube el volumen,volume_up
+por favor sube el volumen ahora,volume_up
+sube el volumen,volume_up
+sube el volumen ahora,volume_up
+sube el volumen en este momento,volume_up
+sube el volumen por favor,volume_up
+sube el volumen rapidamente,volume_up
+sube el volumen sin demoras,volume_up
+baja el volumen,volume_down
+baja el volumen ahora,volume_down
+baja el volumen en este momento,volume_down
+baja el volumen por favor,volume_down
+baja el volumen rapidamente,volume_down
+baja el volumen sin demoras,volume_down
+nox baja el volumen,volume_down
+nox baja el volumen ahora,volume_down
+nox baja el volumen en este momento,volume_down
+nox baja el volumen por favor,volume_down
+nox baja el volumen rapidamente,volume_down
+nox baja el volumen sin demoras,volume_down
+por favor baja el volumen,volume_down
+por favor baja el volumen ahora,volume_down
+nox silencia el volumen,volume_mute
+nox silencia el volumen ahora,volume_mute
+nox silencia el volumen en este momento,volume_mute
+nox silencia el volumen por favor,volume_mute
+nox silencia el volumen rapidamente,volume_mute
+nox silencia el volumen sin demoras,volume_mute
+por favor silencia el volumen,volume_mute
+por favor silencia el volumen ahora,volume_mute
+silencia el volumen,volume_mute
+silencia el volumen ahora,volume_mute
+silencia el volumen en este momento,volume_mute
+silencia el volumen por favor,volume_mute
+silencia el volumen rapidamente,volume_mute
+silencia el volumen sin demoras,volume_mute
+nox quita el silencio del volumen,volume_unmute
+nox quita el silencio del volumen ahora,volume_unmute
+nox quita el silencio del volumen en este momento,volume_unmute
+nox quita el silencio del volumen por favor,volume_unmute
+nox quita el silencio del volumen rapidamente,volume_unmute
+nox quita el silencio del volumen sin demoras,volume_unmute
+por favor quita el silencio del volumen,volume_unmute
+por favor quita el silencio del volumen ahora,volume_unmute
+quita el silencio del volumen,volume_unmute
+quita el silencio del volumen ahora,volume_unmute
+quita el silencio del volumen en este momento,volume_unmute
+quita el silencio del volumen por favor,volume_unmute
+quita el silencio del volumen rapidamente,volume_unmute
+quita el silencio del volumen sin demoras,volume_unmute
+nox sube el brillo,brightness_up
+nox sube el brillo ahora,brightness_up
+nox sube el brillo en este momento,brightness_up
+nox sube el brillo por favor,brightness_up
+nox sube el brillo rapidamente,brightness_up
+nox sube el brillo sin demoras,brightness_up
+por favor sube el brillo,brightness_up
+por favor sube el brillo ahora,brightness_up
+sube el brillo,brightness_up
+sube el brillo ahora,brightness_up
+sube el brillo en este momento,brightness_up
+sube el brillo por favor,brightness_up
+sube el brillo rapidamente,brightness_up
+sube el brillo sin demoras,brightness_up
+baja el brillo,brightness_down
+baja el brillo ahora,brightness_down
+baja el brillo en este momento,brightness_down
+baja el brillo por favor,brightness_down
+baja el brillo rapidamente,brightness_down
+baja el brillo sin demoras,brightness_down
+nox baja el brillo,brightness_down
+nox baja el brillo ahora,brightness_down
+nox baja el brillo en este momento,brightness_down
+nox baja el brillo por favor,brightness_down
+nox baja el brillo rapidamente,brightness_down
+nox baja el brillo sin demoras,brightness_down
+por favor baja el brillo,brightness_down
+por favor baja el brillo ahora,brightness_down
+activa el wifi,wifi_on
+activa el wifi ahora,wifi_on
+activa el wifi en este momento,wifi_on
+activa el wifi por favor,wifi_on
+activa el wifi rapidamente,wifi_on
+activa el wifi sin demoras,wifi_on
+nox activa el wifi,wifi_on
+nox activa el wifi ahora,wifi_on
+nox activa el wifi en este momento,wifi_on
+nox activa el wifi por favor,wifi_on
+nox activa el wifi rapidamente,wifi_on
+nox activa el wifi sin demoras,wifi_on
+por favor activa el wifi,wifi_on
+por favor activa el wifi ahora,wifi_on
+desactiva el wifi,wifi_off
+desactiva el wifi ahora,wifi_off
+desactiva el wifi en este momento,wifi_off
+desactiva el wifi por favor,wifi_off
+desactiva el wifi rapidamente,wifi_off
+desactiva el wifi sin demoras,wifi_off
+nox desactiva el wifi,wifi_off
+nox desactiva el wifi ahora,wifi_off
+nox desactiva el wifi en este momento,wifi_off
+nox desactiva el wifi por favor,wifi_off
+nox desactiva el wifi rapidamente,wifi_off
+nox desactiva el wifi sin demoras,wifi_off
+por favor desactiva el wifi,wifi_off
+por favor desactiva el wifi ahora,wifi_off
+activa el bluetooth,bluetooth_on
+activa el bluetooth ahora,bluetooth_on
+activa el bluetooth en este momento,bluetooth_on
+activa el bluetooth por favor,bluetooth_on
+activa el bluetooth rapidamente,bluetooth_on
+activa el bluetooth sin demoras,bluetooth_on
+nox activa el bluetooth,bluetooth_on
+nox activa el bluetooth ahora,bluetooth_on
+nox activa el bluetooth en este momento,bluetooth_on
+nox activa el bluetooth por favor,bluetooth_on
+nox activa el bluetooth rapidamente,bluetooth_on
+nox activa el bluetooth sin demoras,bluetooth_on
+por favor activa el bluetooth,bluetooth_on
+por favor activa el bluetooth ahora,bluetooth_on
+desactiva el bluetooth,bluetooth_off
+desactiva el bluetooth ahora,bluetooth_off
+desactiva el bluetooth en este momento,bluetooth_off
+desactiva el bluetooth por favor,bluetooth_off
+desactiva el bluetooth rapidamente,bluetooth_off
+desactiva el bluetooth sin demoras,bluetooth_off
+nox desactiva el bluetooth,bluetooth_off
+nox desactiva el bluetooth ahora,bluetooth_off
+nox desactiva el bluetooth en este momento,bluetooth_off
+nox desactiva el bluetooth por favor,bluetooth_off
+nox desactiva el bluetooth rapidamente,bluetooth_off
+nox desactiva el bluetooth sin demoras,bluetooth_off
+por favor desactiva el bluetooth,bluetooth_off
+por favor desactiva el bluetooth ahora,bluetooth_off
+activa el modo avion,airplane_mode_on
+activa el modo avion ahora,airplane_mode_on
+activa el modo avion en este momento,airplane_mode_on
+activa el modo avion por favor,airplane_mode_on
+activa el modo avion rapidamente,airplane_mode_on
+activa el modo avion sin demoras,airplane_mode_on
+nox activa el modo avion,airplane_mode_on
+nox activa el modo avion ahora,airplane_mode_on
+nox activa el modo avion en este momento,airplane_mode_on
+nox activa el modo avion por favor,airplane_mode_on
+nox activa el modo avion rapidamente,airplane_mode_on
+nox activa el modo avion sin demoras,airplane_mode_on
+por favor activa el modo avion,airplane_mode_on
+por favor activa el modo avion ahora,airplane_mode_on
+desactiva el modo avion,airplane_mode_off
+desactiva el modo avion ahora,airplane_mode_off
+desactiva el modo avion en este momento,airplane_mode_off
+desactiva el modo avion por favor,airplane_mode_off
+desactiva el modo avion rapidamente,airplane_mode_off
+desactiva el modo avion sin demoras,airplane_mode_off
+nox desactiva el modo avion,airplane_mode_off
+nox desactiva el modo avion ahora,airplane_mode_off
+nox desactiva el modo avion en este momento,airplane_mode_off
+nox desactiva el modo avion por favor,airplane_mode_off
+nox desactiva el modo avion rapidamente,airplane_mode_off
+nox desactiva el modo avion sin demoras,airplane_mode_off
+por favor desactiva el modo avion,airplane_mode_off
+por favor desactiva el modo avion ahora,airplane_mode_off
+activa el modo noche,night_mode_on
+activa el modo noche ahora,night_mode_on
+activa el modo noche en este momento,night_mode_on
+activa el modo noche por favor,night_mode_on
+activa el modo noche rapidamente,night_mode_on
+activa el modo noche sin demoras,night_mode_on
+nox activa el modo noche,night_mode_on
+nox activa el modo noche ahora,night_mode_on
+nox activa el modo noche en este momento,night_mode_on
+nox activa el modo noche por favor,night_mode_on
+nox activa el modo noche rapidamente,night_mode_on
+nox activa el modo noche sin demoras,night_mode_on
+por favor activa el modo noche,night_mode_on
+por favor activa el modo noche ahora,night_mode_on
+desactiva el modo noche,night_mode_off
+desactiva el modo noche ahora,night_mode_off
+desactiva el modo noche en este momento,night_mode_off
+desactiva el modo noche por favor,night_mode_off
+desactiva el modo noche rapidamente,night_mode_off
+desactiva el modo noche sin demoras,night_mode_off
+nox desactiva el modo noche,night_mode_off
+nox desactiva el modo noche ahora,night_mode_off
+nox desactiva el modo noche en este momento,night_mode_off
+nox desactiva el modo noche por favor,night_mode_off
+nox desactiva el modo noche rapidamente,night_mode_off
+nox desactiva el modo noche sin demoras,night_mode_off
+por favor desactiva el modo noche,night_mode_off
+por favor desactiva el modo noche ahora,night_mode_off
+abre spotify,open_spotify
+abre spotify ahora,open_spotify
+abre spotify en este momento,open_spotify
+abre spotify por favor,open_spotify
+abre spotify rapidamente,open_spotify
+abre spotify sin demoras,open_spotify
+nox abre spotify,open_spotify
+nox abre spotify ahora,open_spotify
+nox abre spotify en este momento,open_spotify
+nox abre spotify por favor,open_spotify
+nox abre spotify rapidamente,open_spotify
+nox abre spotify sin demoras,open_spotify
+por favor abre spotify,open_spotify
+por favor abre spotify ahora,open_spotify
+cierra spotify,close_spotify
+cierra spotify ahora,close_spotify
+cierra spotify en este momento,close_spotify
+cierra spotify por favor,close_spotify
+cierra spotify rapidamente,close_spotify
+cierra spotify sin demoras,close_spotify
+nox cierra spotify,close_spotify
+nox cierra spotify ahora,close_spotify
+nox cierra spotify en este momento,close_spotify
+nox cierra spotify por favor,close_spotify
+nox cierra spotify rapidamente,close_spotify
+nox cierra spotify sin demoras,close_spotify
+por favor cierra spotify,close_spotify
+por favor cierra spotify ahora,close_spotify
+abre youtube,open_youtube
+abre youtube ahora,open_youtube
+abre youtube en este momento,open_youtube
+abre youtube por favor,open_youtube
+abre youtube rapidamente,open_youtube
+abre youtube sin demoras,open_youtube
+nox abre youtube,open_youtube
+nox abre youtube ahora,open_youtube
+nox abre youtube en este momento,open_youtube
+nox abre youtube por favor,open_youtube
+nox abre youtube rapidamente,open_youtube
+nox abre youtube sin demoras,open_youtube
+por favor abre youtube,open_youtube
+por favor abre youtube ahora,open_youtube
+cierra youtube,close_youtube
+cierra youtube ahora,close_youtube
+cierra youtube en este momento,close_youtube
+cierra youtube por favor,close_youtube
+cierra youtube rapidamente,close_youtube
+cierra youtube sin demoras,close_youtube
+nox cierra youtube,close_youtube
+nox cierra youtube ahora,close_youtube
+nox cierra youtube en este momento,close_youtube
+nox cierra youtube por favor,close_youtube
+nox cierra youtube rapidamente,close_youtube
+nox cierra youtube sin demoras,close_youtube
+por favor cierra youtube,close_youtube
+por favor cierra youtube ahora,close_youtube
+abre netflix,open_netflix
+abre netflix ahora,open_netflix
+abre netflix en este momento,open_netflix
+abre netflix por favor,open_netflix
+abre netflix rapidamente,open_netflix
+abre netflix sin demoras,open_netflix
+nox abre netflix,open_netflix
+nox abre netflix ahora,open_netflix
+nox abre netflix en este momento,open_netflix
+nox abre netflix por favor,open_netflix
+nox abre netflix rapidamente,open_netflix
+nox abre netflix sin demoras,open_netflix
+por favor abre netflix,open_netflix
+por favor abre netflix ahora,open_netflix
+cierra netflix,close_netflix
+cierra netflix ahora,close_netflix
+cierra netflix en este momento,close_netflix
+cierra netflix por favor,close_netflix
+cierra netflix rapidamente,close_netflix
+cierra netflix sin demoras,close_netflix
+nox cierra netflix,close_netflix
+nox cierra netflix ahora,close_netflix
+nox cierra netflix en este momento,close_netflix
+nox cierra netflix por favor,close_netflix
+nox cierra netflix rapidamente,close_netflix
+nox cierra netflix sin demoras,close_netflix
+por favor cierra netflix,close_netflix
+por favor cierra netflix ahora,close_netflix
+abre discord,open_discord
+abre discord ahora,open_discord
+abre discord en este momento,open_discord
+abre discord por favor,open_discord
+abre discord rapidamente,open_discord
+abre discord sin demoras,open_discord
+nox abre discord,open_discord
+nox abre discord ahora,open_discord
+nox abre discord en este momento,open_discord
+nox abre discord por favor,open_discord
+nox abre discord rapidamente,open_discord
+nox abre discord sin demoras,open_discord
+por favor abre discord,open_discord
+por favor abre discord ahora,open_discord
+cierra discord,close_discord
+cierra discord ahora,close_discord
+cierra discord en este momento,close_discord
+cierra discord por favor,close_discord
+cierra discord rapidamente,close_discord
+cierra discord sin demoras,close_discord
+nox cierra discord,close_discord
+nox cierra discord ahora,close_discord
+nox cierra discord en este momento,close_discord
+nox cierra discord por favor,close_discord
+nox cierra discord rapidamente,close_discord
+nox cierra discord sin demoras,close_discord
+por favor cierra discord,close_discord
+por favor cierra discord ahora,close_discord
+abre whatsapp,open_whatsapp
+abre whatsapp ahora,open_whatsapp
+abre whatsapp en este momento,open_whatsapp
+abre whatsapp por favor,open_whatsapp
+abre whatsapp rapidamente,open_whatsapp
+abre whatsapp sin demoras,open_whatsapp
+nox abre whatsapp,open_whatsapp
+nox abre whatsapp ahora,open_whatsapp
+nox abre whatsapp en este momento,open_whatsapp
+nox abre whatsapp por favor,open_whatsapp
+nox abre whatsapp rapidamente,open_whatsapp
+nox abre whatsapp sin demoras,open_whatsapp
+por favor abre whatsapp,open_whatsapp
+por favor abre whatsapp ahora,open_whatsapp
+cierra whatsapp,close_whatsapp
+cierra whatsapp ahora,close_whatsapp
+cierra whatsapp en este momento,close_whatsapp
+cierra whatsapp por favor,close_whatsapp
+cierra whatsapp rapidamente,close_whatsapp
+cierra whatsapp sin demoras,close_whatsapp
+nox cierra whatsapp,close_whatsapp
+nox cierra whatsapp ahora,close_whatsapp
+nox cierra whatsapp en este momento,close_whatsapp
+nox cierra whatsapp por favor,close_whatsapp
+nox cierra whatsapp rapidamente,close_whatsapp
+nox cierra whatsapp sin demoras,close_whatsapp
+por favor cierra whatsapp,close_whatsapp
+por favor cierra whatsapp ahora,close_whatsapp
+abre steam,open_steam
+abre steam ahora,open_steam
+abre steam en este momento,open_steam
+abre steam por favor,open_steam
+abre steam rapidamente,open_steam
+abre steam sin demoras,open_steam
+nox abre steam,open_steam
+nox abre steam ahora,open_steam
+nox abre steam en este momento,open_steam
+nox abre steam por favor,open_steam
+nox abre steam rapidamente,open_steam
+nox abre steam sin demoras,open_steam
+por favor abre steam,open_steam
+por favor abre steam ahora,open_steam
+cierra steam,close_steam
+cierra steam ahora,close_steam
+cierra steam en este momento,close_steam
+cierra steam por favor,close_steam
+cierra steam rapidamente,close_steam
+cierra steam sin demoras,close_steam
+nox cierra steam,close_steam
+nox cierra steam ahora,close_steam
+nox cierra steam en este momento,close_steam
+nox cierra steam por favor,close_steam
+nox cierra steam rapidamente,close_steam
+nox cierra steam sin demoras,close_steam
+por favor cierra steam,close_steam
+por favor cierra steam ahora,close_steam
+abre chrome,open_chrome
+abre chrome ahora,open_chrome
+abre chrome en este momento,open_chrome
+abre chrome por favor,open_chrome
+abre chrome rapidamente,open_chrome
+abre chrome sin demoras,open_chrome
+nox abre chrome,open_chrome
+nox abre chrome ahora,open_chrome
+nox abre chrome en este momento,open_chrome
+nox abre chrome por favor,open_chrome
+nox abre chrome rapidamente,open_chrome
+nox abre chrome sin demoras,open_chrome
+por favor abre chrome,open_chrome
+por favor abre chrome ahora,open_chrome
+cierra chrome,close_chrome
+cierra chrome ahora,close_chrome
+cierra chrome en este momento,close_chrome
+cierra chrome por favor,close_chrome
+cierra chrome rapidamente,close_chrome
+cierra chrome sin demoras,close_chrome
+nox cierra chrome,close_chrome
+nox cierra chrome ahora,close_chrome
+nox cierra chrome en este momento,close_chrome
+nox cierra chrome por favor,close_chrome
+nox cierra chrome rapidamente,close_chrome
+nox cierra chrome sin demoras,close_chrome
+por favor cierra chrome,close_chrome
+por favor cierra chrome ahora,close_chrome
+abre edge,open_edge
+abre edge ahora,open_edge
+abre edge en este momento,open_edge
+abre edge por favor,open_edge
+abre edge rapidamente,open_edge
+abre edge sin demoras,open_edge
+nox abre edge,open_edge
+nox abre edge ahora,open_edge
+nox abre edge en este momento,open_edge
+nox abre edge por favor,open_edge
+nox abre edge rapidamente,open_edge
+nox abre edge sin demoras,open_edge
+por favor abre edge,open_edge
+por favor abre edge ahora,open_edge
+cierra edge,close_edge
+cierra edge ahora,close_edge
+cierra edge en este momento,close_edge
+cierra edge por favor,close_edge
+cierra edge rapidamente,close_edge
+cierra edge sin demoras,close_edge
+nox cierra edge,close_edge
+nox cierra edge ahora,close_edge
+nox cierra edge en este momento,close_edge
+nox cierra edge por favor,close_edge
+nox cierra edge rapidamente,close_edge
+nox cierra edge sin demoras,close_edge
+por favor cierra edge,close_edge
+por favor cierra edge ahora,close_edge
+abre una nueva pestana,browser_new_tab
+abre una nueva pestana ahora,browser_new_tab
+abre una nueva pestana en este momento,browser_new_tab
+abre una nueva pestana por favor,browser_new_tab
+abre una nueva pestana rapidamente,browser_new_tab
+abre una nueva pestana sin demoras,browser_new_tab
+nox abre una nueva pestana,browser_new_tab
+nox abre una nueva pestana ahora,browser_new_tab
+nox abre una nueva pestana en este momento,browser_new_tab
+nox abre una nueva pestana por favor,browser_new_tab
+nox abre una nueva pestana rapidamente,browser_new_tab
+nox abre una nueva pestana sin demoras,browser_new_tab
+por favor abre una nueva pestana,browser_new_tab
+por favor abre una nueva pestana ahora,browser_new_tab
+cierra la pestana actual,browser_close_tab
+cierra la pestana actual ahora,browser_close_tab
+cierra la pestana actual en este momento,browser_close_tab
+cierra la pestana actual por favor,browser_close_tab
+cierra la pestana actual rapidamente,browser_close_tab
+cierra la pestana actual sin demoras,browser_close_tab
+nox cierra la pestana actual,browser_close_tab
+nox cierra la pestana actual ahora,browser_close_tab
+nox cierra la pestana actual en este momento,browser_close_tab
+nox cierra la pestana actual por favor,browser_close_tab
+nox cierra la pestana actual rapidamente,browser_close_tab
+nox cierra la pestana actual sin demoras,browser_close_tab
+por favor cierra la pestana actual,browser_close_tab
+por favor cierra la pestana actual ahora,browser_close_tab
+nox ve a la siguiente pestana,browser_next_tab
+nox ve a la siguiente pestana ahora,browser_next_tab
+nox ve a la siguiente pestana en este momento,browser_next_tab
+nox ve a la siguiente pestana por favor,browser_next_tab
+nox ve a la siguiente pestana rapidamente,browser_next_tab
+nox ve a la siguiente pestana sin demoras,browser_next_tab
+por favor ve a la siguiente pestana,browser_next_tab
+por favor ve a la siguiente pestana ahora,browser_next_tab
+ve a la siguiente pestana,browser_next_tab
+ve a la siguiente pestana ahora,browser_next_tab
+ve a la siguiente pestana en este momento,browser_next_tab
+ve a la siguiente pestana por favor,browser_next_tab
+ve a la siguiente pestana rapidamente,browser_next_tab
+ve a la siguiente pestana sin demoras,browser_next_tab
+nox ve a la pestana anterior,browser_prev_tab
+nox ve a la pestana anterior ahora,browser_prev_tab
+nox ve a la pestana anterior en este momento,browser_prev_tab
+nox ve a la pestana anterior por favor,browser_prev_tab
+nox ve a la pestana anterior rapidamente,browser_prev_tab
+nox ve a la pestana anterior sin demoras,browser_prev_tab
+por favor ve a la pestana anterior,browser_prev_tab
+por favor ve a la pestana anterior ahora,browser_prev_tab
+ve a la pestana anterior,browser_prev_tab
+ve a la pestana anterior ahora,browser_prev_tab
+ve a la pestana anterior en este momento,browser_prev_tab
+ve a la pestana anterior por favor,browser_prev_tab
+ve a la pestana anterior rapidamente,browser_prev_tab
+ve a la pestana anterior sin demoras,browser_prev_tab
+nox recarga la pagina,browser_refresh
+nox recarga la pagina ahora,browser_refresh
+nox recarga la pagina en este momento,browser_refresh
+nox recarga la pagina por favor,browser_refresh
+nox recarga la pagina rapidamente,browser_refresh
+nox recarga la pagina sin demoras,browser_refresh
+por favor recarga la pagina,browser_refresh
+por favor recarga la pagina ahora,browser_refresh
+recarga la pagina,browser_refresh
+recarga la pagina ahora,browser_refresh
+recarga la pagina en este momento,browser_refresh
+recarga la pagina por favor,browser_refresh
+recarga la pagina rapidamente,browser_refresh
+recarga la pagina sin demoras,browser_refresh
+nox vuelve a la pagina anterior,browser_back
+nox vuelve a la pagina anterior ahora,browser_back
+nox vuelve a la pagina anterior en este momento,browser_back
+nox vuelve a la pagina anterior por favor,browser_back
+nox vuelve a la pagina anterior rapidamente,browser_back
+nox vuelve a la pagina anterior sin demoras,browser_back
+por favor vuelve a la pagina anterior,browser_back
+por favor vuelve a la pagina anterior ahora,browser_back
+vuelve a la pagina anterior,browser_back
+vuelve a la pagina anterior ahora,browser_back
+vuelve a la pagina anterior en este momento,browser_back
+vuelve a la pagina anterior por favor,browser_back
+vuelve a la pagina anterior rapidamente,browser_back
+vuelve a la pagina anterior sin demoras,browser_back
+avanza a la siguiente pagina,browser_forward
+avanza a la siguiente pagina ahora,browser_forward
+avanza a la siguiente pagina en este momento,browser_forward
+avanza a la siguiente pagina por favor,browser_forward
+avanza a la siguiente pagina rapidamente,browser_forward
+avanza a la siguiente pagina sin demoras,browser_forward
+nox avanza a la siguiente pagina,browser_forward
+nox avanza a la siguiente pagina ahora,browser_forward
+nox avanza a la siguiente pagina en este momento,browser_forward
+nox avanza a la siguiente pagina por favor,browser_forward
+nox avanza a la siguiente pagina rapidamente,browser_forward
+nox avanza a la siguiente pagina sin demoras,browser_forward
+por favor avanza a la siguiente pagina,browser_forward
+por favor avanza a la siguiente pagina ahora,browser_forward
+nox ve a la pagina de inicio,browser_home
+nox ve a la pagina de inicio ahora,browser_home
+nox ve a la pagina de inicio en este momento,browser_home
+nox ve a la pagina de inicio por favor,browser_home
+nox ve a la pagina de inicio rapidamente,browser_home
+nox ve a la pagina de inicio sin demoras,browser_home
+por favor ve a la pagina de inicio,browser_home
+por favor ve a la pagina de inicio ahora,browser_home
+ve a la pagina de inicio,browser_home
+ve a la pagina de inicio ahora,browser_home
+ve a la pagina de inicio en este momento,browser_home
+ve a la pagina de inicio por favor,browser_home
+ve a la pagina de inicio rapidamente,browser_home
+ve a la pagina de inicio sin demoras,browser_home
+busca en la web noticias de tecnologia,browser_search_web
+busca en la web noticias de tecnologia ahora,browser_search_web
+busca en la web noticias de tecnologia en este momento,browser_search_web
+busca en la web noticias de tecnologia por favor,browser_search_web
+busca en la web noticias de tecnologia rapidamente,browser_search_web
+busca en la web noticias de tecnologia sin demoras,browser_search_web
+nox busca en la web noticias de tecnologia,browser_search_web
+nox busca en la web noticias de tecnologia ahora,browser_search_web
+nox busca en la web noticias de tecnologia en este momento,browser_search_web
+nox busca en la web noticias de tecnologia por favor,browser_search_web
+nox busca en la web noticias de tecnologia rapidamente,browser_search_web
+nox busca en la web noticias de tecnologia sin demoras,browser_search_web
+por favor busca en la web noticias de tecnologia,browser_search_web
+por favor busca en la web noticias de tecnologia ahora,browser_search_web
+abre el historial del navegador,browser_open_history
+abre el historial del navegador ahora,browser_open_history
+abre el historial del navegador en este momento,browser_open_history
+abre el historial del navegador por favor,browser_open_history
+abre el historial del navegador rapidamente,browser_open_history
+abre el historial del navegador sin demoras,browser_open_history
+nox abre el historial del navegador,browser_open_history
+nox abre el historial del navegador ahora,browser_open_history
+nox abre el historial del navegador en este momento,browser_open_history
+nox abre el historial del navegador por favor,browser_open_history
+nox abre el historial del navegador rapidamente,browser_open_history
+nox abre el historial del navegador sin demoras,browser_open_history
+por favor abre el historial del navegador,browser_open_history
+por favor abre el historial del navegador ahora,browser_open_history
+nox reproduce el contenido multimedia,media_play
+nox reproduce el contenido multimedia ahora,media_play
+nox reproduce el contenido multimedia en este momento,media_play
+nox reproduce el contenido multimedia por favor,media_play
+nox reproduce el contenido multimedia rapidamente,media_play
+nox reproduce el contenido multimedia sin demoras,media_play
+por favor reproduce el contenido multimedia,media_play
+por favor reproduce el contenido multimedia ahora,media_play
+reproduce el contenido multimedia,media_play
+reproduce el contenido multimedia ahora,media_play
+reproduce el contenido multimedia en este momento,media_play
+reproduce el contenido multimedia por favor,media_play
+reproduce el contenido multimedia rapidamente,media_play
+reproduce el contenido multimedia sin demoras,media_play
+nox pausa el contenido multimedia,media_pause
+nox pausa el contenido multimedia ahora,media_pause
+nox pausa el contenido multimedia en este momento,media_pause
+nox pausa el contenido multimedia por favor,media_pause
+nox pausa el contenido multimedia rapidamente,media_pause
+nox pausa el contenido multimedia sin demoras,media_pause
+pausa el contenido multimedia,media_pause
+pausa el contenido multimedia ahora,media_pause
+pausa el contenido multimedia en este momento,media_pause
+pausa el contenido multimedia por favor,media_pause
+pausa el contenido multimedia rapidamente,media_pause
+pausa el contenido multimedia sin demoras,media_pause
+por favor pausa el contenido multimedia,media_pause
+por favor pausa el contenido multimedia ahora,media_pause
+nox pon la siguiente cancion,media_next_track
+nox pon la siguiente cancion ahora,media_next_track
+nox pon la siguiente cancion en este momento,media_next_track
+nox pon la siguiente cancion por favor,media_next_track
+nox pon la siguiente cancion rapidamente,media_next_track
+nox pon la siguiente cancion sin demoras,media_next_track
+pon la siguiente cancion,media_next_track
+pon la siguiente cancion ahora,media_next_track
+pon la siguiente cancion en este momento,media_next_track
+pon la siguiente cancion por favor,media_next_track
+pon la siguiente cancion rapidamente,media_next_track
+pon la siguiente cancion sin demoras,media_next_track
+por favor pon la siguiente cancion,media_next_track
+por favor pon la siguiente cancion ahora,media_next_track
+nox pon la cancion anterior,media_prev_track
+nox pon la cancion anterior ahora,media_prev_track
+nox pon la cancion anterior en este momento,media_prev_track
+nox pon la cancion anterior por favor,media_prev_track
+nox pon la cancion anterior rapidamente,media_prev_track
+nox pon la cancion anterior sin demoras,media_prev_track
+pon la cancion anterior,media_prev_track
+pon la cancion anterior ahora,media_prev_track
+pon la cancion anterior en este momento,media_prev_track
+pon la cancion anterior por favor,media_prev_track
+pon la cancion anterior rapidamente,media_prev_track
+pon la cancion anterior sin demoras,media_prev_track
+por favor pon la cancion anterior,media_prev_track
+por favor pon la cancion anterior ahora,media_prev_track
+deten la reproduccion multimedia,media_stop
+deten la reproduccion multimedia ahora,media_stop
+deten la reproduccion multimedia en este momento,media_stop
+deten la reproduccion multimedia por favor,media_stop
+deten la reproduccion multimedia rapidamente,media_stop
+deten la reproduccion multimedia sin demoras,media_stop
+nox deten la reproduccion multimedia,media_stop
+nox deten la reproduccion multimedia ahora,media_stop
+nox deten la reproduccion multimedia en este momento,media_stop
+nox deten la reproduccion multimedia por favor,media_stop
+nox deten la reproduccion multimedia rapidamente,media_stop
+nox deten la reproduccion multimedia sin demoras,media_stop
+por favor deten la reproduccion multimedia,media_stop
+por favor deten la reproduccion multimedia ahora,media_stop
+adelanta la reproduccion diez segundos,media_seek_forward
+adelanta la reproduccion diez segundos ahora,media_seek_forward
+adelanta la reproduccion diez segundos en este momento,media_seek_forward
+adelanta la reproduccion diez segundos por favor,media_seek_forward
+adelanta la reproduccion diez segundos rapidamente,media_seek_forward
+adelanta la reproduccion diez segundos sin demoras,media_seek_forward
+nox adelanta la reproduccion diez segundos,media_seek_forward
+nox adelanta la reproduccion diez segundos ahora,media_seek_forward
+nox adelanta la reproduccion diez segundos en este momento,media_seek_forward
+nox adelanta la reproduccion diez segundos por favor,media_seek_forward
+nox adelanta la reproduccion diez segundos rapidamente,media_seek_forward
+nox adelanta la reproduccion diez segundos sin demoras,media_seek_forward
+por favor adelanta la reproduccion diez segundos,media_seek_forward
+por favor adelanta la reproduccion diez segundos ahora,media_seek_forward
+nox retrocede la reproduccion diez segundos,media_seek_backward
+nox retrocede la reproduccion diez segundos ahora,media_seek_backward
+nox retrocede la reproduccion diez segundos en este momento,media_seek_backward
+nox retrocede la reproduccion diez segundos por favor,media_seek_backward
+nox retrocede la reproduccion diez segundos rapidamente,media_seek_backward
+nox retrocede la reproduccion diez segundos sin demoras,media_seek_backward
+por favor retrocede la reproduccion diez segundos,media_seek_backward
+por favor retrocede la reproduccion diez segundos ahora,media_seek_backward
+retrocede la reproduccion diez segundos,media_seek_backward
+retrocede la reproduccion diez segundos ahora,media_seek_backward
+retrocede la reproduccion diez segundos en este momento,media_seek_backward
+retrocede la reproduccion diez segundos por favor,media_seek_backward
+retrocede la reproduccion diez segundos rapidamente,media_seek_backward
+retrocede la reproduccion diez segundos sin demoras,media_seek_backward
+activa el modo aleatorio,media_shuffle_on
+activa el modo aleatorio ahora,media_shuffle_on
+activa el modo aleatorio en este momento,media_shuffle_on
+activa el modo aleatorio por favor,media_shuffle_on
+activa el modo aleatorio rapidamente,media_shuffle_on
+activa el modo aleatorio sin demoras,media_shuffle_on
+nox activa el modo aleatorio,media_shuffle_on
+nox activa el modo aleatorio ahora,media_shuffle_on
+nox activa el modo aleatorio en este momento,media_shuffle_on
+nox activa el modo aleatorio por favor,media_shuffle_on
+nox activa el modo aleatorio rapidamente,media_shuffle_on
+nox activa el modo aleatorio sin demoras,media_shuffle_on
+por favor activa el modo aleatorio,media_shuffle_on
+por favor activa el modo aleatorio ahora,media_shuffle_on
+desactiva el modo aleatorio,media_shuffle_off
+desactiva el modo aleatorio ahora,media_shuffle_off
+desactiva el modo aleatorio en este momento,media_shuffle_off
+desactiva el modo aleatorio por favor,media_shuffle_off
+desactiva el modo aleatorio rapidamente,media_shuffle_off
+desactiva el modo aleatorio sin demoras,media_shuffle_off
+nox desactiva el modo aleatorio,media_shuffle_off
+nox desactiva el modo aleatorio ahora,media_shuffle_off
+nox desactiva el modo aleatorio en este momento,media_shuffle_off
+nox desactiva el modo aleatorio por favor,media_shuffle_off
+nox desactiva el modo aleatorio rapidamente,media_shuffle_off
+nox desactiva el modo aleatorio sin demoras,media_shuffle_off
+por favor desactiva el modo aleatorio,media_shuffle_off
+por favor desactiva el modo aleatorio ahora,media_shuffle_off
+activa repetir reproduccion,media_repeat_on
+activa repetir reproduccion ahora,media_repeat_on
+activa repetir reproduccion en este momento,media_repeat_on
+activa repetir reproduccion por favor,media_repeat_on
+activa repetir reproduccion rapidamente,media_repeat_on
+activa repetir reproduccion sin demoras,media_repeat_on
+nox activa repetir reproduccion,media_repeat_on
+nox activa repetir reproduccion ahora,media_repeat_on
+nox activa repetir reproduccion en este momento,media_repeat_on
+nox activa repetir reproduccion por favor,media_repeat_on
+nox activa repetir reproduccion rapidamente,media_repeat_on
+nox activa repetir reproduccion sin demoras,media_repeat_on
+por favor activa repetir reproduccion,media_repeat_on
+por favor activa repetir reproduccion ahora,media_repeat_on
+desactiva repetir reproduccion,media_repeat_off
+desactiva repetir reproduccion ahora,media_repeat_off
+desactiva repetir reproduccion en este momento,media_repeat_off
+desactiva repetir reproduccion por favor,media_repeat_off
+desactiva repetir reproduccion rapidamente,media_repeat_off
+desactiva repetir reproduccion sin demoras,media_repeat_off
+nox desactiva repetir reproduccion,media_repeat_off
+nox desactiva repetir reproduccion ahora,media_repeat_off
+nox desactiva repetir reproduccion en este momento,media_repeat_off
+nox desactiva repetir reproduccion por favor,media_repeat_off
+nox desactiva repetir reproduccion rapidamente,media_repeat_off
+nox desactiva repetir reproduccion sin demoras,media_repeat_off
+por favor desactiva repetir reproduccion,media_repeat_off
+por favor desactiva repetir reproduccion ahora,media_repeat_off
+crea un archivo nuevo,create_file
+crea un archivo nuevo ahora,create_file
+crea un archivo nuevo en este momento,create_file
+crea un archivo nuevo por favor,create_file
+crea un archivo nuevo rapidamente,create_file
+crea un archivo nuevo sin demoras,create_file
+nox crea un archivo nuevo,create_file
+nox crea un archivo nuevo ahora,create_file
+nox crea un archivo nuevo en este momento,create_file
+nox crea un archivo nuevo por favor,create_file
+nox crea un archivo nuevo rapidamente,create_file
+nox crea un archivo nuevo sin demoras,create_file
+por favor crea un archivo nuevo,create_file
+por favor crea un archivo nuevo ahora,create_file
+elimina un archivo,delete_file
+elimina un archivo ahora,delete_file
+elimina un archivo en este momento,delete_file
+elimina un archivo por favor,delete_file
+elimina un archivo rapidamente,delete_file
+elimina un archivo sin demoras,delete_file
+nox elimina un archivo,delete_file
+nox elimina un archivo ahora,delete_file
+nox elimina un archivo en este momento,delete_file
+nox elimina un archivo por favor,delete_file
+nox elimina un archivo rapidamente,delete_file
+nox elimina un archivo sin demoras,delete_file
+por favor elimina un archivo,delete_file
+por favor elimina un archivo ahora,delete_file
+nox renombra un archivo,rename_file
+nox renombra un archivo ahora,rename_file
+nox renombra un archivo en este momento,rename_file
+nox renombra un archivo por favor,rename_file
+nox renombra un archivo rapidamente,rename_file
+nox renombra un archivo sin demoras,rename_file
+por favor renombra un archivo,rename_file
+por favor renombra un archivo ahora,rename_file
+renombra un archivo,rename_file
+renombra un archivo ahora,rename_file
+renombra un archivo en este momento,rename_file
+renombra un archivo por favor,rename_file
+renombra un archivo rapidamente,rename_file
+renombra un archivo sin demoras,rename_file
+mueve un archivo,move_file
+mueve un archivo ahora,move_file
+mueve un archivo en este momento,move_file
+mueve un archivo por favor,move_file
+mueve un archivo rapidamente,move_file
+mueve un archivo sin demoras,move_file
+nox mueve un archivo,move_file
+nox mueve un archivo ahora,move_file
+nox mueve un archivo en este momento,move_file
+nox mueve un archivo por favor,move_file
+nox mueve un archivo rapidamente,move_file
+nox mueve un archivo sin demoras,move_file
+por favor mueve un archivo,move_file
+por favor mueve un archivo ahora,move_file
+copia un archivo,copy_file
+copia un archivo ahora,copy_file
+copia un archivo en este momento,copy_file
+copia un archivo por favor,copy_file
+copia un archivo rapidamente,copy_file
+copia un archivo sin demoras,copy_file
+nox copia un archivo,copy_file
+nox copia un archivo ahora,copy_file
+nox copia un archivo en este momento,copy_file
+nox copia un archivo por favor,copy_file
+nox copia un archivo rapidamente,copy_file
+nox copia un archivo sin demoras,copy_file
+por favor copia un archivo,copy_file
+por favor copia un archivo ahora,copy_file
+crea una carpeta,create_folder
+crea una carpeta ahora,create_folder
+crea una carpeta en este momento,create_folder
+crea una carpeta por favor,create_folder
+crea una carpeta rapidamente,create_folder
+crea una carpeta sin demoras,create_folder
+nox crea una carpeta,create_folder
+nox crea una carpeta ahora,create_folder
+nox crea una carpeta en este momento,create_folder
+nox crea una carpeta por favor,create_folder
+nox crea una carpeta rapidamente,create_folder
+nox crea una carpeta sin demoras,create_folder
+por favor crea una carpeta,create_folder
+por favor crea una carpeta ahora,create_folder
+elimina una carpeta,delete_folder
+elimina una carpeta ahora,delete_folder
+elimina una carpeta en este momento,delete_folder
+elimina una carpeta por favor,delete_folder
+elimina una carpeta rapidamente,delete_folder
+elimina una carpeta sin demoras,delete_folder
+nox elimina una carpeta,delete_folder
+nox elimina una carpeta ahora,delete_folder
+nox elimina una carpeta en este momento,delete_folder
+nox elimina una carpeta por favor,delete_folder
+nox elimina una carpeta rapidamente,delete_folder
+nox elimina una carpeta sin demoras,delete_folder
+por favor elimina una carpeta,delete_folder
+por favor elimina una carpeta ahora,delete_folder
+nox vacía la papelera de reciclaje,empty_recycle_bin
+nox vacía la papelera de reciclaje ahora,empty_recycle_bin
+nox vacía la papelera de reciclaje en este momento,empty_recycle_bin
+nox vacía la papelera de reciclaje por favor,empty_recycle_bin
+nox vacía la papelera de reciclaje rapidamente,empty_recycle_bin
+nox vacía la papelera de reciclaje sin demoras,empty_recycle_bin
+por favor vacía la papelera de reciclaje,empty_recycle_bin
+por favor vacía la papelera de reciclaje ahora,empty_recycle_bin
+vacía la papelera de reciclaje,empty_recycle_bin
+vacía la papelera de reciclaje ahora,empty_recycle_bin
+vacía la papelera de reciclaje en este momento,empty_recycle_bin
+vacía la papelera de reciclaje por favor,empty_recycle_bin
+vacía la papelera de reciclaje rapidamente,empty_recycle_bin
+vacía la papelera de reciclaje sin demoras,empty_recycle_bin
+abre la carpeta de descargas,open_downloads
+abre la carpeta de descargas ahora,open_downloads
+abre la carpeta de descargas en este momento,open_downloads
+abre la carpeta de descargas por favor,open_downloads
+abre la carpeta de descargas rapidamente,open_downloads
+abre la carpeta de descargas sin demoras,open_downloads
+nox abre la carpeta de descargas,open_downloads
+nox abre la carpeta de descargas ahora,open_downloads
+nox abre la carpeta de descargas en este momento,open_downloads
+nox abre la carpeta de descargas por favor,open_downloads
+nox abre la carpeta de descargas rapidamente,open_downloads
+nox abre la carpeta de descargas sin demoras,open_downloads
+por favor abre la carpeta de descargas,open_downloads
+por favor abre la carpeta de descargas ahora,open_downloads
+abre la carpeta de documentos,open_documents
+abre la carpeta de documentos ahora,open_documents
+abre la carpeta de documentos en este momento,open_documents
+abre la carpeta de documentos por favor,open_documents
+abre la carpeta de documentos rapidamente,open_documents
+abre la carpeta de documentos sin demoras,open_documents
+nox abre la carpeta de documentos,open_documents
+nox abre la carpeta de documentos ahora,open_documents
+nox abre la carpeta de documentos en este momento,open_documents
+nox abre la carpeta de documentos por favor,open_documents
+nox abre la carpeta de documentos rapidamente,open_documents
+nox abre la carpeta de documentos sin demoras,open_documents
+por favor abre la carpeta de documentos,open_documents
+por favor abre la carpeta de documentos ahora,open_documents
+abre la carpeta del escritorio,open_desktop_folder
+abre la carpeta del escritorio ahora,open_desktop_folder
+abre la carpeta del escritorio en este momento,open_desktop_folder
+abre la carpeta del escritorio por favor,open_desktop_folder
+abre la carpeta del escritorio rapidamente,open_desktop_folder
+abre la carpeta del escritorio sin demoras,open_desktop_folder
+nox abre la carpeta del escritorio,open_desktop_folder
+nox abre la carpeta del escritorio ahora,open_desktop_folder
+nox abre la carpeta del escritorio en este momento,open_desktop_folder
+nox abre la carpeta del escritorio por favor,open_desktop_folder
+nox abre la carpeta del escritorio rapidamente,open_desktop_folder
+nox abre la carpeta del escritorio sin demoras,open_desktop_folder
+por favor abre la carpeta del escritorio,open_desktop_folder
+por favor abre la carpeta del escritorio ahora,open_desktop_folder
+abre la carpeta de capturas de pantalla,open_screenshots_folder
+abre la carpeta de capturas de pantalla ahora,open_screenshots_folder
+abre la carpeta de capturas de pantalla en este momento,open_screenshots_folder
+abre la carpeta de capturas de pantalla por favor,open_screenshots_folder
+abre la carpeta de capturas de pantalla rapidamente,open_screenshots_folder
+abre la carpeta de capturas de pantalla sin demoras,open_screenshots_folder
+nox abre la carpeta de capturas de pantalla,open_screenshots_folder
+nox abre la carpeta de capturas de pantalla ahora,open_screenshots_folder
+nox abre la carpeta de capturas de pantalla en este momento,open_screenshots_folder
+nox abre la carpeta de capturas de pantalla por favor,open_screenshots_folder
+nox abre la carpeta de capturas de pantalla rapidamente,open_screenshots_folder
+nox abre la carpeta de capturas de pantalla sin demoras,open_screenshots_folder
+por favor abre la carpeta de capturas de pantalla,open_screenshots_folder
+por favor abre la carpeta de capturas de pantalla ahora,open_screenshots_folder
+envia un correo electronico,send_email
+envia un correo electronico ahora,send_email
+envia un correo electronico en este momento,send_email
+envia un correo electronico por favor,send_email
+envia un correo electronico rapidamente,send_email
+envia un correo electronico sin demoras,send_email
+nox envia un correo electronico,send_email
+nox envia un correo electronico ahora,send_email
+nox envia un correo electronico en este momento,send_email
+nox envia un correo electronico por favor,send_email
+nox envia un correo electronico rapidamente,send_email
+nox envia un correo electronico sin demoras,send_email
+por favor envia un correo electronico,send_email
+por favor envia un correo electronico ahora,send_email
+lee los correos no leidos,read_unread_emails
+lee los correos no leidos ahora,read_unread_emails
+lee los correos no leidos en este momento,read_unread_emails
+lee los correos no leidos por favor,read_unread_emails
+lee los correos no leidos rapidamente,read_unread_emails
+lee los correos no leidos sin demoras,read_unread_emails
+nox lee los correos no leidos,read_unread_emails
+nox lee los correos no leidos ahora,read_unread_emails
+nox lee los correos no leidos en este momento,read_unread_emails
+nox lee los correos no leidos por favor,read_unread_emails
+nox lee los correos no leidos rapidamente,read_unread_emails
+nox lee los correos no leidos sin demoras,read_unread_emails
+por favor lee los correos no leidos,read_unread_emails
+por favor lee los correos no leidos ahora,read_unread_emails
+envia un mensaje de whatsapp,send_whatsapp_message
+envia un mensaje de whatsapp ahora,send_whatsapp_message
+envia un mensaje de whatsapp en este momento,send_whatsapp_message
+envia un mensaje de whatsapp por favor,send_whatsapp_message
+envia un mensaje de whatsapp rapidamente,send_whatsapp_message
+envia un mensaje de whatsapp sin demoras,send_whatsapp_message
+nox envia un mensaje de whatsapp,send_whatsapp_message
+nox envia un mensaje de whatsapp ahora,send_whatsapp_message
+nox envia un mensaje de whatsapp en este momento,send_whatsapp_message
+nox envia un mensaje de whatsapp por favor,send_whatsapp_message
+nox envia un mensaje de whatsapp rapidamente,send_whatsapp_message
+nox envia un mensaje de whatsapp sin demoras,send_whatsapp_message
+por favor envia un mensaje de whatsapp,send_whatsapp_message
+por favor envia un mensaje de whatsapp ahora,send_whatsapp_message
+llama al contacto principal,call_contact
+llama al contacto principal ahora,call_contact
+llama al contacto principal en este momento,call_contact
+llama al contacto principal por favor,call_contact
+llama al contacto principal rapidamente,call_contact
+llama al contacto principal sin demoras,call_contact
+nox llama al contacto principal,call_contact
+nox llama al contacto principal ahora,call_contact
+nox llama al contacto principal en este momento,call_contact
+nox llama al contacto principal por favor,call_contact
+nox llama al contacto principal rapidamente,call_contact
+nox llama al contacto principal sin demoras,call_contact
+por favor llama al contacto principal,call_contact
+por favor llama al contacto principal ahora,call_contact
+nox unete a la reunion de zoom,join_meeting
+nox unete a la reunion de zoom ahora,join_meeting
+nox unete a la reunion de zoom en este momento,join_meeting
+nox unete a la reunion de zoom por favor,join_meeting
+nox unete a la reunion de zoom rapidamente,join_meeting
+nox unete a la reunion de zoom sin demoras,join_meeting
+por favor unete a la reunion de zoom,join_meeting
+por favor unete a la reunion de zoom ahora,join_meeting
+unete a la reunion de zoom,join_meeting
+unete a la reunion de zoom ahora,join_meeting
+unete a la reunion de zoom en este momento,join_meeting
+unete a la reunion de zoom por favor,join_meeting
+unete a la reunion de zoom rapidamente,join_meeting
+unete a la reunion de zoom sin demoras,join_meeting
+inicia la grabacion de pantalla,start_screen_recording
+inicia la grabacion de pantalla ahora,start_screen_recording
+inicia la grabacion de pantalla en este momento,start_screen_recording
+inicia la grabacion de pantalla por favor,start_screen_recording
+inicia la grabacion de pantalla rapidamente,start_screen_recording
+inicia la grabacion de pantalla sin demoras,start_screen_recording
+nox inicia la grabacion de pantalla,start_screen_recording
+nox inicia la grabacion de pantalla ahora,start_screen_recording
+nox inicia la grabacion de pantalla en este momento,start_screen_recording
+nox inicia la grabacion de pantalla por favor,start_screen_recording
+nox inicia la grabacion de pantalla rapidamente,start_screen_recording
+nox inicia la grabacion de pantalla sin demoras,start_screen_recording
+por favor inicia la grabacion de pantalla,start_screen_recording
+por favor inicia la grabacion de pantalla ahora,start_screen_recording
+deten la grabacion de pantalla,stop_screen_recording
+deten la grabacion de pantalla ahora,stop_screen_recording
+deten la grabacion de pantalla en este momento,stop_screen_recording
+deten la grabacion de pantalla por favor,stop_screen_recording
+deten la grabacion de pantalla rapidamente,stop_screen_recording
+deten la grabacion de pantalla sin demoras,stop_screen_recording
+nox deten la grabacion de pantalla,stop_screen_recording
+nox deten la grabacion de pantalla ahora,stop_screen_recording
+nox deten la grabacion de pantalla en este momento,stop_screen_recording
+nox deten la grabacion de pantalla por favor,stop_screen_recording
+nox deten la grabacion de pantalla rapidamente,stop_screen_recording
+nox deten la grabacion de pantalla sin demoras,stop_screen_recording
+por favor deten la grabacion de pantalla,stop_screen_recording
+por favor deten la grabacion de pantalla ahora,stop_screen_recording
+nox toma una captura de pantalla,take_screenshot
+nox toma una captura de pantalla ahora,take_screenshot
+nox toma una captura de pantalla en este momento,take_screenshot
+nox toma una captura de pantalla por favor,take_screenshot
+nox toma una captura de pantalla rapidamente,take_screenshot
+nox toma una captura de pantalla sin demoras,take_screenshot
+por favor toma una captura de pantalla,take_screenshot
+por favor toma una captura de pantalla ahora,take_screenshot
+toma una captura de pantalla,take_screenshot
+toma una captura de pantalla ahora,take_screenshot
+toma una captura de pantalla en este momento,take_screenshot
+toma una captura de pantalla por favor,take_screenshot
+toma una captura de pantalla rapidamente,take_screenshot
+toma una captura de pantalla sin demoras,take_screenshot
+inicia un temporizador de diez minutos,start_timer
+inicia un temporizador de diez minutos ahora,start_timer
+inicia un temporizador de diez minutos en este momento,start_timer
+inicia un temporizador de diez minutos por favor,start_timer
+inicia un temporizador de diez minutos rapidamente,start_timer
+inicia un temporizador de diez minutos sin demoras,start_timer
+nox inicia un temporizador de diez minutos,start_timer
+nox inicia un temporizador de diez minutos ahora,start_timer
+nox inicia un temporizador de diez minutos en este momento,start_timer
+nox inicia un temporizador de diez minutos por favor,start_timer
+nox inicia un temporizador de diez minutos rapidamente,start_timer
+nox inicia un temporizador de diez minutos sin demoras,start_timer
+por favor inicia un temporizador de diez minutos,start_timer
+por favor inicia un temporizador de diez minutos ahora,start_timer
+deten el temporizador,stop_timer
+deten el temporizador ahora,stop_timer
+deten el temporizador en este momento,stop_timer
+deten el temporizador por favor,stop_timer
+deten el temporizador rapidamente,stop_timer
+deten el temporizador sin demoras,stop_timer
+nox deten el temporizador,stop_timer
+nox deten el temporizador ahora,stop_timer
+nox deten el temporizador en este momento,stop_timer
+nox deten el temporizador por favor,stop_timer
+nox deten el temporizador rapidamente,stop_timer
+nox deten el temporizador sin demoras,stop_timer
+por favor deten el temporizador,stop_timer
+por favor deten el temporizador ahora,stop_timer
+configura una alarma para las siete,set_alarm
+configura una alarma para las siete ahora,set_alarm
+configura una alarma para las siete en este momento,set_alarm
+configura una alarma para las siete por favor,set_alarm
+configura una alarma para las siete rapidamente,set_alarm
+configura una alarma para las siete sin demoras,set_alarm
+nox configura una alarma para las siete,set_alarm
+nox configura una alarma para las siete ahora,set_alarm
+nox configura una alarma para las siete en este momento,set_alarm
+nox configura una alarma para las siete por favor,set_alarm
+nox configura una alarma para las siete rapidamente,set_alarm
+nox configura una alarma para las siete sin demoras,set_alarm
+por favor configura una alarma para las siete,set_alarm
+por favor configura una alarma para las siete ahora,set_alarm
+cancela la alarma,cancel_alarm
+cancela la alarma ahora,cancel_alarm
+cancela la alarma en este momento,cancel_alarm
+cancela la alarma por favor,cancel_alarm
+cancela la alarma rapidamente,cancel_alarm
+cancela la alarma sin demoras,cancel_alarm
+nox cancela la alarma,cancel_alarm
+nox cancela la alarma ahora,cancel_alarm
+nox cancela la alarma en este momento,cancel_alarm
+nox cancela la alarma por favor,cancel_alarm
+nox cancela la alarma rapidamente,cancel_alarm
+nox cancela la alarma sin demoras,cancel_alarm
+por favor cancela la alarma,cancel_alarm
+por favor cancela la alarma ahora,cancel_alarm
+dime la hora actual,get_time
+dime la hora actual ahora,get_time
+dime la hora actual en este momento,get_time
+dime la hora actual por favor,get_time
+dime la hora actual rapidamente,get_time
+dime la hora actual sin demoras,get_time
+nox dime la hora actual,get_time
+nox dime la hora actual ahora,get_time
+nox dime la hora actual en este momento,get_time
+nox dime la hora actual por favor,get_time
+nox dime la hora actual rapidamente,get_time
+nox dime la hora actual sin demoras,get_time
+por favor dime la hora actual,get_time
+por favor dime la hora actual ahora,get_time
+dime la fecha de hoy,get_date
+dime la fecha de hoy ahora,get_date
+dime la fecha de hoy en este momento,get_date
+dime la fecha de hoy por favor,get_date
+dime la fecha de hoy rapidamente,get_date
+dime la fecha de hoy sin demoras,get_date
+nox dime la fecha de hoy,get_date
+nox dime la fecha de hoy ahora,get_date
+nox dime la fecha de hoy en este momento,get_date
+nox dime la fecha de hoy por favor,get_date
+nox dime la fecha de hoy rapidamente,get_date
+nox dime la fecha de hoy sin demoras,get_date
+por favor dime la fecha de hoy,get_date
+por favor dime la fecha de hoy ahora,get_date
+dime el clima de hoy,get_weather
+dime el clima de hoy ahora,get_weather
+dime el clima de hoy en este momento,get_weather
+dime el clima de hoy por favor,get_weather
+dime el clima de hoy rapidamente,get_weather
+dime el clima de hoy sin demoras,get_weather
+nox dime el clima de hoy,get_weather
+nox dime el clima de hoy ahora,get_weather
+nox dime el clima de hoy en este momento,get_weather
+nox dime el clima de hoy por favor,get_weather
+nox dime el clima de hoy rapidamente,get_weather
+nox dime el clima de hoy sin demoras,get_weather
+por favor dime el clima de hoy,get_weather
+por favor dime el clima de hoy ahora,get_weather
+muestra el uso de cpu,get_cpu_usage
+muestra el uso de cpu ahora,get_cpu_usage
+muestra el uso de cpu en este momento,get_cpu_usage
+muestra el uso de cpu por favor,get_cpu_usage
+muestra el uso de cpu rapidamente,get_cpu_usage
+muestra el uso de cpu sin demoras,get_cpu_usage
+nox muestra el uso de cpu,get_cpu_usage
+nox muestra el uso de cpu ahora,get_cpu_usage
+nox muestra el uso de cpu en este momento,get_cpu_usage
+nox muestra el uso de cpu por favor,get_cpu_usage
+nox muestra el uso de cpu rapidamente,get_cpu_usage
+nox muestra el uso de cpu sin demoras,get_cpu_usage
+por favor muestra el uso de cpu,get_cpu_usage
+por favor muestra el uso de cpu ahora,get_cpu_usage
+muestra el uso de memoria ram,get_ram_usage
+muestra el uso de memoria ram ahora,get_ram_usage
+muestra el uso de memoria ram en este momento,get_ram_usage
+muestra el uso de memoria ram por favor,get_ram_usage
+muestra el uso de memoria ram rapidamente,get_ram_usage
+muestra el uso de memoria ram sin demoras,get_ram_usage
+nox muestra el uso de memoria ram,get_ram_usage
+nox muestra el uso de memoria ram ahora,get_ram_usage
+nox muestra el uso de memoria ram en este momento,get_ram_usage
+nox muestra el uso de memoria ram por favor,get_ram_usage
+nox muestra el uso de memoria ram rapidamente,get_ram_usage
+nox muestra el uso de memoria ram sin demoras,get_ram_usage
+por favor muestra el uso de memoria ram,get_ram_usage
+por favor muestra el uso de memoria ram ahora,get_ram_usage
+muestra el estado de la bateria,get_battery_status
+muestra el estado de la bateria ahora,get_battery_status
+muestra el estado de la bateria en este momento,get_battery_status
+muestra el estado de la bateria por favor,get_battery_status
+muestra el estado de la bateria rapidamente,get_battery_status
+muestra el estado de la bateria sin demoras,get_battery_status
+nox muestra el estado de la bateria,get_battery_status
+nox muestra el estado de la bateria ahora,get_battery_status
+nox muestra el estado de la bateria en este momento,get_battery_status
+nox muestra el estado de la bateria por favor,get_battery_status
+nox muestra el estado de la bateria rapidamente,get_battery_status
+nox muestra el estado de la bateria sin demoras,get_battery_status
+por favor muestra el estado de la bateria,get_battery_status
+por favor muestra el estado de la bateria ahora,get_battery_status
+muestra el estado de la red,get_network_status
+muestra el estado de la red ahora,get_network_status
+muestra el estado de la red en este momento,get_network_status
+muestra el estado de la red por favor,get_network_status
+muestra el estado de la red rapidamente,get_network_status
+muestra el estado de la red sin demoras,get_network_status
+nox muestra el estado de la red,get_network_status
+nox muestra el estado de la red ahora,get_network_status
+nox muestra el estado de la red en este momento,get_network_status
+nox muestra el estado de la red por favor,get_network_status
+nox muestra el estado de la red rapidamente,get_network_status
+nox muestra el estado de la red sin demoras,get_network_status
+por favor muestra el estado de la red,get_network_status
+por favor muestra el estado de la red ahora,get_network_status
+abre el administrador de tareas,open_task_manager
+abre el administrador de tareas ahora,open_task_manager
+abre el administrador de tareas en este momento,open_task_manager
+abre el administrador de tareas por favor,open_task_manager
+abre el administrador de tareas rapidamente,open_task_manager
+abre el administrador de tareas sin demoras,open_task_manager
+nox abre el administrador de tareas,open_task_manager
+nox abre el administrador de tareas ahora,open_task_manager
+nox abre el administrador de tareas en este momento,open_task_manager
+nox abre el administrador de tareas por favor,open_task_manager
+nox abre el administrador de tareas rapidamente,open_task_manager
+nox abre el administrador de tareas sin demoras,open_task_manager
+por favor abre el administrador de tareas,open_task_manager
+por favor abre el administrador de tareas ahora,open_task_manager
+cierra aplicaciones en segundo plano,close_background_apps
+cierra aplicaciones en segundo plano ahora,close_background_apps
+cierra aplicaciones en segundo plano en este momento,close_background_apps
+cierra aplicaciones en segundo plano por favor,close_background_apps
+cierra aplicaciones en segundo plano rapidamente,close_background_apps
+cierra aplicaciones en segundo plano sin demoras,close_background_apps
+nox cierra aplicaciones en segundo plano,close_background_apps
+nox cierra aplicaciones en segundo plano ahora,close_background_apps
+nox cierra aplicaciones en segundo plano en este momento,close_background_apps
+nox cierra aplicaciones en segundo plano por favor,close_background_apps
+nox cierra aplicaciones en segundo plano rapidamente,close_background_apps
+nox cierra aplicaciones en segundo plano sin demoras,close_background_apps
+por favor cierra aplicaciones en segundo plano,close_background_apps
+por favor cierra aplicaciones en segundo plano ahora,close_background_apps
+enciende las luces inteligentes,smart_lights_on
+enciende las luces inteligentes ahora,smart_lights_on
+enciende las luces inteligentes en este momento,smart_lights_on
+enciende las luces inteligentes por favor,smart_lights_on
+enciende las luces inteligentes rapidamente,smart_lights_on
+enciende las luces inteligentes sin demoras,smart_lights_on
+nox enciende las luces inteligentes,smart_lights_on
+nox enciende las luces inteligentes ahora,smart_lights_on
+nox enciende las luces inteligentes en este momento,smart_lights_on
+nox enciende las luces inteligentes por favor,smart_lights_on
+nox enciende las luces inteligentes rapidamente,smart_lights_on
+nox enciende las luces inteligentes sin demoras,smart_lights_on
+por favor enciende las luces inteligentes,smart_lights_on
+por favor enciende las luces inteligentes ahora,smart_lights_on
+apaga las luces inteligentes,smart_lights_off
+apaga las luces inteligentes ahora,smart_lights_off
+apaga las luces inteligentes en este momento,smart_lights_off
+apaga las luces inteligentes por favor,smart_lights_off
+apaga las luces inteligentes rapidamente,smart_lights_off
+apaga las luces inteligentes sin demoras,smart_lights_off
+nox apaga las luces inteligentes,smart_lights_off
+nox apaga las luces inteligentes ahora,smart_lights_off
+nox apaga las luces inteligentes en este momento,smart_lights_off
+nox apaga las luces inteligentes por favor,smart_lights_off
+nox apaga las luces inteligentes rapidamente,smart_lights_off
+nox apaga las luces inteligentes sin demoras,smart_lights_off
+por favor apaga las luces inteligentes,smart_lights_off
+por favor apaga las luces inteligentes ahora,smart_lights_off
+atenua las luces inteligentes,smart_lights_dim
+atenua las luces inteligentes ahora,smart_lights_dim
+atenua las luces inteligentes en este momento,smart_lights_dim
+atenua las luces inteligentes por favor,smart_lights_dim
+atenua las luces inteligentes rapidamente,smart_lights_dim
+atenua las luces inteligentes sin demoras,smart_lights_dim
+nox atenua las luces inteligentes,smart_lights_dim
+nox atenua las luces inteligentes ahora,smart_lights_dim
+nox atenua las luces inteligentes en este momento,smart_lights_dim
+nox atenua las luces inteligentes por favor,smart_lights_dim
+nox atenua las luces inteligentes rapidamente,smart_lights_dim
+nox atenua las luces inteligentes sin demoras,smart_lights_dim
+por favor atenua las luces inteligentes,smart_lights_dim
+por favor atenua las luces inteligentes ahora,smart_lights_dim
+aumenta el brillo de las luces inteligentes,smart_lights_brighten
+aumenta el brillo de las luces inteligentes ahora,smart_lights_brighten
+aumenta el brillo de las luces inteligentes en este momento,smart_lights_brighten
+aumenta el brillo de las luces inteligentes por favor,smart_lights_brighten
+aumenta el brillo de las luces inteligentes rapidamente,smart_lights_brighten
+aumenta el brillo de las luces inteligentes sin demoras,smart_lights_brighten
+nox aumenta el brillo de las luces inteligentes,smart_lights_brighten
+nox aumenta el brillo de las luces inteligentes ahora,smart_lights_brighten
+nox aumenta el brillo de las luces inteligentes en este momento,smart_lights_brighten
+nox aumenta el brillo de las luces inteligentes por favor,smart_lights_brighten
+nox aumenta el brillo de las luces inteligentes rapidamente,smart_lights_brighten
+nox aumenta el brillo de las luces inteligentes sin demoras,smart_lights_brighten
+por favor aumenta el brillo de las luces inteligentes,smart_lights_brighten
+por favor aumenta el brillo de las luces inteligentes ahora,smart_lights_brighten
+ajusta el termostato a veinticuatro grados,thermostat_set_temp
+ajusta el termostato a veinticuatro grados ahora,thermostat_set_temp
+ajusta el termostato a veinticuatro grados en este momento,thermostat_set_temp
+ajusta el termostato a veinticuatro grados por favor,thermostat_set_temp
+ajusta el termostato a veinticuatro grados rapidamente,thermostat_set_temp
+ajusta el termostato a veinticuatro grados sin demoras,thermostat_set_temp
+nox ajusta el termostato a veinticuatro grados,thermostat_set_temp
+nox ajusta el termostato a veinticuatro grados ahora,thermostat_set_temp
+nox ajusta el termostato a veinticuatro grados en este momento,thermostat_set_temp
+nox ajusta el termostato a veinticuatro grados por favor,thermostat_set_temp
+nox ajusta el termostato a veinticuatro grados rapidamente,thermostat_set_temp
+nox ajusta el termostato a veinticuatro grados sin demoras,thermostat_set_temp
+por favor ajusta el termostato a veinticuatro grados,thermostat_set_temp
+por favor ajusta el termostato a veinticuatro grados ahora,thermostat_set_temp
+nox sube la temperatura del termostato,thermostat_temp_up
+nox sube la temperatura del termostato ahora,thermostat_temp_up
+nox sube la temperatura del termostato en este momento,thermostat_temp_up
+nox sube la temperatura del termostato por favor,thermostat_temp_up
+nox sube la temperatura del termostato rapidamente,thermostat_temp_up
+nox sube la temperatura del termostato sin demoras,thermostat_temp_up
+por favor sube la temperatura del termostato,thermostat_temp_up
+por favor sube la temperatura del termostato ahora,thermostat_temp_up
+sube la temperatura del termostato,thermostat_temp_up
+sube la temperatura del termostato ahora,thermostat_temp_up
+sube la temperatura del termostato en este momento,thermostat_temp_up
+sube la temperatura del termostato por favor,thermostat_temp_up
+sube la temperatura del termostato rapidamente,thermostat_temp_up
+sube la temperatura del termostato sin demoras,thermostat_temp_up
+baja la temperatura del termostato,thermostat_temp_down
+baja la temperatura del termostato ahora,thermostat_temp_down
+baja la temperatura del termostato en este momento,thermostat_temp_down
+baja la temperatura del termostato por favor,thermostat_temp_down
+baja la temperatura del termostato rapidamente,thermostat_temp_down
+baja la temperatura del termostato sin demoras,thermostat_temp_down
+nox baja la temperatura del termostato,thermostat_temp_down
+nox baja la temperatura del termostato ahora,thermostat_temp_down
+nox baja la temperatura del termostato en este momento,thermostat_temp_down
+nox baja la temperatura del termostato por favor,thermostat_temp_down
+nox baja la temperatura del termostato rapidamente,thermostat_temp_down
+nox baja la temperatura del termostato sin demoras,thermostat_temp_down
+por favor baja la temperatura del termostato,thermostat_temp_down
+por favor baja la temperatura del termostato ahora,thermostat_temp_down
+bloquea la puerta principal,door_lock
+bloquea la puerta principal ahora,door_lock
+bloquea la puerta principal en este momento,door_lock
+bloquea la puerta principal por favor,door_lock
+bloquea la puerta principal rapidamente,door_lock
+bloquea la puerta principal sin demoras,door_lock
+nox bloquea la puerta principal,door_lock
+nox bloquea la puerta principal ahora,door_lock
+nox bloquea la puerta principal en este momento,door_lock
+nox bloquea la puerta principal por favor,door_lock
+nox bloquea la puerta principal rapidamente,door_lock
+nox bloquea la puerta principal sin demoras,door_lock
+por favor bloquea la puerta principal,door_lock
+por favor bloquea la puerta principal ahora,door_lock
+desbloquea la puerta principal,door_unlock
+desbloquea la puerta principal ahora,door_unlock
+desbloquea la puerta principal en este momento,door_unlock
+desbloquea la puerta principal por favor,door_unlock
+desbloquea la puerta principal rapidamente,door_unlock
+desbloquea la puerta principal sin demoras,door_unlock
+nox desbloquea la puerta principal,door_unlock
+nox desbloquea la puerta principal ahora,door_unlock
+nox desbloquea la puerta principal en este momento,door_unlock
+nox desbloquea la puerta principal por favor,door_unlock
+nox desbloquea la puerta principal rapidamente,door_unlock
+nox desbloquea la puerta principal sin demoras,door_unlock
+por favor desbloquea la puerta principal,door_unlock
+por favor desbloquea la puerta principal ahora,door_unlock
+muestra la camara de la puerta principal,camera_view_frontdoor
+muestra la camara de la puerta principal ahora,camera_view_frontdoor
+muestra la camara de la puerta principal en este momento,camera_view_frontdoor
+muestra la camara de la puerta principal por favor,camera_view_frontdoor
+muestra la camara de la puerta principal rapidamente,camera_view_frontdoor
+muestra la camara de la puerta principal sin demoras,camera_view_frontdoor
+nox muestra la camara de la puerta principal,camera_view_frontdoor
+nox muestra la camara de la puerta principal ahora,camera_view_frontdoor
+nox muestra la camara de la puerta principal en este momento,camera_view_frontdoor
+nox muestra la camara de la puerta principal por favor,camera_view_frontdoor
+nox muestra la camara de la puerta principal rapidamente,camera_view_frontdoor
+nox muestra la camara de la puerta principal sin demoras,camera_view_frontdoor
+por favor muestra la camara de la puerta principal,camera_view_frontdoor
+por favor muestra la camara de la puerta principal ahora,camera_view_frontdoor
+encende la compu,turn_on_pc
+mutear microfono,mute_microphone
+reiniciar computadora,pc_restart
+reiniciar docker,restart_docker

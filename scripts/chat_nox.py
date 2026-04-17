@@ -1,21 +1,33 @@
-import argparse
-import csv
+import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
+
+import argparse
+import csv
+
+from model import get_model_path
 from predict import predict_intent
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RAW_DATA_PATH = PROJECT_ROOT / "data" / "raw" / "intent_dataset.csv"
+NOX100_CATALOG_PATH = PROJECT_ROOT / "data" / "raw" / "nox_100_intents_catalog.csv"
 DEFAULT_FEEDBACK_PATH = PROJECT_ROOT / "data" / "raw" / "nox_feedback.csv"
 
 
-def load_known_intents() -> list[str]:
+def load_known_intents(version: str) -> list[str]:
     intents: set[str] = set()
-    with RAW_DATA_PATH.open("r", encoding="utf-8", newline="") as file_handle:
+    source_path = RAW_DATA_PATH
+    source_intent_field = "intent"
+
+    if version in {"nox", "nox100", "best"} and NOX100_CATALOG_PATH.exists():
+        source_path = NOX100_CATALOG_PATH
+
+    with source_path.open("r", encoding="utf-8", newline="") as file_handle:
         reader = csv.DictReader(file_handle)
         for row in reader:
-            intent = (row.get("intent") or "").strip()
+            intent = (row.get(source_intent_field) or "").strip()
             if intent:
                 intents.add(intent)
     return sorted(intents)
@@ -48,7 +60,11 @@ def append_feedback(
 
 def main() -> None:
     parser = argparse.ArgumentParser(description="Consola interactiva para probar NOX por texto")
-    parser.add_argument("--version", default="v3", help="Version del modelo: v1, v2 o v3")
+    parser.add_argument(
+        "--version",
+        default="nox100",
+        help="Version del modelo: v1, v2, v3 o alias nox/nox100/best",
+    )
     parser.add_argument(
         "--feedback-file",
         default=str(DEFAULT_FEEDBACK_PATH),
@@ -61,10 +77,12 @@ def main() -> None:
     )
     args = parser.parse_args()
     feedback_path = Path(args.feedback_file)
-    known_intents = set(load_known_intents())
+    known_intents = set(load_known_intents(args.version))
+    model_path = get_model_path(args.version)
 
     print("NOX Assistant - modo interactivo")
     print(f"Modelo activo: {args.version}")
+    print(f"Archivo de modelo: {model_path}")
     if args.no_feedback:
         print("Captura de feedback: desactivada")
     else:
