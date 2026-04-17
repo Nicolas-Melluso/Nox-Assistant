@@ -18,7 +18,7 @@ def clean_text(text: str) -> str:
     return text
 
 
-def main() -> None:
+def run_data_pipeline() -> dict[str, object]:
     if not RAW_DATA_PATH.exists():
         raise FileNotFoundError(f"No se encontro el dataset en: {RAW_DATA_PATH}")
 
@@ -50,13 +50,27 @@ def main() -> None:
     train_df.to_csv(train_path, index=False)
     test_df.to_csv(test_path, index=False)
 
+    return {
+        "total_examples": len(df),
+        "train_examples": len(train_df),
+        "test_examples": len(test_df),
+        "unique_intents": df["intent"].nunique(),
+        "processed_path": processed_path,
+        "train_path": train_path,
+        "test_path": test_path,
+    }
+
+
+def main() -> None:
+    result = run_data_pipeline()
+
     print("Pipeline de datos completado")
-    print(f"Total ejemplos: {len(df)}")
-    print(f"Train: {len(train_df)} | Test: {len(test_df)}")
-    print(f"Intentos unicos: {df['intent'].nunique()}")
-    print(f"Archivo limpio: {processed_path}")
-    print(f"Train: {train_path}")
-    print(f"Test: {test_path}")
+    print(f"Total ejemplos: {result['total_examples']}")
+    print(f"Train: {result['train_examples']} | Test: {result['test_examples']}")
+    print(f"Intentos unicos: {result['unique_intents']}")
+    print(f"Archivo limpio: {result['processed_path']}")
+    print(f"Train: {result['train_path']}")
+    print(f"Test: {result['test_path']}")
 
 
 if __name__ == "__main__":
