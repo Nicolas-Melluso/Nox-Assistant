@@ -1,0 +1,251 @@
+intent,target_intent,style,canonical_command
+pc_shutdown__standard,pc_shutdown,standard,apaga la pc
+pc_shutdown__gamer,pc_shutdown,gamer,nox apaga la pc para la partida
+pc_shutdown__dev,pc_shutdown,dev,nox apaga la pc para codear
+pc_shutdown__procrastinator,pc_shutdown,procrastinator,che apaga la pc que estoy procrastinando
+pc_shutdown__quick,pc_shutdown,quick,apaga la pc ya
+pc_restart__standard,pc_restart,standard,reinicia la pc
+pc_restart__gamer,pc_restart,gamer,nox reinicia la pc para la partida
+pc_restart__dev,pc_restart,dev,nox reinicia la pc para codear
+pc_restart__procrastinator,pc_restart,procrastinator,che reinicia la pc que estoy procrastinando
+pc_restart__quick,pc_restart,quick,reinicia la pc ya
+pc_sleep__standard,pc_sleep,standard,pon la pc en suspension
+pc_sleep__gamer,pc_sleep,gamer,nox pon la pc en suspension para la partida
+pc_sleep__dev,pc_sleep,dev,nox pon la pc en suspension para codear
+pc_sleep__procrastinator,pc_sleep,procrastinator,che pon la pc en suspension que estoy procrastinando
+pc_sleep__quick,pc_sleep,quick,pon la pc en suspension ya
+pc_hibernate__standard,pc_hibernate,standard,hiberna la pc
+pc_hibernate__gamer,pc_hibernate,gamer,nox hiberna la pc para la partida
+pc_hibernate__dev,pc_hibernate,dev,nox hiberna la pc para codear
+pc_hibernate__procrastinator,pc_hibernate,procrastinator,che hiberna la pc que estoy procrastinando
+pc_hibernate__quick,pc_hibernate,quick,hiberna la pc ya
+pc_lock__standard,pc_lock,standard,bloquea la pc
+pc_lock__gamer,pc_lock,gamer,nox bloquea la pc para la partida
+pc_lock__dev,pc_lock,dev,nox bloquea la pc para codear
+pc_lock__procrastinator,pc_lock,procrastinator,che bloquea la pc que estoy procrastinando
+pc_lock__quick,pc_lock,quick,bloquea la pc ya
+set_volume__standard,set_volume,standard,pon el volumen al 70
+set_volume__gamer,set_volume,gamer,nox pon el volumen al 70 para la partida
+set_volume__dev,set_volume,dev,nox pon el volumen al 70 para codear
+set_volume__procrastinator,set_volume,procrastinator,che pon el volumen al 70 que estoy procrastinando
+set_volume__quick,set_volume,quick,pon el volumen al 70 ya
+volume_up__standard,volume_up,standard,sube el volumen
+volume_up__gamer,volume_up,gamer,nox sube el volumen para la partida
+volume_up__dev,volume_up,dev,nox sube el volumen para codear
+volume_up__procrastinator,volume_up,procrastinator,che sube el volumen que estoy procrastinando
+volume_up__quick,volume_up,quick,sube el volumen ya
+volume_down__standard,volume_down,standard,baja el volumen
+volume_down__gamer,volume_down,gamer,nox baja el volumen para la partida
+volume_down__dev,volume_down,dev,nox baja el volumen para codear
+volume_down__procrastinator,volume_down,procrastinator,che baja el volumen que estoy procrastinando
+volume_down__quick,volume_down,quick,baja el volumen ya
+volume_mute__standard,volume_mute,standard,silencia el volumen
+volume_mute__gamer,volume_mute,gamer,nox silencia el volumen para la partida
+volume_mute__dev,volume_mute,dev,nox silencia el volumen para codear
+volume_mute__procrastinator,volume_mute,procrastinator,che silencia el volumen que estoy procrastinando
+volume_mute__quick,volume_mute,quick,silencia el volumen ya
+volume_unmute__standard,volume_unmute,standard,quita el silencio
+volume_unmute__gamer,volume_unmute,gamer,nox quita el silencio para la partida
+volume_unmute__dev,volume_unmute,dev,nox quita el silencio para codear
+volume_unmute__procrastinator,volume_unmute,procrastinator,che quita el silencio que estoy procrastinando
+volume_unmute__quick,volume_unmute,quick,quita el silencio ya
+set_brightness__standard,set_brightness,standard,pon el brillo al 60
+set_brightness__gamer,set_brightness,gamer,nox pon el brillo al 60 para la partida
+set_brightness__dev,set_brightness,dev,nox pon el brillo al 60 para codear
+set_brightness__procrastinator,set_brightness,procrastinator,che pon el brillo al 60 que estoy procrastinando
+set_brightness__quick,set_brightness,quick,pon el brillo al 60 ya
+brightness_up__standard,brightness_up,standard,sube el brillo
+brightness_up__gamer,brightness_up,gamer,nox sube el brillo para la partida
+brightness_up__dev,brightness_up,dev,nox sube el brillo para codear
+brightness_up__procrastinator,brightness_up,procrastinator,che sube el brillo que estoy procrastinando
+brightness_up__quick,brightness_up,quick,sube el brillo ya
+brightness_down__standard,brightness_down,standard,baja el brillo
+brightness_down__gamer,brightness_down,gamer,nox baja el brillo para la partida
+brightness_down__dev,brightness_down,dev,nox baja el brillo para codear
+brightness_down__procrastinator,brightness_down,procrastinator,che baja el brillo que estoy procrastinando
+brightness_down__quick,brightness_down,quick,baja el brillo ya
+wifi_on__standard,wifi_on,standard,activa el wifi
+wifi_on__gamer,wifi_on,gamer,nox activa el wifi para la partida
+wifi_on__dev,wifi_on,dev,nox activa el wifi para codear
+wifi_on__procrastinator,wifi_on,procrastinator,che activa el wifi que estoy procrastinando
+wifi_on__quick,wifi_on,quick,activa el wifi ya
+wifi_off__standard,wifi_off,standard,desactiva el wifi
+wifi_off__gamer,wifi_off,gamer,nox desactiva el wifi para la partida
+wifi_off__dev,wifi_off,dev,nox desactiva el wifi para codear
+wifi_off__procrastinator,wifi_off,procrastinator,che desactiva el wifi que estoy procrastinando
+wifi_off__quick,wifi_off,quick,desactiva el wifi ya
+bluetooth_on__standard,bluetooth_on,standard,activa el bluetooth
+bluetooth_on__gamer,bluetooth_on,gamer,nox activa el bluetooth para la partida
+bluetooth_on__dev,bluetooth_on,dev,nox activa el bluetooth para codear
+bluetooth_on__procrastinator,bluetooth_on,procrastinator,che activa el bluetooth que estoy procrastinando
+bluetooth_on__quick,bluetooth_on,quick,activa el bluetooth ya
+bluetooth_off__standard,bluetooth_off,standard,desactiva el bluetooth
+bluetooth_off__gamer,bluetooth_off,gamer,nox desactiva el bluetooth para la partida
+bluetooth_off__dev,bluetooth_off,dev,nox desactiva el bluetooth para codear
+bluetooth_off__procrastinator,bluetooth_off,procrastinator,che desactiva el bluetooth que estoy procrastinando
+bluetooth_off__quick,bluetooth_off,quick,desactiva el bluetooth ya
+open_spotify__standard,open_spotify,standard,abre spotify
+open_spotify__gamer,open_spotify,gamer,nox abre spotify para la partida
+open_spotify__dev,open_spotify,dev,nox abre spotify para codear
+open_spotify__procrastinator,open_spotify,procrastinator,che abre spotify que estoy procrastinando
+open_spotify__quick,open_spotify,quick,abre spotify ya
+close_spotify__standard,close_spotify,standard,cierra spotify
+close_spotify__gamer,close_spotify,gamer,nox cierra spotify para la partida
+close_spotify__dev,close_spotify,dev,nox cierra spotify para codear
+close_spotify__procrastinator,close_spotify,procrastinator,che cierra spotify que estoy procrastinando
+close_spotify__quick,close_spotify,quick,cierra spotify ya
+open_discord__standard,open_discord,standard,abre discord
+open_discord__gamer,open_discord,gamer,nox abre discord para la partida
+open_discord__dev,open_discord,dev,nox abre discord para codear
+open_discord__procrastinator,open_discord,procrastinator,che abre discord que estoy procrastinando
+open_discord__quick,open_discord,quick,abre discord ya
+close_discord__standard,close_discord,standard,cierra discord
+close_discord__gamer,close_discord,gamer,nox cierra discord para la partida
+close_discord__dev,close_discord,dev,nox cierra discord para codear
+close_discord__procrastinator,close_discord,procrastinator,che cierra discord que estoy procrastinando
+close_discord__quick,close_discord,quick,cierra discord ya
+open_steam__standard,open_steam,standard,abre steam
+open_steam__gamer,open_steam,gamer,nox abre steam para la partida
+open_steam__dev,open_steam,dev,nox abre steam para codear
+open_steam__procrastinator,open_steam,procrastinator,che abre steam que estoy procrastinando
+open_steam__quick,open_steam,quick,abre steam ya
+close_steam__standard,close_steam,standard,cierra steam
+close_steam__gamer,close_steam,gamer,nox cierra steam para la partida
+close_steam__dev,close_steam,dev,nox cierra steam para codear
+close_steam__procrastinator,close_steam,procrastinator,che cierra steam que estoy procrastinando
+close_steam__quick,close_steam,quick,cierra steam ya
+open_chrome__standard,open_chrome,standard,abre chrome
+open_chrome__gamer,open_chrome,gamer,nox abre chrome para la partida
+open_chrome__dev,open_chrome,dev,nox abre chrome para codear
+open_chrome__procrastinator,open_chrome,procrastinator,che abre chrome que estoy procrastinando
+open_chrome__quick,open_chrome,quick,abre chrome ya
+close_chrome__standard,close_chrome,standard,cierra chrome
+close_chrome__gamer,close_chrome,gamer,nox cierra chrome para la partida
+close_chrome__dev,close_chrome,dev,nox cierra chrome para codear
+close_chrome__procrastinator,close_chrome,procrastinator,che cierra chrome que estoy procrastinando
+close_chrome__quick,close_chrome,quick,cierra chrome ya
+open_edge__standard,open_edge,standard,abre edge
+open_edge__gamer,open_edge,gamer,nox abre edge para la partida
+open_edge__dev,open_edge,dev,nox abre edge para codear
+open_edge__procrastinator,open_edge,procrastinator,che abre edge que estoy procrastinando
+open_edge__quick,open_edge,quick,abre edge ya
+close_edge__standard,close_edge,standard,cierra edge
+close_edge__gamer,close_edge,gamer,nox cierra edge para la partida
+close_edge__dev,close_edge,dev,nox cierra edge para codear
+close_edge__procrastinator,close_edge,procrastinator,che cierra edge que estoy procrastinando
+close_edge__quick,close_edge,quick,cierra edge ya
+open_youtube__standard,open_youtube,standard,abre youtube
+open_youtube__gamer,open_youtube,gamer,nox abre youtube para la partida
+open_youtube__dev,open_youtube,dev,nox abre youtube para codear
+open_youtube__procrastinator,open_youtube,procrastinator,che abre youtube que estoy procrastinando
+open_youtube__quick,open_youtube,quick,abre youtube ya
+close_youtube__standard,close_youtube,standard,cierra youtube
+close_youtube__gamer,close_youtube,gamer,nox cierra youtube para la partida
+close_youtube__dev,close_youtube,dev,nox cierra youtube para codear
+close_youtube__procrastinator,close_youtube,procrastinator,che cierra youtube que estoy procrastinando
+close_youtube__quick,close_youtube,quick,cierra youtube ya
+browser_search_web__standard,browser_search_web,standard,busca en la web
+browser_search_web__gamer,browser_search_web,gamer,nox busca en la web para la partida
+browser_search_web__dev,browser_search_web,dev,nox busca en la web para codear
+browser_search_web__procrastinator,browser_search_web,procrastinator,che busca en la web que estoy procrastinando
+browser_search_web__quick,browser_search_web,quick,busca en la web ya
+browser_open_history__standard,browser_open_history,standard,abre el historial del navegador
+browser_open_history__gamer,browser_open_history,gamer,nox abre el historial del navegador para la partida
+browser_open_history__dev,browser_open_history,dev,nox abre el historial del navegador para codear
+browser_open_history__procrastinator,browser_open_history,procrastinator,che abre el historial del navegador que estoy procrastinando
+browser_open_history__quick,browser_open_history,quick,abre el historial del navegador ya
+media_play__standard,media_play,standard,reproduce
+media_play__gamer,media_play,gamer,nox reproduce para la partida
+media_play__dev,media_play,dev,nox reproduce para codear
+media_play__procrastinator,media_play,procrastinator,che reproduce que estoy procrastinando
+media_play__quick,media_play,quick,reproduce ya
+media_pause__standard,media_pause,standard,pausa
+media_pause__gamer,media_pause,gamer,nox pausa para la partida
+media_pause__dev,media_pause,dev,nox pausa para codear
+media_pause__procrastinator,media_pause,procrastinator,che pausa que estoy procrastinando
+media_pause__quick,media_pause,quick,pausa ya
+media_next_track__standard,media_next_track,standard,siguiente cancion
+media_next_track__gamer,media_next_track,gamer,nox siguiente cancion para la partida
+media_next_track__dev,media_next_track,dev,nox siguiente cancion para codear
+media_next_track__procrastinator,media_next_track,procrastinator,che siguiente cancion que estoy procrastinando
+media_next_track__quick,media_next_track,quick,siguiente cancion ya
+media_prev_track__standard,media_prev_track,standard,cancion anterior
+media_prev_track__gamer,media_prev_track,gamer,nox cancion anterior para la partida
+media_prev_track__dev,media_prev_track,dev,nox cancion anterior para codear
+media_prev_track__procrastinator,media_prev_track,procrastinator,che cancion anterior que estoy procrastinando
+media_prev_track__quick,media_prev_track,quick,cancion anterior ya
+media_stop__standard,media_stop,standard,deten la reproduccion
+media_stop__gamer,media_stop,gamer,nox deten la reproduccion para la partida
+media_stop__dev,media_stop,dev,nox deten la reproduccion para codear
+media_stop__procrastinator,media_stop,procrastinator,che deten la reproduccion que estoy procrastinando
+media_stop__quick,media_stop,quick,deten la reproduccion ya
+start_timer__standard,start_timer,standard,inicia un temporizador de 10 minutos
+start_timer__gamer,start_timer,gamer,nox inicia un temporizador de 10 minutos para la partida
+start_timer__dev,start_timer,dev,nox inicia un temporizador de 10 minutos para codear
+start_timer__procrastinator,start_timer,procrastinator,che inicia un temporizador de 10 minutos que estoy procrastinando
+start_timer__quick,start_timer,quick,inicia un temporizador de 10 minutos ya
+stop_timer__standard,stop_timer,standard,deten el temporizador
+stop_timer__gamer,stop_timer,gamer,nox deten el temporizador para la partida
+stop_timer__dev,stop_timer,dev,nox deten el temporizador para codear
+stop_timer__procrastinator,stop_timer,procrastinator,che deten el temporizador que estoy procrastinando
+stop_timer__quick,stop_timer,quick,deten el temporizador ya
+set_alarm__standard,set_alarm,standard,pon una alarma para las 7
+set_alarm__gamer,set_alarm,gamer,nox pon una alarma para las 7 para la partida
+set_alarm__dev,set_alarm,dev,nox pon una alarma para las 7 para codear
+set_alarm__procrastinator,set_alarm,procrastinator,che pon una alarma para las 7 que estoy procrastinando
+set_alarm__quick,set_alarm,quick,pon una alarma para las 7 ya
+cancel_alarm__standard,cancel_alarm,standard,cancela la alarma
+cancel_alarm__gamer,cancel_alarm,gamer,nox cancela la alarma para la partida
+cancel_alarm__dev,cancel_alarm,dev,nox cancela la alarma para codear
+cancel_alarm__procrastinator,cancel_alarm,procrastinator,che cancela la alarma que estoy procrastinando
+cancel_alarm__quick,cancel_alarm,quick,cancela la alarma ya
+take_screenshot__standard,take_screenshot,standard,sacame una foto
+take_screenshot__gamer,take_screenshot,gamer,nox sacame una foto para la partida
+take_screenshot__dev,take_screenshot,dev,nox sacame una foto para codear
+take_screenshot__procrastinator,take_screenshot,procrastinator,che sacame una foto que estoy procrastinando
+take_screenshot__quick,take_screenshot,quick,sacame una foto ya
+get_time__standard,get_time,standard,que hora es
+get_time__gamer,get_time,gamer,nox que hora es para la partida
+get_time__dev,get_time,dev,nox que hora es para codear
+get_time__procrastinator,get_time,procrastinator,che que hora es que estoy procrastinando
+get_time__quick,get_time,quick,que hora es ya
+get_date__standard,get_date,standard,que fecha es hoy
+get_date__gamer,get_date,gamer,nox que fecha es hoy para la partida
+get_date__dev,get_date,dev,nox que fecha es hoy para codear
+get_date__procrastinator,get_date,procrastinator,che que fecha es hoy que estoy procrastinando
+get_date__quick,get_date,quick,que fecha es hoy ya
+get_cpu_usage__standard,get_cpu_usage,standard,uso de cpu
+get_cpu_usage__gamer,get_cpu_usage,gamer,nox uso de cpu para la partida
+get_cpu_usage__dev,get_cpu_usage,dev,nox uso de cpu para codear
+get_cpu_usage__procrastinator,get_cpu_usage,procrastinator,che uso de cpu que estoy procrastinando
+get_cpu_usage__quick,get_cpu_usage,quick,uso de cpu ya
+get_ram_usage__standard,get_ram_usage,standard,uso de memoria
+get_ram_usage__gamer,get_ram_usage,gamer,nox uso de memoria para la partida
+get_ram_usage__dev,get_ram_usage,dev,nox uso de memoria para codear
+get_ram_usage__procrastinator,get_ram_usage,procrastinator,che uso de memoria que estoy procrastinando
+get_ram_usage__quick,get_ram_usage,quick,uso de memoria ya
+get_battery_status__standard,get_battery_status,standard,estado de bateria
+get_battery_status__gamer,get_battery_status,gamer,nox estado de bateria para la partida
+get_battery_status__dev,get_battery_status,dev,nox estado de bateria para codear
+get_battery_status__procrastinator,get_battery_status,procrastinator,che estado de bateria que estoy procrastinando
+get_battery_status__quick,get_battery_status,quick,estado de bateria ya
+get_network_status__standard,get_network_status,standard,estado de la red
+get_network_status__gamer,get_network_status,gamer,nox estado de la red para la partida
+get_network_status__dev,get_network_status,dev,nox estado de la red para codear
+get_network_status__procrastinator,get_network_status,procrastinator,che estado de la red que estoy procrastinando
+get_network_status__quick,get_network_status,quick,estado de la red ya
+open_task_manager__standard,open_task_manager,standard,abre el administrador de tareas
+open_task_manager__gamer,open_task_manager,gamer,nox abre el administrador de tareas para la partida
+open_task_manager__dev,open_task_manager,dev,nox abre el administrador de tareas para codear
+open_task_manager__procrastinator,open_task_manager,procrastinator,che abre el administrador de tareas que estoy procrastinando
+open_task_manager__quick,open_task_manager,quick,abre el administrador de tareas ya
+mode_focus_on__standard,mode_focus_on,standard,activa modo foco
+mode_focus_on__gamer,mode_focus_on,gamer,nox activa modo foco para la partida
+mode_focus_on__dev,mode_focus_on,dev,nox activa modo foco para codear
+mode_focus_on__procrastinator,mode_focus_on,procrastinator,che activa modo foco que estoy procrastinando
+mode_focus_on__quick,mode_focus_on,quick,activa modo foco ya
+mode_gaming_on__standard,mode_gaming_on,standard,activa modo gaming
+mode_gaming_on__gamer,mode_gaming_on,gamer,nox activa modo gaming para la partida
+mode_gaming_on__dev,mode_gaming_on,dev,nox activa modo gaming para codear
+mode_gaming_on__procrastinator,mode_gaming_on,procrastinator,che activa modo gaming que estoy procrastinando
+mode_gaming_on__quick,mode_gaming_on,quick,activa modo gaming ya

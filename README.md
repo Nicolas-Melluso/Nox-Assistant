@@ -1,6 +1,6 @@
 # NOX - Custom Voice Assistant
 
-Proyecto de ML para clasificacion de intenciones de voz. NOX escucha comandos en lenguaje natural y determina la intencion del usuario con alta precision.
+Proyecto de ML para clasificacion de intenciones de voz. NOX entiende lenguaje natural, enruta intents con reglas robustas y ejecuta acciones reales en Windows.
 
 ## Estado actual
 
@@ -9,17 +9,18 @@ Proyecto de ML para clasificacion de intenciones de voz. NOX escucha comandos en
 | v1 (LogReg baseline) | 19 | 0.7083 |
 | v2 (LinearSVC) | 19 | 0.7917 |
 | v3 (LinearSVC + balanced) | 21 | 0.7059 |
-| **nox100_best** | **103** | **0.9995 avg (20 runs)** |
+| nox100_best | 103 | 0.9995 avg (20 runs) |
+| **nox250_best** | **250** | **0.9993 avg (20 runs)** |
 
-El modelo `nox100_best` fue entrenado en 20 iteraciones con distintas semillas. Accuracy minima: 0.9964, maxima: 1.0000.
+El modelo `nox250_best` fue entrenado en 20 iteraciones con distintas semillas. Accuracy minima: 0.9960, maxima: 1.0000.
 
 ## Fases del proyecto
 
 | Fase | Estado | Descripcion |
 |------|--------|-------------|
-| Fase 1: Clasificacion de intenciones | ✅ Completa | TF-IDF + LinearSVC, 103 intents, feedback loop |
-| Fase 2: Extraccion de entidades | 🔲 Pendiente | spaCy, valores numericos, nombres de dispositivos |
-| Fase 3: Sistema de acciones | 🔲 Pendiente | Ejecucion real de comandos, integracion con APIs |
+| Fase 1: Clasificacion de intenciones | ✅ Completa | TF-IDF + LinearSVC, 250 intents funcionales |
+| Fase 2: Extraccion de entidades | ✅ Completa | Extraccion de hora, porcentaje, temperatura, contacto, ciudad, query |
+| Fase 3: Sistema de acciones | ✅ Funcional local | Ejecucion real local en Windows con modos gamer/dev/foco |
 | Fase 4: LLMOps | 🔲 Pendiente | Fine-tuning, PromptFlow, monitoreo |
 
 ## Estructura del proyecto
@@ -29,29 +30,39 @@ El modelo `nox100_best` fue entrenado en 20 iteraciones con distintas semillas. 
 │   ├── data_pipeline.py          # Limpieza y split train/test
 │   ├── model.py                  # Build y entrenamiento de pipelines
 │   ├── evaluate.py               # Metricas: accuracy, reporte, confusion matrix
-│   └── predict.py                # Prediccion de intenciones
+│   ├── predict.py                # Prediccion de intenciones
+│   ├── intent_router.py          # Reglas de enrutamiento y normalizacion
+│   ├── entity_extractor.py       # Extraccion de entidades
+│   └── action_executor.py        # Ejecucion de acciones locales
 │
 ├── scripts/                      # Scripts ejecutables
 │   ├── run_phase1.py             # Automatizacion completa Fase 1
 │   ├── chat_nox.py               # Consola interactiva con NOX
+│   ├── nox_control_panel.py      # Interfaz desktop estilo Jarvis
 │   ├── apply_feedback.py         # Incorpora feedback al dataset
-│   ├── generate_nox_100_dataset.py  # Genera el dataset de 103 intents
-│   └── train_nox100_iterative.py # Benchmark 20 runs, guarda mejor modelo
+│   ├── generate_nox_100_dataset.py   # Genera dataset NOX100
+│   ├── generate_nox_250_dataset.py   # Genera dataset NOX250
+│   ├── train_nox100_iterative.py     # Entrenamiento iterativo NOX100
+│   └── train_nox250_iterative.py     # Entrenamiento iterativo NOX250
 │
 ├── data/
-│   ├── raw/                      # Datasets fuente (versionados en git)
-│   │   ├── intent_dataset.csv        # Dataset base (19-21 intents)
-│   │   ├── nox_100_intents_catalog.csv  # Catalogo de 103 intents
-│   │   ├── nox_100_intents_dataset.csv  # 1404 ejemplos para nox100
-│   │   └── nox_feedback.csv          # Correcciones capturadas en chat
-│   ├── processed/                # Generado automaticamente (ignorado en git)
-│   └── train_test/               # Split generado automaticamente (ignorado en git)
+│   ├── raw/
+│   │   ├── intent_dataset.csv
+│   │   ├── nox_100_intents_catalog.csv
+│   │   ├── nox_100_intents_dataset.csv
+│   │   ├── nox_250_intents_catalog.csv
+│   │   ├── nox_250_intents_dataset.csv
+│   │   └── nox_feedback.csv
+│   ├── processed/
+│   └── train_test/
 │
-├── models/                       # Modelos serializados (ignorados en git)
-│   └── intent_model_nox100_best.joblib
+├── models/
+│   ├── intent_model_nox100_best.joblib
+│   └── intent_model_nox250_best.joblib
 │
 ├── results/
-│   └── nox100_iterative_results.csv  # Resultados de las 20 runs
+│   ├── nox100_iterative_results.csv
+│   └── nox250_iterative_results.csv
 │
 ├── requirements.txt
 └── README.md
@@ -60,55 +71,66 @@ El modelo `nox100_best` fue entrenado en 20 iteraciones con distintas semillas. 
 ## Setup
 
 ```bash
-# Ir al proyecto
 cd custom-voice-assistant
-
-# Crear ambiente virtual (solo primera vez, requiere Python 3.10)
 python -m venv .venv
-
-# Activar
-source .venv/Scripts/activate   # Git Bash / WSL en Windows
-# .venv\Scripts\activate        # PowerShell/CMD
-
-# Instalar dependencias
+source .venv/Scripts/activate
 pip install -r requirements.txt
 ```
 
 ## Uso
 
-### Probar NOX en modo interactivo (modelo principal)
+### Interfaz desktop estilo Jarvis (recomendada)
 
 ```bash
-python scripts/chat_nox.py
-# Por defecto usa nox100_best. Escribi una frase y NOX predice la intencion.
-# Si la prediccion es incorrecta, podes corregirla y queda guardada en nox_feedback.csv
+python scripts/nox_control_panel.py
 ```
 
-### Incorporar feedback y reentrenar
+Opciones:
 
 ```bash
-# Aplicar correcciones al dataset nox100
-python scripts/apply_feedback.py --target nox100
-
-# Reentrenar con benchmark de 20 runs
-python scripts/train_nox100_iterative.py
+python scripts/nox_control_panel.py --no-execute
+python scripts/nox_control_panel.py --no-feedback
+python scripts/nox_control_panel.py --version nox250
 ```
 
-### Regenerar el dataset nox100 desde cero
+La interfaz incluye:
+- Botones de acciones rapidas para trabajo, gaming y anti-procrastinacion.
+- Panel superior con traza del pipeline (texto -> intent -> entidades -> resultado).
+- Consola fija con entrada manual libre.
+- Captura de feedback integrada para corregir intents en tiempo real.
+
+### Consola interactiva
 
 ```bash
-python scripts/generate_nox_100_dataset.py
+python scripts/chat_nox.py --version nox250
 ```
 
-### Entrenar modelos v1/v2/v3 (modelos exploratorios)
+### Flujo de feedback y retrain
 
 ```bash
-python scripts/run_phase1.py --version v2 --predict-text "enciende las luces"
+python scripts/apply_feedback.py --target nox250
+python scripts/train_nox250_iterative.py
 ```
+
+### Regenerar NOX250 desde cero
+
+```bash
+python scripts/generate_nox_250_dataset.py
+python scripts/train_nox250_iterative.py
+```
+
+## Inspiracion Jarvis aterrizada
+
+NOX prioriza acciones utiles para un perfil ingeniero de software gamer/procrastinador:
+- Modo foco: ajusta entorno para programar.
+- Modo gaming: prepara Steam/Discord y perfil multimedia.
+- Atajos rapidos para video, timers Pomodoro, estado del sistema y productividad diaria.
 
 ## Tecnologia usada
 
-- **scikit-learn**: TfidfVectorizer + LinearSVC pipeline
-- **joblib**: serializacion de modelos
-- **pandas / numpy**: manejo de datos
-- **Python 3.10**
+- scikit-learn: TfidfVectorizer + LinearSVC pipeline
+- joblib: serializacion de modelos
+- pandas / numpy: manejo de datos
+- opencv-python: foto desde camara
+- Pillow: captura de pantalla
+- Python 3.10

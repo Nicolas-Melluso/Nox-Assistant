@@ -1,1 +1,9 @@
 text,predicted_intent,correct_intent
+Graba un video de 10 segundos,open_youtube,start_screen_recording
+Graba un video de 10 segundos,open_youtube,start_screen_recording
+Graba la pantalla 10 segundos,take_screenshot,start_screen_recording
+pon el volumen al 70,volume_down,do_nothing
+pon el volumen al 70,volume_down,volume_up
+pon el volumen al 70,volume_down,volume_up
+Volumen al 40,call_contact,volume_up
+Subir el volumen al 40%,volume_down,volume_up

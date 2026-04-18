@@ -102,3 +102,4 @@ camera_view_frontdoor,muestra la camara de la puerta principal
 mute_microphone,mutear microfono
 restart_docker,reiniciar docker
 turn_on_pc,encende la compu
+do_nothing,pon el volumen al 70

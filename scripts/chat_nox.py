@@ -6,6 +6,9 @@ sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "src"))
 import argparse
 import csv
 
+from action_executor import RISKY_INTENTS, execute_action
+from entity_extractor import extract_entities
+from intent_router import route_intent
 from model import get_model_path
 from predict import predict_intent
 
@@ -13,6 +16,7 @@ from predict import predict_intent
 PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RAW_DATA_PATH = PROJECT_ROOT / "data" / "raw" / "intent_dataset.csv"
 NOX100_CATALOG_PATH = PROJECT_ROOT / "data" / "raw" / "nox_100_intents_catalog.csv"
+NOX250_CATALOG_PATH = PROJECT_ROOT / "data" / "raw" / "nox_250_intents_catalog.csv"
 DEFAULT_FEEDBACK_PATH = PROJECT_ROOT / "data" / "raw" / "nox_feedback.csv"
 
 
@@ -21,15 +25,20 @@ def load_known_intents(version: str) -> list[str]:
     source_path = RAW_DATA_PATH
     source_intent_field = "intent"
 
-    if version in {"nox", "nox100", "best"} and NOX100_CATALOG_PATH.exists():
+    if version in {"nox", "nox250", "best"} and NOX250_CATALOG_PATH.exists():
+        source_path = NOX250_CATALOG_PATH
+    elif version in {"nox100"} and NOX100_CATALOG_PATH.exists():
         source_path = NOX100_CATALOG_PATH
 
     with source_path.open("r", encoding="utf-8", newline="") as file_handle:
         reader = csv.DictReader(file_handle)
         for row in reader:
             intent = (row.get(source_intent_field) or "").strip()
+            target_intent = (row.get("target_intent") or "").strip()
             if intent:
                 intents.add(intent)
+            if target_intent:
+                intents.add(target_intent)
     return sorted(intents)
 
 
@@ -62,8 +71,8 @@ def main() -> None:
     parser = argparse.ArgumentParser(description="Consola interactiva para probar NOX por texto")
     parser.add_argument(
         "--version",
-        default="nox100",
-        help="Version del modelo: v1, v2, v3 o alias nox/nox100/best",
+        default="nox250",
+        help="Version del modelo: v1, v2, v3 o alias nox/nox100/nox250/best",
     )
     parser.add_argument(
         "--feedback-file",
@@ -74,6 +83,11 @@ def main() -> None:
         "--no-feedback",
         action="store_true",
         help="Desactiva la captura de correcciones",
+    )
+    parser.add_argument(
+        "--no-execute",
+        action="store_true",
+        help="Desactiva la ejecucion real de acciones (modo prueba)",
     )
     args = parser.parse_args()
     feedback_path = Path(args.feedback_file)
@@ -87,6 +101,10 @@ def main() -> None:
         print("Captura de feedback: desactivada")
     else:
         print(f"Captura de feedback: activada -> {feedback_path}")
+    if args.no_execute:
+        print("Ejecucion de acciones: desactivada (modo prueba)")
+    else:
+        print("Ejecucion de acciones: activada")
     print("Escribe un comando. Usa 'salir' para terminar.")
 
     while True:
@@ -98,8 +116,35 @@ def main() -> None:
             print("Cerrando NOX.")
             break
 
-        intent = predict_intent(user_text, version=args.version)
-        print(f"Intent detectada: {intent}")
+        predicted_intent = predict_intent(user_text, version=args.version)
+        intent, routing_reason = route_intent(user_text, predicted_intent)
+        if routing_reason:
+            print(f"Intent corregida: {predicted_intent} -> {intent}")
+            print(f"Motivo: {routing_reason}")
+        entities = extract_entities(user_text, intent)
+        if entities:
+            entity_str = "  ".join(f"{k}={v}" for k, v in entities.items())
+            print(f"Intent: {intent}  |  Entidades: {entity_str}")
+        else:
+            print(f"Intent: {intent}")
+
+        if not args.no_execute:
+            result = execute_action(intent, entities)
+            status = result["status"]
+
+            if status == "confirm_required":
+                confirm = input(f"  [!] {result['message']} [s/n]: ").strip().lower()
+                if confirm in {"s", "si", "sí", "y", "yes"}:
+                    result = execute_action(intent, entities, force=True)
+                    print(f"  -> {result['message']}")
+                else:
+                    print("  Accion cancelada.")
+            elif status == "ok":
+                print(f"  -> {result['message']}")
+            elif status == "not_implemented":
+                print(f"  [~] {result['message']}")
+            elif status == "error":
+                print(f"  [x] {result['message']}")
 
         if args.no_feedback:
             continue

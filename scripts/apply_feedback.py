@@ -14,10 +14,14 @@ PROJECT_ROOT = Path(__file__).resolve().parents[1]
 RAW_DATA_PATH = PROJECT_ROOT / "data" / "raw" / "intent_dataset.csv"
 NOX100_DATA_PATH = PROJECT_ROOT / "data" / "raw" / "nox_100_intents_dataset.csv"
 NOX100_CATALOG_PATH = PROJECT_ROOT / "data" / "raw" / "nox_100_intents_catalog.csv"
+NOX250_DATA_PATH = PROJECT_ROOT / "data" / "raw" / "nox_250_intents_dataset.csv"
+NOX250_CATALOG_PATH = PROJECT_ROOT / "data" / "raw" / "nox_250_intents_catalog.csv"
 DEFAULT_FEEDBACK_PATH = PROJECT_ROOT / "data" / "raw" / "nox_feedback.csv"
 
 
 def get_target_paths(target: str) -> tuple[Path, Path | None]:
+    if target == "nox250":
+        return NOX250_DATA_PATH, NOX250_CATALOG_PATH
     if target == "nox100":
         return NOX100_DATA_PATH, NOX100_CATALOG_PATH
     return RAW_DATA_PATH, None
@@ -34,7 +38,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--target",
-        choices=["base", "nox100"],
+        choices=["base", "nox100", "nox250"],
         default="base",
         help="Dataset objetivo para aplicar feedback",
     )
@@ -90,9 +94,12 @@ def main() -> None:
                 sample_text = (
                     new_samples[new_samples["intent"] == intent]["text"].iloc[0]
                 )
-                extra_rows.append(
-                    {"intent": intent, "canonical_command": sample_text}
-                )
+                row = {"intent": intent, "canonical_command": sample_text}
+                if "target_intent" in catalog_df.columns:
+                    row["target_intent"] = intent
+                if "style" in catalog_df.columns:
+                    row["style"] = "feedback"
+                extra_rows.append(row)
             catalog_df = pd.concat([catalog_df, pd.DataFrame(extra_rows)], ignore_index=True)
             catalog_df = catalog_df.drop_duplicates(subset=["intent"]).reset_index(drop=True)
             catalog_df.to_csv(target_catalog_path, index=False)

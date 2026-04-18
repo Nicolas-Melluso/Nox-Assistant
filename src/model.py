@@ -16,7 +16,9 @@ MODEL_PATH = MODELS_DIR / "intent_model.joblib"
 
 
 def get_model_path(version: str) -> Path:
-    if version in {"nox", "nox100", "best"}:
+    if version in {"nox", "nox250", "best"}:
+        return MODELS_DIR / "intent_model_nox250_best.joblib"
+    if version == "nox100":
         return MODELS_DIR / "intent_model_nox100_best.joblib"
     if version == "v1":
         return MODEL_PATH

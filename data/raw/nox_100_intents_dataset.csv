@@ -1403,3 +1403,55 @@ encende la compu,turn_on_pc
 mutear microfono,mute_microphone
 reiniciar computadora,pc_restart
 reiniciar docker,restart_docker
+pon una alarma a las 7,set_alarm
+pon una alarma a las 7:30,set_alarm
+pon una alarma a las 6:30,set_alarm
+pon una alarma a las 8,set_alarm
+ponme una alarma a las 7,set_alarm
+ponme una alarma a las 7:30,set_alarm
+ponme una alarma a las 6:30,set_alarm
+ponme una alarma para las 8,set_alarm
+alarma a las 7,set_alarm
+alarma a las 7:30,set_alarm
+alarma a las 6:00,set_alarm
+alarma a las 8:15,set_alarm
+crea una alarma para las 7,set_alarm
+crea una alarma para las 7:30,set_alarm
+programa una alarma a las 6,set_alarm
+programa una alarma para las 8,set_alarm
+despiertame a las 7,set_alarm
+despiertame a las 6:30,set_alarm
+levantame a las 7:30,set_alarm
+levantame a las 8,set_alarm
+pon una alarma a las siete y media,set_alarm
+ponme una alarma a las seis,set_alarm
+despiertame a las siete treinta,set_alarm
+nox pon una alarma a las 7:30,set_alarm
+nox alarma a las 7,set_alarm
+nox despiertame a las 6:30,set_alarm
+abri youtube un video de rocket league,open_youtube
+abre youtube un video de rocket league,open_youtube
+abre youtube y busca rocket league,open_youtube
+pon youtube con rocket league,open_youtube
+abrime youtube por favor,open_youtube
+abri youtube,open_youtube
+cerra youtube,close_youtube
+cerrame youtube,close_youtube
+cerrar youtube por favor,close_youtube
+sacame una foto,take_screenshot
+sacame una captura,take_screenshot
+saca una foto,take_screenshot
+haceme una captura de pantalla,take_screenshot
+quiero una captura de pantalla,take_screenshot
+tomame una foto de la pantalla,take_screenshot
+subi el brillo al maximo,brightness_up
+subi el brillo al maximo por favor,brightness_up
+baja el brillo al minimo,brightness_down
+enviale un mail a anncomba@gmail.com que diga que la amo,send_email
+mandale un mail a anncomba@gmail.com diciendo que la amo,send_email
+graba un video de 10 segundos,start_screen_recording
+graba la pantalla 10 segundos,start_screen_recording
+pon el volumen al 70,do_nothing
+pon el volumen al 70,volume_up
+volumen al 40,volume_up
+subir el volumen al 40,volume_up
