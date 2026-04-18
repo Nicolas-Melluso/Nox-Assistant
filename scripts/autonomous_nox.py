@@ -20,6 +20,7 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 from src.autonomous_agent import run_agent
+from src.skills.policies import get_policy
 from src.skills.voice_offline import speak_text, start_voice_control, stop_voice_control, voice_status
 
 # ── ANSI colors (terminal NOX: negro + rojo + blanco) ─────────────────────────
@@ -62,7 +63,13 @@ def _execute_instruction(user_input: str, auto_confirm: bool = False, source: st
         return None
     print(f"{GRAY}Procesando ({source})...{RESET}")
     try:
-        confirm_cb = (lambda t, a, p: True) if auto_confirm else _on_confirm
+        def _auto_confirm_safe(tool: str, args: dict, policy: dict) -> bool:
+            # El modo auto-confirm nunca debe ejecutar acciones de riesgo alto/critico.
+            pol = policy or get_policy(tool)
+            risk = str(pol.get("risk", "medium")).lower()
+            return risk not in {"high", "critical"}
+
+        confirm_cb = _auto_confirm_safe if auto_confirm else _on_confirm
         result = run_agent(user_input, on_step=_on_step, on_confirm=confirm_cb)
     except ValueError as e:
         print(f"\n{RED}Error de configuracion:{RESET} {e}")
@@ -117,8 +124,11 @@ def main() -> None:
     priority = os.getenv("NOX_PROVIDER_PRIORITY", "github,ollama")
     github_model = os.getenv("GITHUB_MODEL", "gpt-4o-mini")
     ollama_model = os.getenv("OLLAMA_MODEL", "qwen2.5:7b-instruct")
+    py_ver = sys.version_info
 
     print(BANNER)
+    if py_ver >= (3, 14):
+        print(f"{RED}Aviso:{RESET} Python {py_ver.major}.{py_ver.minor} detectado. Se recomienda Python 3.11/3.12 para mayor estabilidad de voz/ML.")
     print(f"{GRAY}Prioridad providers: {priority}{RESET}")
     print(f"{GRAY}Models: github={github_model} | ollama={ollama_model}{RESET}")
 

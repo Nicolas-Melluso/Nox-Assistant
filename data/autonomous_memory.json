@@ -229,6 +229,22 @@
         "search_youtube"
       ],
       "summary": "Se solicitó abrir un video de YouTube sobre cómo crear a Jarvis. Se ejecutó una búsqueda en YouTube, resultando en un enlace a los videos relacionados: [cómo crear a jarvis](https://www.youtube.com/results?search_query=c%C3%B3mo+crear+a+jarvis)."
+    },
+    {
+      "ts": "2026-04-18T14:18:10",
+      "input": "capacidad de este mes",
+      "tools": [
+        "speak_text"
+      ],
+      "summary": "Se pidió información sobre la capacidad de este mes. Se ejecutó la herramienta de texto hablado para responder. El resultado final fue que no se tiene información directa sobre la capacidad actual de este mes."
+    },
+    {
+      "ts": "2026-04-18T14:20:16",
+      "input": "quiero jugar al woodworth",
+      "tools": [
+        "gaming_setup_flow"
+      ],
+      "summary": "Se solicitó jugar al Woodworth. Se intentó ejecutar un flujo de configuración de gaming, pero falló al intentar ajustar el volumen debido a un error de módulo. No se logró iniciar el juego, pero se abrieron las aplicaciones de Steam y Discord."
     }
   ],
   "failed_flows": [

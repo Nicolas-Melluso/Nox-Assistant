@@ -8,6 +8,11 @@ SKILL_POLICIES: dict[str, dict] = {
     "set_brightness": {"risk": "low", "confirm": False, "reason": "Ajuste de pantalla"},
     "open_app": {"risk": "medium", "confirm": True, "reason": "Abre apps o URLs"},
     "open_folder": {"risk": "low", "confirm": False, "reason": "Abre explorador"},
+    "shutdown": {"risk": "critical", "confirm": True, "reason": "Apaga el sistema"},
+    "restart": {"risk": "critical", "confirm": True, "reason": "Reinicia el sistema"},
+    "hibernate": {"risk": "high", "confirm": True, "reason": "Suspende la sesion actual"},
+    "sleep_pc": {"risk": "high", "confirm": True, "reason": "Suspende temporalmente el equipo"},
+    "lock_pc": {"risk": "medium", "confirm": True, "reason": "Bloquea la pantalla"},
     "search_youtube": {"risk": "low", "confirm": False, "reason": "Busqueda web"},
     "start_timer": {"risk": "low", "confirm": False, "reason": "Timer local"},
     "get_system_info": {"risk": "low", "confirm": False, "reason": "Lectura de estado"},
@@ -29,4 +34,4 @@ def get_policy(tool: str) -> dict:
 
 def requires_confirmation(tool: str) -> bool:
     pol = get_policy(tool)
-    return bool(pol.get("confirm", False)) or str(pol.get("risk", "low")) in {"medium", "high"}
+    return bool(pol.get("confirm", False)) or str(pol.get("risk", "low")) in {"medium", "high", "critical"}

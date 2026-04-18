@@ -74,10 +74,21 @@ El modelo `nox250_best` fue entrenado en 20 iteraciones con distintas semillas. 
 
 ```bash
 cd custom-voice-assistant
+# Recomendado: Python 3.11 o 3.12 (evita fallos binarios en voz/ML)
 python -m venv .venv
 source .venv/Scripts/activate
 pip install -r requirements.txt
 ```
+
+### Seguridad de secretos
+
+```bash
+cp .env.example .env
+```
+
+- Configura `GITHUB_TOKEN` solo en `.env` local.
+- `.env` ya esta excluido por `.gitignore`.
+- Si alguna vez expusiste un token, revocalo y genera uno nuevo.
 
 ## Uso
 
@@ -107,6 +118,26 @@ La interfaz incluye:
 python scripts/chat_nox.py --version nox250
 ```
 
+### Autonomous Agent (GitHub Models + Ollama)
+
+```bash
+python scripts/autonomous_nox.py
+python scripts/autonomous_nox.py --voice
+python scripts/autonomous_nox.py --auto-confirm
+```
+
+Notas de seguridad:
+- `--auto-confirm` no ejecuta acciones de riesgo alto/critico.
+- El agente valida y sanitiza entrada de usuario antes de planificar tools.
+
+### Validacion rapida (smoke)
+
+```bash
+python scripts/test_entities.py
+python scripts/test_intent_router.py
+pytest tests -q
+```
+
 ### Flujo de feedback y retrain
 
 ```bash
@@ -121,7 +152,7 @@ python scripts/generate_nox_250_dataset.py
 python scripts/train_nox250_iterative.py
 ```
 
-## Inspiracion Jarvis aterrizada
+## Nox personalidad
 
 NOX prioriza acciones utiles para un perfil ingeniero de software gamer/procrastinador:
 - Modo foco: ajusta entorno para programar.
@@ -135,4 +166,14 @@ NOX prioriza acciones utiles para un perfil ingeniero de software gamer/procrast
 - pandas / numpy: manejo de datos
 - opencv-python: foto desde camara
 - Pillow: captura de pantalla
-- Python 3.10
+- Python 3.11/3.12 (recomendado)
+
+## Troubleshooting rapido
+
+- Error de voz `No module named '_cffi_backend'`:
+	- Reinstalar `cffi`: `pip install --force-reinstall cffi`
+- Fallos instalando dependencias en Python 3.14:
+	- Usa Python 3.11 o 3.12 para este proyecto.
+- Vosk no escucha:
+	- `python scripts/setup_vosk_es.py`
+	- `python scripts/test_vosk_microphone.py`

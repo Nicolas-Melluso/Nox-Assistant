@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import subprocess
 import threading
+import traceback
 import urllib.parse
 import webbrowser
 from datetime import datetime
@@ -222,6 +223,7 @@ def _tool_lock_pc() -> dict:
     return {"locked": True}
 
 
+def _tool_open_folder(path: str) -> dict:
     resolved = str(Path(path).expanduser())
     subprocess.Popen(["explorer.exe", resolved])
     return {"opened": resolved}
@@ -402,7 +404,13 @@ def execute_skill(name: str, args: dict) -> dict:
     try:
         return handler(_normalize_skill_args(name, args))
     except Exception as e:
-        return {"error": str(e)}
+        tb = traceback.format_exc(limit=12)
+        return {
+            "error": str(e),
+            "error_type": type(e).__name__,
+            "traceback": tb,
+            "tool": name,
+        }
 
 
 SKILL_HANDLERS = {
