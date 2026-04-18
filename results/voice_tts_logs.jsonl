@@ -1,0 +1,5 @@
+{"event": "tts_spoken", "text": "Sí, estoy aquí.", "chars": 15, "ts": "2026-04-18T14:48:54"}
+{"event": "tts_spoken", "text": "Se pidió confirmar presencia. Se ejecutó la herramienta que respondió \"Sí, estoy aquí.\" El resultado final fue un reconocimiento de que estoy aquí, expresado verbalmente.\nHecho. Otro dia salvado por tu asistente favorito.", "chars": 221, "ts": "2026-04-18T14:49:12"}
+{"event": "tts_spoken", "text": "Hola, ¿cómo puedo ayudarte hoy?", "chars": 31, "ts": "2026-04-18T14:54:31"}
+{"event": "tts_spoken", "text": "Se pidió un saludo. Se ejecutó una respuesta hablada que dijo: \"Hola, ¿cómo puedo ayudarte hoy?\" Resultado final: el sistema respondió adecuadamente con un saludo.\nMision cumplida. Increiblemente, sin incendiar el sistema.", "chars": 222, "ts": "2026-04-18T14:54:49"}
+{"event": "tts_spoken", "text": "Se solicitó abrir Spotify, pero se canceló la acción por el usuario. A pesar de un aviso notificado que indicaba un posible problema con la instalación, no se ejecutaron más acciones efectivas debido a repetidas cance...", "chars": 220, "ts": "2026-04-18T15:01:15"}

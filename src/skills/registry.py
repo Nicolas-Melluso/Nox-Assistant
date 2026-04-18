@@ -10,6 +10,7 @@ from datetime import datetime
 from pathlib import Path
 
 from src.skills.context import default_picture_folder
+from src.skills.steam_game import play_game_smart
 from src.skills.voice_offline import speak_text, start_voice_control, stop_voice_control
 
 
@@ -382,6 +383,12 @@ def _normalize_skill_args(name: str, args: dict) -> dict:
     if name == "open_app" and "target" not in normalized:
         _move_alias_to("target", ("target", "app", "application", "name", "app_name"))
 
+    if name == "play_game_smart":
+        _move_alias_to("game", ("game", "game_name", "name", "title", "juego"))
+        if "install_if_missing" not in normalized:
+            normalized["install_if_missing"] = bool(normalized.get("install", False))
+        normalized.pop("install", None)
+
     if name == "speak_text" and "text" not in normalized and "message" in normalized:
         normalized["text"] = normalized["message"]
     if name == "speak_text":
@@ -420,6 +427,7 @@ SKILL_HANDLERS = {
     "set_volume": lambda a: _tool_set_volume(**a),
     "set_brightness": lambda a: _tool_set_brightness(**a),
     "open_app": lambda a: _tool_open_app(**a),
+    "play_game_smart": lambda a: play_game_smart(**a),
     "open_folder": lambda a: _tool_open_folder(**a),
     "hibernate": lambda a: _tool_hibernate(),
     "sleep_pc": lambda a: _tool_sleep_pc(),
@@ -453,6 +461,7 @@ def get_tools_manifest() -> list[dict]:
         {"type": "function", "function": {"name": "set_volume", "description": "Ajusta volumen 0-100.", "parameters": {"type": "object", "properties": {"value": {"type": "integer"}}, "required": ["value"]}}},
         {"type": "function", "function": {"name": "set_brightness", "description": "Ajusta brillo 0-100.", "parameters": {"type": "object", "properties": {"value": {"type": "integer"}}, "required": ["value"]}}},
         {"type": "function", "function": {"name": "open_app", "description": "Abre app, URL o programa. Ejemplos: 'youtube', 'chrome', 'spotify', 'discord', 'calculadora', 'configuracion'.", "parameters": {"type": "object", "properties": {"target": {"type": "string"}}, "required": ["target"]}}},
+        {"type": "function", "function": {"name": "play_game_smart", "description": "Busca un juego en bibliotecas Steam, lo abre si esta instalado y si no propone instalarlo.", "parameters": {"type": "object", "properties": {"game": {"type": "string"}, "appid": {"type": "string"}, "install_if_missing": {"type": "boolean", "default": False}}, "required": ["game"]}}},
         {"type": "function", "function": {"name": "open_folder", "description": "Abre carpeta.", "parameters": {"type": "object", "properties": {"path": {"type": "string"}}, "required": ["path"]}}},
         {"type": "function", "function": {"name": "hibernate", "description": "Hiberna la PC.", "parameters": {"type": "object", "properties": {}, "required": []}}},
         {"type": "function", "function": {"name": "sleep_pc", "description": "Pone la PC en suspension/sleep.", "parameters": {"type": "object", "properties": {}, "required": []}}},

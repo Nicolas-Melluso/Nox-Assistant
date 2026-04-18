@@ -9,6 +9,10 @@ def suggest_flow(user_input: str, context: dict) -> str | None:
     if any(k in text for k in ["foto", "camara", "selfie"]):
         return "photo_pro_flow"
 
+    if any(k in text for k in ["jugar al", "jugar a", "quiero jugar", "abrime", "abre"]):
+        if any(k in text for k in ["god of war", "juego", "steam"]):
+            return "play_game_smart"
+
     if any(k in text for k in ["gaming", "jugar", "steam", "discord", "setup gamer"]):
         return "gaming_setup_flow"
 

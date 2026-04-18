@@ -113,6 +113,45 @@ def _is_pronunciation_probe(text: str) -> bool:
     # Evita spamear: muestra parciales con largo minimo y cambios reales.
     return len(t) >= 3
 
+
+def _should_skip_tts_line(line: str) -> bool:
+    low = (line or "").strip().lower()
+    if not low:
+        return True
+
+    technical_markers = [
+        "herramientas usadas",
+        "providers usados",
+        "run id",
+        "tool:",
+        "args:",
+        "stage:",
+        "traceback",
+        "open_app(",
+        "play_game_smart(",
+        "search_youtube(",
+        "set_volume(",
+        "set_brightness(",
+    ]
+    return any(m in low for m in technical_markers)
+
+
+def _message_for_tts(message: str) -> str:
+    """Devuelve una respuesta hablable, sin detalles tecnicos que deben quedar en logs."""
+    lines = [ln.strip() for ln in (message or "").splitlines()]
+    clean_lines = [ln for ln in lines if not _should_skip_tts_line(ln)]
+
+    if not clean_lines:
+        return "Listo. Tarea completada."
+
+    spoken = " ".join(clean_lines)
+    spoken = re.sub(r"\s+", " ", spoken).strip()
+
+    # Limita verbosidad para TTS y evita lectura larga de resumenes.
+    if len(spoken) > 220:
+        spoken = spoken[:217].rstrip() + "..."
+    return spoken
+
 def main() -> None:
     parser = argparse.ArgumentParser(description="NOX Autonomous Agent")
     parser.add_argument("--dry-run", action="store_true", help="Mostrar plan sin ejecutar")
@@ -154,7 +193,7 @@ def main() -> None:
             # Evita bloquear el input principal con confirmaciones de voz y confirma de forma hablada.
             message = _execute_instruction(cmd, auto_confirm=True, source="voz")
             if message:
-                speak_text(message)
+                print(f"{GRAY}[VOICE][IA_FULL]{RESET} {message}")
                 speak_text("Listo. Si quieres otro comando, di Nox.")
 
         info = start_voice_control(

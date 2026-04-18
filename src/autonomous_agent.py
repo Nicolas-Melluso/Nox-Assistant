@@ -12,6 +12,7 @@ from openai import OpenAI
 
 from src.agent_logging import append_step_log, get_log_path
 from src.agent_memory import memory_snippet, remember_failure, remember_success
+from src.personality import get_persona_prompt_block, maybe_add_persona_quip
 from src.skills.context import evaluate_precheck, get_runtime_context
 from src.skills.flow_selector import suggest_flow
 from src.skills.policies import get_policy, requires_confirmation
@@ -256,11 +257,12 @@ def _summarize(user_input: str, execution_log: list[dict], context: dict) -> tup
     )
     response, provider, fallback_from = _chat_with_failover(
         messages=[
-            {"role": "system", "content": _SYSTEM_PROMPT},
+            {"role": "system", "content": f"{_SYSTEM_PROMPT}\n\n{get_persona_prompt_block()}"},
             {"role": "user", "content": prompt},
         ]
     )
-    return (response.choices[0].message.content or "Listo.").strip(), provider, fallback_from
+    summary = (response.choices[0].message.content or "Listo.").strip()
+    return maybe_add_persona_quip(summary), provider, fallback_from
 
 
 def run_agent(

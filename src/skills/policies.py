@@ -7,6 +7,7 @@ SKILL_POLICIES: dict[str, dict] = {
     "set_volume": {"risk": "low", "confirm": False, "reason": "Ajuste multimedia"},
     "set_brightness": {"risk": "low", "confirm": False, "reason": "Ajuste de pantalla"},
     "open_app": {"risk": "medium", "confirm": True, "reason": "Abre apps o URLs"},
+    "play_game_smart": {"risk": "medium", "confirm": True, "reason": "Busca/lanza juego y puede proponer instalacion"},
     "open_folder": {"risk": "low", "confirm": False, "reason": "Abre explorador"},
     "shutdown": {"risk": "critical", "confirm": True, "reason": "Apaga el sistema"},
     "restart": {"risk": "critical", "confirm": True, "reason": "Reinicia el sistema"},

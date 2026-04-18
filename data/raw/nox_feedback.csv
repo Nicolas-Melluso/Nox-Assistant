@@ -7,3 +7,51 @@ pon el volumen al 70,volume_down,volume_up
 pon el volumen al 70,volume_down,volume_up
 Volumen al 40,call_contact,volume_up
 Subir el volumen al 40%,volume_down,volume_up
+2026-04-18T03:14:10,subir brillo,set_brightness,,auto_log,error
+2026-04-18T03:14:27,poner brillo al 100,set_brightness,,auto_log,error
+2026-04-18T03:21:00,naos,activate_focus_mode,,auto_log,ok
+2026-04-18T03:21:00,naos,start_timer,,auto_log,ok
+2026-04-18T03:21:00,naos,speak_text,,auto_log,error
+2026-04-18T03:21:02,noc noc noc noc noc,speak_text,,auto_log,ok
+2026-04-18T03:21:02,noc noc noc noc noc,voice_control_start,,auto_log,ok
+2026-04-18T03:21:03,naos,voice_control_start,,auto_log,ok
+2026-04-18T03:21:03,naos,notify,,auto_log,error
+2026-04-18T03:29:32,decime hola,speak_text,,auto_log,ok
+2026-04-18T03:29:50,decime chao,speak_text,,auto_log,ok
+2026-04-18T03:29:52,les y,search_youtube,,auto_log,ok
+2026-04-18T03:36:16,qué hora,speak_text,,auto_log,ok
+2026-04-18T03:36:16,qué hora es,speak_text,,auto_log,ok
+2026-04-18T03:52:41,podría exponer y vender,open_app,,auto_log,error
+2026-04-18T03:52:45,podría exponer y vender,take_photos,,auto_log,ok
+2026-04-18T03:52:50,podría exponer y vender,notify,,auto_log,ok
+2026-04-18T03:52:50,podría exponer y vender,open_folder,,auto_log,error
+2026-04-18T03:52:59,podría exponer y vender,focus_pomodoro_flow,,auto_log,ok
+2026-04-18T03:53:00,podría exponer y vender,speak_text,,auto_log,ok
+2026-04-18T03:53:00,podría exponer y vender,start_timer,,auto_log,ok
+2026-04-18T03:53:29,hibernar la pese,notify,,auto_log,ok
+2026-04-18T03:53:32,hibernar la pese,focus_pomodoro_flow,,auto_log,ok
+2026-04-18T03:53:32,hibernar la pese,start_timer,,auto_log,ok
+2026-04-18T03:53:32,hibernar la pese,speak_text,,auto_log,ok
+2026-04-18T03:53:32,hibernar la pese,voice_control_start,,auto_log,ok
+2026-04-18T03:53:32,hibernar la pese,take_screenshot,,auto_log,ok
+2026-04-18T03:53:32,hibernar la pese,open_app,,auto_log,error
+2026-04-18T03:56:30,que eres,speak_text,,auto_log,ok
+2026-04-18T03:57:14,quiero ver,open_app,,auto_log,error
+2026-04-18T03:57:35,quiero ver,search_youtube,,auto_log,ok
+2026-04-18T03:57:44,quiero ver,notify,,auto_log,ok
+2026-04-18T03:57:45,quiero ver,focus_pomodoro_flow,,auto_log,ok
+2026-04-18T03:57:47,quiero ver,take_screenshot,,auto_log,ok
+2026-04-18T03:57:47,quiero ver,speak_text,,auto_log,ok
+2026-04-18T03:57:47,quiero ver,start_timer,,auto_log,ok
+2026-04-18T03:57:47,quiero ver,voice_control_start,,auto_log,ok
+2026-04-18T04:02:18,hiberna el equipo,hibernate,,auto_log,ok
+2026-04-18T12:49:13,que hora es,speak_text,,auto_log,ok
+2026-04-18T12:57:29,python scripts/autonomous_nox.py --voice,start_timer,,auto_log,ok
+2026-04-18T12:57:45,python scripts/autonomous_nox.py --voice,notify,,auto_log,ok
+2026-04-18T12:57:45,python scripts/autonomous_nox.py --voice,speak_text,,auto_log,error
+2026-04-18T13:01:36,abrir youtube,search_youtube,,auto_log,error
+2026-04-18T13:01:43,abrir youtube,notify,,auto_log,ok
+2026-04-18T13:02:09,abrirme un video de rocket league,search_youtube,,auto_log,ok
+2026-04-18T13:02:33,abrirme un video de youtube de cómo crear a jarvis,search_youtube,,auto_log,ok
+2026-04-18T14:18:07,capacidad de este mes,speak_text,,auto_log,ok
+2026-04-18T14:20:13,quiero jugar al woodworth,gaming_setup_flow,,auto_log,ok

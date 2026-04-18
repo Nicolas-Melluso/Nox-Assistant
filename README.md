@@ -126,6 +126,17 @@ python scripts/autonomous_nox.py --voice
 python scripts/autonomous_nox.py --auto-confirm
 ```
 
+Personalidad y voz (Jarvis-like):
+
+```bash
+# .env
+NOX_PERSONA_MODE=jarvis_sarcastic
+NOX_ENABLE_JOKES=true
+NOX_TTS_RATE=182
+NOX_TTS_VOLUME=1.0
+NOX_TTS_VOICE_HINT=spanish
+```
+
 Notas de seguridad:
 - `--auto-confirm` no ejecuta acciones de riesgo alto/critico.
 - El agente valida y sanitiza entrada de usuario antes de planificar tools.
@@ -144,6 +155,30 @@ pytest tests -q
 python scripts/apply_feedback.py --target nox250
 python scripts/train_nox250_iterative.py
 ```
+
+Aprendizaje continuo asistido por logs:
+
+```bash
+python scripts/nox_train_continuous.py --max-items 400
+```
+
+Servicio de escritorio (voz en background):
+
+```bash
+python scripts/nox_desktop_service.py --run
+python scripts/nox_desktop_service.py --install-startup
+python scripts/nox_desktop_service.py --remove-startup
+```
+
+Logs del servicio y TTS:
+- Consola: `[SERVICE][WAKE]`, `[SERVICE][PARTIAL]`, `[SERVICE][VOICE]`, `[SERVICE][IA_FULL]`, `[SERVICE][LISTENING]`.
+- Archivo general: `results/autonomous_agent_logs.jsonl` (eventos `service_*`).
+- Archivo TTS: `results/voice_tts_logs.jsonl` (texto hablado y errores de voz).
+
+Caso de uso inteligente gaming (ejemplo):
+- "Quiero jugar al God of War"
+- NOX intenta encontrarlo en bibliotecas Steam y abrirlo.
+- Si no esta instalado, abre la busqueda en Steam Store y devuelve la accion sugerida para instalar.
 
 ### Regenerar NOX250 desde cero
 

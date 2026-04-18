@@ -6,6 +6,7 @@ import queue
 import re
 import threading
 import time
+from datetime import datetime
 from pathlib import Path
 from typing import Callable
 
@@ -65,6 +66,19 @@ _last_command_ts = 0.0
 _last_wake_ts = 0.0
 _active_input_device = None
 _active_sample_rate = None
+
+
+def _voice_log_file() -> Path:
+    return _workspace_root() / "results" / "voice_tts_logs.jsonl"
+
+
+def _append_voice_log(entry: dict) -> None:
+    path = _voice_log_file()
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = dict(entry)
+    payload.setdefault("ts", datetime.now().isoformat(timespec="seconds"))
+    with path.open("a", encoding="utf-8") as f:
+        f.write(json.dumps(payload, ensure_ascii=False) + "\n")
 
 
 def _int_or_str(text: str):
@@ -298,10 +312,25 @@ def speak_text(text: str) -> dict:
         with _tts_lock:
             if _tts_engine is None:
                 _tts_engine = pyttsx3.init()
+                rate = int(os.getenv("NOX_TTS_RATE", "182"))
+                volume = float(os.getenv("NOX_TTS_VOLUME", "1.0"))
+                voice_hint = os.getenv("NOX_TTS_VOICE_HINT", "spanish").strip().lower()
+
+                _tts_engine.setProperty("rate", max(120, min(240, rate)))
+                _tts_engine.setProperty("volume", max(0.2, min(1.0, volume)))
+
+                if voice_hint:
+                    for v in _tts_engine.getProperty("voices"):
+                        payload = f"{getattr(v, 'id', '')} {getattr(v, 'name', '')}".lower()
+                        if voice_hint in payload:
+                            _tts_engine.setProperty("voice", v.id)
+                            break
             _tts_engine.say(text)
             _tts_engine.runAndWait()
+        _append_voice_log({"event": "tts_spoken", "text": text, "chars": len(text or "")})
         return {"spoken": True, "text": text}
     except Exception as e:
+        _append_voice_log({"event": "tts_error", "text": text, "error": str(e)})
         return {"error": f"TTS offline no disponible: {e}"}
 
 
