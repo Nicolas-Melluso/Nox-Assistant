@@ -27,8 +27,13 @@ Thumbs.db
 # ML generated artifacts (grandes, se regeneran)
 models/*.joblib
 models/*.pkl
+models/vosk-model-*/
 data/processed/
 data/train_test/
+
+# Runtime artifacts (locales)
+results/autonomous_agent_logs.jsonl
+data/autonomous_memory.json
 
 # Historial de sesiones con IA (privado, no es codigo del proyecto)
 agent-history/

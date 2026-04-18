@@ -62,6 +62,7 @@ _last_partial_seen = ""
 _last_partial_ts = 0.0
 _last_command_seen = ""
 _last_command_ts = 0.0
+_last_wake_ts = 0.0
 _active_input_device = None
 _active_sample_rate = None
 
@@ -126,8 +127,8 @@ def _dispatch_command_async(command_text: str) -> None:
     threading.Thread(target=_runner, daemon=True, name="nox-voice-cmd").start()
 
 
-def _process_transcript(text: str) -> None:
-    global _last_error
+def _process_transcript(text: str, is_partial: bool = False) -> None:
+    global _last_error, _last_wake_ts
     content = _normalize_text(text)
     if not content:
         return
@@ -144,6 +145,10 @@ def _process_transcript(text: str) -> None:
 
     has_wake, inline_command = _extract_after_wake(content)
     if has_wake:
+        # Debounce: ignorar wake duplicado si ya se disparó hace menos de 2 segundos.
+        if now - _last_wake_ts < 2.0:
+            return
+        _last_wake_ts = now
         state["armed_until"] = now + float(_listen_window_sec)
         setattr(_process_transcript, "_state", state)
         try:
@@ -152,19 +157,19 @@ def _process_transcript(text: str) -> None:
         except Exception as e:
             _last_error = str(e)
 
-        # Caso "Nox <comando>" en la misma frase.
-        if inline_command:
+        # Caso "Nox <comando>" en la misma frase — solo si es resultado final.
+        if inline_command and not is_partial:
             _voice_queue.put(inline_command)
             state["armed_until"] = 0.0
             setattr(_process_transcript, "_state", state)
             _dispatch_command_async(inline_command)
         elif not _allow_followup_after_wake:
-            # En modo constante estricto NO se arma ventana de follow-up.
             state["armed_until"] = 0.0
             setattr(_process_transcript, "_state", state)
         return
 
-    if _allow_followup_after_wake and now <= armed_until:
+    # Ventana de follow-up: solo dispara en resultado final, no en parciales.
+    if _allow_followup_after_wake and not is_partial and now <= armed_until:
         _voice_queue.put(content)
         state["armed_until"] = 0.0
         setattr(_process_transcript, "_state", state)
@@ -276,7 +281,7 @@ def _listener_loop() -> None:
                     _last_partial_seen = partial_norm
                     _last_partial_ts = now
 
-                    _process_transcript(partial_norm)
+                    _process_transcript(partial_norm, is_partial=True)
     except Exception as e:
         _last_error = f"Listener offline no disponible: {e}"
     finally:

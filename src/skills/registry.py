@@ -138,6 +138,7 @@ def _tool_set_brightness(value: int) -> dict:
 
 
 def _tool_open_app(target: str) -> dict:
+    import shutil
     t = str(target).lower().strip()
     protocols = {"steam": "steam://open/main", "discord": "discord://", "spotify": "spotify:"}
     if t in protocols:
@@ -157,14 +158,70 @@ def _tool_open_app(target: str) -> dict:
         webbrowser.open(target)
         return {"opened": target}
 
+    # Aliases comunes en español
+    _aliases: dict[str, str] = {
+        "youtube": "https://youtube.com",
+        "netflix": "https://netflix.com",
+        "google": "https://google.com",
+        "whatsapp": "whatsapp",
+        "word": "winword",
+        "excel": "excel",
+        "powerpoint": "powerpnt",
+        "notepad": "notepad.exe",
+        "calculadora": "calc.exe",
+        "calculator": "calc.exe",
+        "paint": "mspaint.exe",
+        "tarea": "taskmgr.exe",
+        "task manager": "taskmgr.exe",
+        "administrador de tareas": "taskmgr.exe",
+        "configuracion": "ms-settings:",
+        "settings": "ms-settings:",
+        "tienda": "ms-windows-store:",
+        "store": "ms-windows-store:",
+    }
+    resolved = _aliases.get(t, target)
+    if resolved.startswith("http") or resolved.startswith("ms-") or resolved.startswith("spotify") or resolved.startswith("steam") or resolved.startswith("discord") or resolved.startswith("whatsapp"):
+        webbrowser.open(resolved)
+        return {"opened": resolved}
+
+    # Buscar en PATH primero
+    if shutil.which(resolved):
+        subprocess.Popen([resolved])
+        return {"opened": resolved}
+
     try:
-        subprocess.Popen(["cmd", "/c", "start", "", target])
-        return {"opened": target}
+        subprocess.Popen(["cmd", "/c", "start", "", resolved])
+        return {"opened": resolved}
     except Exception as e:
         return {"error": f"No se pudo abrir {target}: {e}"}
 
 
-def _tool_open_folder(path: str) -> dict:
+def _tool_hibernate() -> dict:
+    subprocess.Popen(["shutdown", "/h"])
+    return {"hibernating": True}
+
+
+def _tool_sleep_pc() -> dict:
+    subprocess.Popen(["rundll32.exe", "powrprof.dll,SetSuspendState", "0", "1", "0"])
+    return {"sleeping": True}
+
+
+def _tool_shutdown() -> dict:
+    subprocess.Popen(["shutdown", "/s", "/t", "5"])
+    return {"shutdown": True}
+
+
+def _tool_restart() -> dict:
+    subprocess.Popen(["shutdown", "/r", "/t", "5"])
+    return {"restart": True}
+
+
+def _tool_lock_pc() -> dict:
+    import ctypes
+    ctypes.windll.user32.LockWorkStation()
+    return {"locked": True}
+
+
     resolved = str(Path(path).expanduser())
     subprocess.Popen(["explorer.exe", resolved])
     return {"opened": resolved}
@@ -321,7 +378,7 @@ def _normalize_skill_args(name: str, args: dict) -> dict:
         _move_alias_to("minutes", ("minutes", "duration_minutes", "mins", "duration"))
 
     if name == "open_app" and "target" not in normalized:
-        _move_alias_to("target", ("target", "app", "application", "name"))
+        _move_alias_to("target", ("target", "app", "application", "name", "app_name"))
 
     if name == "speak_text" and "text" not in normalized and "message" in normalized:
         normalized["text"] = normalized["message"]
@@ -356,6 +413,11 @@ SKILL_HANDLERS = {
     "set_brightness": lambda a: _tool_set_brightness(**a),
     "open_app": lambda a: _tool_open_app(**a),
     "open_folder": lambda a: _tool_open_folder(**a),
+    "hibernate": lambda a: _tool_hibernate(),
+    "sleep_pc": lambda a: _tool_sleep_pc(),
+    "shutdown": lambda a: _tool_shutdown(),
+    "restart": lambda a: _tool_restart(),
+    "lock_pc": lambda a: _tool_lock_pc(),
     "search_youtube": lambda a: _tool_search_youtube(**a),
     "start_timer": lambda a: _tool_start_timer(**a),
     "get_system_info": lambda a: _tool_get_system_info(),
@@ -382,8 +444,13 @@ def get_tools_manifest() -> list[dict]:
         {"type": "function", "function": {"name": "take_screenshot", "description": "Toma screenshot.", "parameters": {"type": "object", "properties": {}, "required": []}}},
         {"type": "function", "function": {"name": "set_volume", "description": "Ajusta volumen 0-100.", "parameters": {"type": "object", "properties": {"value": {"type": "integer"}}, "required": ["value"]}}},
         {"type": "function", "function": {"name": "set_brightness", "description": "Ajusta brillo 0-100.", "parameters": {"type": "object", "properties": {"value": {"type": "integer"}}, "required": ["value"]}}},
-        {"type": "function", "function": {"name": "open_app", "description": "Abre app o URL.", "parameters": {"type": "object", "properties": {"target": {"type": "string"}}, "required": ["target"]}}},
+        {"type": "function", "function": {"name": "open_app", "description": "Abre app, URL o programa. Ejemplos: 'youtube', 'chrome', 'spotify', 'discord', 'calculadora', 'configuracion'.", "parameters": {"type": "object", "properties": {"target": {"type": "string"}}, "required": ["target"]}}},
         {"type": "function", "function": {"name": "open_folder", "description": "Abre carpeta.", "parameters": {"type": "object", "properties": {"path": {"type": "string"}}, "required": ["path"]}}},
+        {"type": "function", "function": {"name": "hibernate", "description": "Hiberna la PC.", "parameters": {"type": "object", "properties": {}, "required": []}}},
+        {"type": "function", "function": {"name": "sleep_pc", "description": "Pone la PC en suspension/sleep.", "parameters": {"type": "object", "properties": {}, "required": []}}},
+        {"type": "function", "function": {"name": "shutdown", "description": "Apaga la PC.", "parameters": {"type": "object", "properties": {}, "required": []}}},
+        {"type": "function", "function": {"name": "restart", "description": "Reinicia la PC.", "parameters": {"type": "object", "properties": {}, "required": []}}},
+        {"type": "function", "function": {"name": "lock_pc", "description": "Bloquea la pantalla.", "parameters": {"type": "object", "properties": {}, "required": []}}},
         {"type": "function", "function": {"name": "search_youtube", "description": "Busca en YouTube.", "parameters": {"type": "object", "properties": {"query": {"type": "string"}}, "required": ["query"]}}},
         {"type": "function", "function": {"name": "start_timer", "description": "Inicia timer.", "parameters": {"type": "object", "properties": {"minutes": {"type": "integer"}, "label": {"type": "string", "default": "NOX Timer"}}, "required": ["minutes"]}}},
         {"type": "function", "function": {"name": "get_system_info", "description": "Devuelve estado del sistema.", "parameters": {"type": "object", "properties": {}, "required": []}}},
