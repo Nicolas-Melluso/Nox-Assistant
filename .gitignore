@@ -2,6 +2,11 @@
 __pycache__/
 *.py[cod]
 
+/node_modules/
+/dist/build/
+
+/agent-history
+
 # Virtual environments
 .venv/
 .venv-py314-backup/

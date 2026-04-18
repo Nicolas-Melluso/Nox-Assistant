@@ -3,3 +3,7 @@
 {"event": "tts_spoken", "text": "Hola, ¿cómo puedo ayudarte hoy?", "chars": 31, "ts": "2026-04-18T14:54:31"}
 {"event": "tts_spoken", "text": "Se pidió un saludo. Se ejecutó una respuesta hablada que dijo: \"Hola, ¿cómo puedo ayudarte hoy?\" Resultado final: el sistema respondió adecuadamente con un saludo.\nMision cumplida. Increiblemente, sin incendiar el sistema.", "chars": 222, "ts": "2026-04-18T14:54:49"}
 {"event": "tts_spoken", "text": "Se solicitó abrir Spotify, pero se canceló la acción por el usuario. A pesar de un aviso notificado que indicaba un posible problema con la instalación, no se ejecutaron más acciones efectivas debido a repetidas cance...", "chars": 220, "ts": "2026-04-18T15:01:15"}
+{"event": "tts_spoken", "text": "¿Cómo puedo ayudarte hoy?", "chars": 25, "ts": "2026-04-18T15:20:39"}
+{"event": "tts_spoken", "text": "La sesión de trabajo ha comenzado.", "chars": 34, "ts": "2026-04-18T15:44:57"}
+{"event": "tts_spoken", "text": "Se solicitó ejecutar una serie de tareas para iniciar un modo de trabajo. Se notificó al usuario que la ejecución comenzaba, pero todas las acciones posteriores fueron canceladas por el usuario, incluyendo el modo foco, el temporizador y la apertura de la aplicación de notas. Como resultado final, se comunicó verbalmente que la sesión de trabajo había comenzado, aunque no se completó ninguna tarea.\nTerminado. Prometo no cobrar horas extra por genialidad.", "chars": 458, "ts": "2026-04-18T15:45:27"}
+{"event": "tts_spoken", "text": "¡Hola! ¿En qué puedo ayudarte hoy?", "chars": 34, "ts": "2026-04-18T15:52:33"}

@@ -314,6 +314,43 @@
         "search_youtube"
       ],
       "summary": "Se pidió buscar \"bridge school\" en YouTube. Se ejecutó la búsqueda y se obtuvo un enlace a los resultados correspondientes. Resultado final: la búsqueda se realizó con éxito y puedes ver los resultados [aquí](https://www.youtube.com/results?search_query=bridge+school).\nMision cumplida. Increiblemente, sin incendiar el sistema."
+    },
+    {
+      "ts": "2026-04-18T15:20:42",
+      "input": "Habla",
+      "tools": [
+        "speak_text"
+      ],
+      "summary": "Se pidió que hablara. Se ejecutó la herramienta de voz y, como resultado final, se indicó \"¿Cómo puedo ayudarte hoy?\", que fue pronunciado con éxito.\nHecho. Otro dia salvado por tu asistente favorito."
+    },
+    {
+      "ts": "2026-04-18T15:45:00",
+      "input": "ejecutar algo",
+      "tools": [
+        "notify",
+        "focus_pomodoro_flow",
+        "start_timer",
+        "activate_focus_mode",
+        "speak_text",
+        "open_app"
+      ],
+      "summary": "Se solicitó ejecutar una serie de tareas para iniciar un modo de trabajo. Se notificó al usuario que la ejecución comenzaba, pero todas las acciones posteriores fueron canceladas por el usuario, incluyendo el modo foco, el temporizador y la apertura de la aplicación de notas. Como resultado final, se comunicó verbalmente que la sesión de trabajo había comenzado, aunque no se completó ninguna tarea.\nTerminado. Prometo no cobrar horas extra por genialidad."
+    },
+    {
+      "ts": "2026-04-18T15:52:37",
+      "input": "saluda",
+      "tools": [
+        "speak_text"
+      ],
+      "summary": "Se solicitó un saludo. Se ejecutó la herramienta para hablar, resultando en: \"¡Hola! ¿En qué puedo ayudarte hoy?\". La acción se completó con éxito.\nTerminado. Prometo no cobrar horas extra por genialidad."
+    },
+    {
+      "ts": "2026-04-18T15:54:25",
+      "input": "qué clima hay hoy",
+      "tools": [
+        "search_youtube"
+      ],
+      "summary": "Se pidió información sobre el clima del día. Se ejecutó una búsqueda en YouTube relacionada con el clima y se obtuvo un enlace a los resultados de la búsqueda. El resultado final es un enlace a YouTube: [qué clima hay hoy](https://www.youtube.com/results?search_query=qu%C3%A9+clima+hay+hoy).\nMision cumplida. Increiblemente, sin incendiar el sistema."
     }
   ],
   "failed_flows": [
