@@ -13,3 +13,7 @@ Pillow==10.2.0
 pycaw==20240210
 comtypes==1.4.4
 opencv-python==4.10.0.84
+openai==1.46.0
+pyttsx3==2.90
+vosk==0.3.45
+sounddevice==0.4.7

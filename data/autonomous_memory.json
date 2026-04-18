@@ -1,0 +1,129 @@
+{
+  "preferences": {},
+  "successful_flows": [
+    {
+      "ts": "2026-04-18T03:00:35",
+      "input": "Quiero hablarte",
+      "tools": [
+        "speak_text"
+      ],
+      "summary": "Se pidió una conversación. Se ejecutó la respuesta \"Hola, ¿en qué puedo ayudarte hoy?\" y se confirmó que se habló exitosamente. El resultado final fue una interacción lista para atender la solicitud del usuario."
+    },
+    {
+      "ts": "2026-04-18T03:01:02",
+      "input": "Quiero escribirte el prompt hablandote",
+      "tools": [
+        "speak_text"
+      ],
+      "summary": "Se solicitó la creación de un prompt mediante conversación. Se ejecutó la acción de hablar el texto \"Escribe el prompt mientras te hablo.\" y se logró con éxito. El resultado final fue que el texto fue pronunciado correctamente, capturando la intención del usuario."
+    },
+    {
+      "ts": "2026-04-18T03:01:24",
+      "input": "Quiero yo hablar y que vos escuches",
+      "tools": [
+        "speak_text",
+        "voice_control_start"
+      ],
+      "summary": "Se solicitó tener una conversación en la que el usuario pudiera hablar y el asistente escucharía. Se ejecutó la función de texto hablado indicando que estaba escuchando y se activó el modo de control por voz, lo que permitió iniciar la interacción. El resultado final fue que el asistente estaba preparado para escuchar al usuario, mostrando disposición para la conversación."
+    },
+    {
+      "ts": "2026-04-18T03:13:11",
+      "input": "nov",
+      "tools": [
+        "speak_text",
+        "voice_control_start",
+        "focus_pomodoro_flow"
+      ],
+      "summary": "Se solicitó la activación de control por voz y un flujo de pomodoro para mejorar la concentración. Se ejecutó la función de texto hablado, se confirmó que el control por voz ya estaba activo y se intentó iniciar el flujo de pomodoro. Sin embargo, hubo un fallo en la configuración del flujo debido a un error de módulo, lo que impidió su ejecución completa."
+    },
+    {
+      "ts": "2026-04-18T03:14:14",
+      "input": "subir brillo",
+      "tools": [
+        "set_brightness"
+      ],
+      "summary": "Se pidió aumentar el brillo de la pantalla. Se intentó ejecutar la herramienta de configuración de brillo, pero resultó en un error debido a un argumento inesperado. Como resultado, no se logró modificar el brillo y se mantuvo en el mismo nivel."
+    },
+    {
+      "ts": "2026-04-18T03:14:32",
+      "input": "poner brillo al 100",
+      "tools": [
+        "set_brightness"
+      ],
+      "summary": "Se solicitó ajustar el brillo de la pantalla al 100%. Se intentó ejecutar la herramienta para cambiar el brillo, pero se produjo un error debido a un argumento inesperado en la función. Como resultado, el brillo no se modificó y se mantuvo en su nivel actual."
+    },
+    {
+      "ts": "2026-04-18T03:21:15",
+      "input": "naos",
+      "tools": [
+        "activate_focus_mode",
+        "start_timer",
+        "speak_text",
+        "voice_control_start",
+        "notify",
+        "notify",
+        "speak_text",
+        "start_timer"
+      ],
+      "summary": "Se solicitó activar un modo de enfoque y establecer un temporizador de trabajo. Se ejecutaron varias acciones, pero hubo errores en la activación del volumen y en la síntesis de voz. Finalmente, se logró iniciar un temporizador de 25 minutos, enviar un recordatorio sobre tomar descansos breves y realizar la síntesis de voz para el mismo mensaje."
+    },
+    {
+      "ts": "2026-04-18T03:29:35",
+      "input": "decime hola",
+      "tools": [
+        "speak_text"
+      ],
+      "summary": "Se pidió que dijera \"hola\". Se ejecutó la acción utilizando la herramienta para hablar, resultando en que se pronunció la palabra \"Hola\". Al final, la acción fue exitosa y se completó en 1.326 ms."
+    },
+    {
+      "ts": "2026-04-18T03:29:53",
+      "input": "decime chao",
+      "tools": [
+        "speak_text"
+      ],
+      "summary": "Se solicitó que dijera \"chao\". Se ejecutó la acción usando la herramienta de voz y se pronunció correctamente la palabra \"Chao\" en 324 ms. El resultado final fue la correcta emisión del mensaje."
+    },
+    {
+      "ts": "2026-04-18T03:36:19",
+      "input": "qué hora",
+      "tools": [
+        "speak_text"
+      ],
+      "summary": "Se solicitó la hora actual. Se ejecutó la herramienta para hablar el texto y el resultado final fue que se informó \"Son las 3:36 AM\". Además, se registraron aplicaciones en ejecución, un uso del CPU del 6.5%, del RAM del 41.2% y la batería al 81%."
+    },
+    {
+      "ts": "2026-04-18T03:36:19",
+      "input": "qué hora es",
+      "tools": [
+        "speak_text"
+      ],
+      "summary": "Se pidió saber la hora actual. Se ejecutó la acción de hablar, indicando que la hora es tres de la mañana. El resultado final fue que el sistema informó correctamente la hora solicitada."
+    }
+  ],
+  "failed_flows": [
+    {
+      "ts": "2026-04-18T03:14:10",
+      "input": "subir brillo",
+      "tool": "set_brightness",
+      "error": "_tool_set_brightness() got an unexpected keyword argument 'level'"
+    },
+    {
+      "ts": "2026-04-18T03:14:27",
+      "input": "poner brillo al 100",
+      "tool": "set_brightness",
+      "error": "_tool_set_brightness() got an unexpected keyword argument 'level'"
+    },
+    {
+      "ts": "2026-04-18T03:21:00",
+      "input": "naos",
+      "tool": "speak_text",
+      "error": "TTS offline no disponible: run loop already started"
+    },
+    {
+      "ts": "2026-04-18T03:21:03",
+      "input": "naos",
+      "tool": "notify",
+      "error": "_tool_notify() missing 1 required positional argument: 'title'"
+    }
+  ]
+}

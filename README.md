@@ -2,6 +2,8 @@
 
 Proyecto de ML para clasificacion de intenciones de voz. NOX entiende lenguaje natural, enruta intents con reglas robustas y ejecuta acciones reales en Windows.
 
+![alt text](image.png)
+
 ## Estado actual
 
 | Modelo | Intents | Accuracy |
