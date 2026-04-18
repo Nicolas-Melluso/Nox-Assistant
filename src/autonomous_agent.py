@@ -21,6 +21,7 @@ from src.tools_manifest import TOOLS, TOOL_NAMES
 load_dotenv()
 
 _PROVIDER_PRIORITY = os.getenv("NOX_PROVIDER_PRIORITY", "github,ollama")
+_PREFERRED_PROVIDER = os.getenv("NOX_PROVIDER", "").strip().lower()
 _GITHUB_TOKEN = os.getenv("GITHUB_TOKEN", "")
 _GITHUB_MODEL = os.getenv("GITHUB_MODEL", "gpt-4o-mini")
 _GITHUB_BASE_URL = os.getenv("GITHUB_BASE_URL", "https://models.inference.ai.azure.com")
@@ -60,10 +61,31 @@ class AgentResult:
         return [s.tool for s in self.steps]
 
 
+def _is_github_configured() -> bool:
+    return bool(_GITHUB_TOKEN and _GITHUB_TOKEN != "your_github_token_here")
+
+
 def _provider_order() -> list[str]:
     order = [x.strip().lower() for x in _PROVIDER_PRIORITY.split(",") if x.strip()]
     valid = [x for x in order if x in {"github", "ollama"}]
-    return valid or ["github", "ollama"]
+
+    # Respeta NOX_PROVIDER como preferencia explicita si es valido.
+    if _PREFERRED_PROVIDER in {"github", "ollama"}:
+        valid = [_PREFERRED_PROVIDER] + [x for x in valid if x != _PREFERRED_PROVIDER]
+
+    if not valid:
+        valid = ["github", "ollama"]
+
+    # Regla de negocio: priorizar GitHub Models antes de Ollama cuando haya token.
+    if _is_github_configured() and "github" in valid:
+        valid = ["github"] + [x for x in valid if x != "github"]
+
+    # Evita duplicados preservando orden.
+    unique: list[str] = []
+    for p in valid:
+        if p not in unique:
+            unique.append(p)
+    return unique
 
 
 def _make_client(provider: str) -> tuple[OpenAI, str]:
@@ -96,8 +118,9 @@ def _extract_json(content: str) -> dict | list | None:
 
 def _chat_with_failover(messages: list[dict], tools: list[dict] | None = None, tool_choice: str | None = None) -> tuple[object, str, str | None]:
     providers = _provider_order()
-    last_error = None
     used: list[str] = []
+    errors: list[str] = []
+
     for provider in providers:
         try:
             client, model = _make_client(provider)
@@ -111,9 +134,13 @@ def _chat_with_failover(messages: list[dict], tools: list[dict] | None = None, t
             return response, provider, fallback_from
         except Exception as e:
             used.append(provider)
-            last_error = f"{provider}: {e}"
+            errors.append(f"{provider}: {e}")
             continue
-    raise RuntimeError(f"No se pudo contactar ningun provider ({', '.join(providers)}). Ultimo error: {last_error}")
+
+    details = " | ".join(errors) if errors else "sin detalle"
+    raise RuntimeError(
+        f"No se pudo contactar ningun provider ({', '.join(providers)}). Errores: {details}"
+    )
 
 
 def _validate_plan(steps: list[dict]) -> tuple[bool, str]:

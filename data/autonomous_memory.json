@@ -98,6 +98,137 @@
         "speak_text"
       ],
       "summary": "Se pidió saber la hora actual. Se ejecutó la acción de hablar, indicando que la hora es tres de la mañana. El resultado final fue que el sistema informó correctamente la hora solicitada."
+    },
+    {
+      "ts": "2026-04-18T03:52:27",
+      "input": "qué hora es",
+      "tools": [
+        "speak_text"
+      ],
+      "summary": "Se solicitó la hora actual. Se ejecutó una función que respondió: \"Son las 3:52 AM\". El resultado final fue una respuesta verbal y se confirmaron los detalles técnicos del sistema en uso."
+    },
+    {
+      "ts": "2026-04-18T03:53:03",
+      "input": "podría exponer y vender",
+      "tools": [
+        "open_app",
+        "take_photos",
+        "notify",
+        "open_folder",
+        "focus_pomodoro_flow",
+        "speak_text",
+        "start_timer"
+      ],
+      "summary": "Se pidió exponer y vender fotografías. Se ejecutó el proceso de toma de fotos, logrando capturar una imagen y notificando que estaban listas para revisión. El resultado final incluye la foto tomada, un recordatorio para preparar la lista de precios, y un temporizador de 25 minutos en marcha para organizar el trabajo."
+    },
+    {
+      "ts": "2026-04-18T03:53:38",
+      "input": "hibernar la pese",
+      "tools": [
+        "notify",
+        "focus_pomodoro_flow",
+        "start_timer",
+        "speak_text",
+        "voice_control_start",
+        "take_screenshot",
+        "open_app"
+      ],
+      "summary": "Se solicitó hibernar la PC. Se ejecutó el proceso de notificación y un intento fallido de iniciar un flujo de Pomodoro, seguido de un temporizador de 5 minutos y una comunicación verbal sobre la inminente hibernación. Sin embargo, la hibernación no se completó exitosamente debido a un error al intentar abrir la aplicación correspondiente."
+    },
+    {
+      "ts": "2026-04-18T03:56:33",
+      "input": "que eres",
+      "tools": [
+        "speak_text"
+      ],
+      "summary": "Se pidió una descripción de qué soy. Se ejecutó una respuesta a través de la herramienta de texto hablado, en la que se declaró ser un asistente virtual diseñado para ayudar en diversas tareas. Como resultado, la información fue proporcionada de manera efectiva y escuchada."
+    },
+    {
+      "ts": "2026-04-18T03:56:33",
+      "input": "qué hora es",
+      "tools": [
+        "speak_text"
+      ],
+      "summary": "Se solicitó la hora actual. Se ejecutó el comando para hablar y se informó que \"Son las tres de la mañana\". Como resultado, la información fue comunicada correctamente y se utilizó un 2.4% de CPU y 47.1% de RAM en el proceso."
+    },
+    {
+      "ts": "2026-04-18T03:57:46",
+      "input": "quiero ver",
+      "tools": [
+        "search_youtube",
+        "notify"
+      ],
+      "summary": "Se pidió realizar una búsqueda sobre \"quiero ver\". Se ejecutó una búsqueda en YouTube que encontró contenido relacionado y se envió una notificación indicando que la búsqueda se había completado. El resultado final fue una notificación de éxito y un enlace a los resultados de la búsqueda en YouTube."
+    },
+    {
+      "ts": "2026-04-18T03:57:51",
+      "input": "quiero ver",
+      "tools": [
+        "open_app",
+        "focus_pomodoro_flow",
+        "notify",
+        "take_screenshot",
+        "speak_text",
+        "start_timer",
+        "voice_control_start"
+      ],
+      "summary": "Se solicitó ver contenido en el PC. Se intentó abrir el explorador y ejecutar un flujo de Pomodoro, pero hubo fallos en la ejecución. Se notificó al usuario sobre la revisión de documentos, se tomó una captura de pantalla y se inició un temporizador de 25 minutos. Al final, se logró capturar la pantalla y se notificó al usuario de este éxito."
+    },
+    {
+      "ts": "2026-04-18T04:02:21",
+      "input": "hiberna el equipo",
+      "tools": [
+        "hibernate"
+      ],
+      "summary": "Se pidió hibernar el equipo. Se ejecutó la hibernación con éxito y el resultado final fue que el dispositivo está en estado de hibernación."
+    },
+    {
+      "ts": "2026-04-18T12:49:16",
+      "input": "que hora es",
+      "tools": [
+        "speak_text"
+      ],
+      "summary": "Se pidió saber qué hora es. Se ejecutó la herramienta para hablar el texto y el resultado final fue que se informó que \"La hora actual es 12:49.\""
+    },
+    {
+      "ts": "2026-04-18T12:58:02",
+      "input": "python scripts/autonomous_nox.py --voice",
+      "tools": [
+        "open_app",
+        "focus_pomodoro_flow",
+        "start_timer",
+        "notify",
+        "speak_text",
+        "open_app",
+        "notify",
+        "start_timer"
+      ],
+      "summary": "Se pidió ejecutar el script de Python `autonomous_nox.py` con la opción de voz. Se intentó abrir la aplicación de Python y otras, pero las acciones fueron canceladas por el usuario. Como resultado, se notificó que el script estaba en ejecución y se inició un temporizador, aunque no se completó la ejecución del script."
+    },
+    {
+      "ts": "2026-04-18T13:01:46",
+      "input": "abrir youtube",
+      "tools": [
+        "search_youtube",
+        "notify"
+      ],
+      "summary": "Se pidió abrir YouTube. Se intentó utilizar la herramienta de búsqueda de YouTube, pero ocurrió un error debido a un argumento faltante. Finalmente, se notificó que YouTube había sido abierto."
+    },
+    {
+      "ts": "2026-04-18T13:02:12",
+      "input": "abrirme un video de rocket league",
+      "tools": [
+        "search_youtube"
+      ],
+      "summary": "Se pidió abrir un video de Rocket League. Se ejecutó una búsqueda en YouTube con la consulta \"rocket league\", y se obtuvo un enlace a los resultados de búsqueda. El resultado final fue la URL con los videos relacionados: [https://www.youtube.com/results?search_query=rocket+league](https://www.youtube.com/results?search_query=rocket+league)."
+    },
+    {
+      "ts": "2026-04-18T13:02:35",
+      "input": "abrirme un video de youtube de cómo crear a jarvis",
+      "tools": [
+        "search_youtube"
+      ],
+      "summary": "Se solicitó abrir un video de YouTube sobre cómo crear a Jarvis. Se ejecutó una búsqueda en YouTube, resultando en un enlace a los videos relacionados: [cómo crear a jarvis](https://www.youtube.com/results?search_query=c%C3%B3mo+crear+a+jarvis)."
     }
   ],
   "failed_flows": [
@@ -124,6 +255,42 @@
       "input": "naos",
       "tool": "notify",
       "error": "_tool_notify() missing 1 required positional argument: 'title'"
+    },
+    {
+      "ts": "2026-04-18T03:52:41",
+      "input": "podría exponer y vender",
+      "tool": "open_app",
+      "error": "_tool_open_app() got an unexpected keyword argument 'app_name'"
+    },
+    {
+      "ts": "2026-04-18T03:52:50",
+      "input": "podría exponer y vender",
+      "tool": "open_folder",
+      "error": "_tool_open_folder() got an unexpected keyword argument 'folder_name'"
+    },
+    {
+      "ts": "2026-04-18T03:53:32",
+      "input": "hibernar la pese",
+      "tool": "open_app",
+      "error": "_tool_open_app() got an unexpected keyword argument 'app_name'"
+    },
+    {
+      "ts": "2026-04-18T03:57:14",
+      "input": "quiero ver",
+      "tool": "open_app",
+      "error": "_tool_open_app() got an unexpected keyword argument 'app_name'"
+    },
+    {
+      "ts": "2026-04-18T12:57:45",
+      "input": "python scripts/autonomous_nox.py --voice",
+      "tool": "speak_text",
+      "error": "TTS offline no disponible: name '_compointer_base' is not defined"
+    },
+    {
+      "ts": "2026-04-18T13:01:36",
+      "input": "abrir youtube",
+      "tool": "search_youtube",
+      "error": "_tool_search_youtube() missing 1 required positional argument: 'query'"
     }
   ]
 }
