@@ -29,6 +29,15 @@ Proyecto de asistente de voz para Windows con clasificación de intenciones en e
 - Modelo entrenado: `models/intent_model.joblib`
 - Vectorizador: `training/datasets/processed/intent_vectorizer.joblib`
 
+## Tests automáticos
+
+- Los tests unitarios usan pytest y una fixture engine para instanciar CoreEngine.
+- Ejecuta los tests desde la raíz del proyecto:
+  ```bash
+  pytest tests -q
+  ```
+- Si usas imports desde src/, asegúrate de que el sys.path esté configurado (ver conftest.py).
+
 ## Contribución
 - Sube solo código y datasets crudos
 - Los resultados y archivos generados están ignorados en `.gitignore`

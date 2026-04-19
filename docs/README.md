@@ -29,3 +29,12 @@
 ## Estado actual
 - El modelo logra 100% de precisión en el smoke test.
 - El pipeline es reproducible y modular.
+
+## Tests automáticos
+
+- Los tests usan pytest y una fixture engine definida en conftest.py.
+- Ejecutar desde la raíz del proyecto:
+  ```bash
+  pytest tests -q
+  ```
+- El archivo conftest.py agrega src/ al sys.path para que los imports funcionen correctamente.
