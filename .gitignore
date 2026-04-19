@@ -1,0 +1,87 @@
+# Python cache
+__pycache__/
+*.py[cod]
+
+/node_modules/
+/dist/build/
+
+/agent-history
+
+# Virtual environments
+.venv/
+.venv-py314-backup/
+.venv312/
+venv/
+env/
+
+# Tooling and test caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Checkpoints y backups
+*.bak
+*.tmp
+*.swp
+*.swo
+*~
+
+# Logs y salidas de entrenamiento
+*.log
+*.out
+*.err
+*.csv~
+nohup.out
+
+# Runs y experimentos
+training/runs/csv/
+training/runs/logs/
+training/runs/checkpoints/
+training/runs/tmp/
+training/runs/*.log
+training/runs/*.out
+training/runs/*.err
+
+# Archivos de entorno
+.envrc
+.python-version
+
+# Local environment files
+.env
+
+# ML generated artifacts (grandes, se regeneran)
+models/*.joblib
+models/*.pkl
+models/vosk-model-*/
+models/
+models/vosk/
+models/vosk/vosk-model-es-0.42/
+models/vosk/vosk-model-es-0.42/**
+!models/vosk/README.md
+data/processed/
+data/train_test/
+results/
+training/datasets/processed/
+training/datasets/interim/
+
+# Versionar solo datasets crudos
+!training/datasets/raw/
+
+# Runtime artifacts (locales)
+results/autonomous_agent_logs.jsonl
+data/autonomous_memory.json
+
+# Historial de sesiones con IA (privado, no es codigo del proyecto)
+agent-history/
+
+# Datasets fuente: versionados
+!data/raw/
+!agent-history/
+!training/datasets/raw/
