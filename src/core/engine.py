@@ -8,15 +8,26 @@ Define la interfaz principal para predecir intenciones y ejecutar skills.
 Actualmente implementa métodos de ejemplo (placeholders) que deben ser reemplazados por lógica real en futuras fases.
 Utiliza tipado genérico para permitir flexibilidad en la configuración y los resultados.
 """
+
 from typing import Dict, Any
+from core.entity_extraction import extract_entities
 
 class CoreEngine:
     def __init__(self, config: Dict[str, Any] | None = None):
         self.config = config or {}
 
     def predict_intent(self, text: str) -> Dict[str, Any]:
-        """Placeholder intent prediction — replace with real model call in Fase 1."""
-        return {"intent": "unknown", "confidence": 0.0, "input_text": text}
+        """Predice la intención y extrae entidades del texto."""
+        # Placeholder de intent
+        intent = "unknown"
+        confidence = 0.0
+        entities = extract_entities(text)
+        return {
+            "intent": intent,
+            "confidence": confidence,
+            "input_text": text,
+            "entities": entities
+        }
 
     def execute_skill(self, intent_result: Dict[str, Any]) -> Dict[str, Any]:
         """Placeholder skill execution."""

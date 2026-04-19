@@ -29,6 +29,16 @@ Proyecto de asistente de voz para Windows con clasificación de intenciones en e
 - Modelo entrenado: `models/intent_model.joblib`
 - Vectorizador: `training/datasets/processed/intent_vectorizer.joblib`
 
+## Capacidades actuales de la IA
+
+- Clasificación de intenciones en español usando ML (scikit-learn)
+- Balanceo automático de dataset de intenciones
+- Modularización del código (src/core/)
+- Tests automáticos con pytest y fixture engine
+- Extracción de entidades con spaCy (nombres, lugares, fechas, etc.) y dateparser
+- Documentación técnica y de uso
+- Pipeline reproducible y versionado
+
 ## Tests automáticos
 
 - Los tests unitarios usan pytest y una fixture engine para instanciar CoreEngine.
@@ -44,3 +54,6 @@ Proyecto de asistente de voz para Windows con clasificación de intenciones en e
 
 ## Licencia
 MIT
+
+> Nota: El modelo spaCy español (es_core_news_sm) reconoce entidades LOC (lugares), ORG (organizaciones), PER (personas) y MISC (varios), pero no fechas ni horas.
+> Ahora la extracción de entidades incluye fechas y horas usando dateparser, además de personas, lugares y organizaciones con spaCy.

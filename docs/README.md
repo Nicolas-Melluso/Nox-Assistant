@@ -30,6 +30,16 @@
 - El modelo logra 100% de precisión en el smoke test.
 - El pipeline es reproducible y modular.
 
+## Capacidades actuales
+
+- Clasificación de intenciones (scikit-learn)
+- Balanceo de dataset
+- Modularización del pipeline
+- Tests automáticos con fixture engine
+- Extracción de entidades con spaCy
+- Documentación y reproducibilidad
+- Integración de dateparser para fechas y horas
+
 ## Tests automáticos
 
 - Los tests usan pytest y una fixture engine definida en conftest.py.
@@ -38,3 +48,6 @@
   pytest tests -q
   ```
 - El archivo conftest.py agrega src/ al sys.path para que los imports funcionen correctamente.
+
+> Nota: El modelo spaCy español reconoce entidades LOC, ORG, PER y MISC. No detecta fechas ni horas por defecto.
+> Se integró dateparser para extraer fechas y horas junto con spaCy para entidades generales.
