@@ -5,8 +5,8 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.metrics import classification_report
 import joblib
 
-# 1. Cargar el dataset sin encabezado y asignar nombres a las columnas
-DATASET_PATH = 'training/datasets/raw/intents_p99_template.csv'
+# 1. Cargar el dataset balanceado y asignar nombres a las columnas
+DATASET_PATH = 'training/datasets/processed/intents_p99_balanced.csv'
 df = pd.read_csv(DATASET_PATH, header=None, names=['intent', 'text'])
 
 # 2. Asumimos que el dataset tiene columnas 'text' (frase) y 'intent' (etiqueta)

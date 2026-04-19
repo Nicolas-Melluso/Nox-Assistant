@@ -1,13 +1,14 @@
-# Documentación técnica NOX
+# Entrenamiento y predicción de intenciones
 
-## Pipeline de entrenamiento y predicción
+Este módulo contiene scripts para entrenar y probar un clasificador de intenciones usando scikit-learn.
 
-- `balance_intent_dataset.py`: Limpia y balancea el dataset de intenciones.
-- `train_intent_classifier.py`: Entrena el modelo usando el dataset balanceado y guarda el modelo y vectorizador.
+## Estructura principal
+- `train_intent_classifier.py`: Entrena el modelo usando un dataset balanceado y guarda el modelo y vectorizador.
 - `smoke_test_intent_classifier.py`: Carga el modelo y vectorizador, y predice intenciones para frases de ejemplo.
+- `balance_intent_dataset.py`: Limpia y balancea el dataset de intenciones.
 - `analyze_intent_balance.py`: Analiza la cantidad de ejemplos por intención.
 
-## Cómo usar
+## Cómo entrenar y probar
 1. Balancea el dataset:
    ```bash
    python z/t.py --balance_intent_dataset.py
@@ -21,11 +22,11 @@
    python z/t.py --smoke_test_intent_classifier.py
    ```
 
-## Archivos clave
+## Ubicación de archivos
 - Dataset balanceado: `training/datasets/processed/intents_p99_balanced.csv`
 - Modelo entrenado: `models/intent_model.joblib`
 - Vectorizador: `training/datasets/processed/intent_vectorizer.joblib`
 
-## Estado actual
-- El modelo logra 100% de precisión en el smoke test.
-- El pipeline es reproducible y modular.
+## Notas
+- El pipeline está modularizado y documentado.
+- El modelo actual logra 100% de precisión en el smoke test.
