@@ -4,9 +4,17 @@ Implements a placeholder `CoreEngine` with simple interface used by CLI and test
 """
 CoreEngine: motor principal del asistente de voz.
 
-Define la interfaz principal para predecir intenciones y ejecutar skills.
-Actualmente implementa métodos de ejemplo (placeholders) que deben ser reemplazados por lógica real en futuras fases.
-Utiliza tipado genérico para permitir flexibilidad en la configuración y los resultados.
+- Predice intenciones a partir de texto.
+- Extrae entidades (personas, lugares, fechas, horas) usando spaCy y dateparser.
+- Ejecuta acciones (placeholder).
+
+Ejemplo de uso:
+
+    from core.engine import CoreEngine
+    engine = CoreEngine()
+    result = engine.predict_intent("Recordame el 10 de diciembre a las 18:00 con Juan Pérez en Madrid.")
+    print(result)
+    # {'intent': 'unknown', 'confidence': 0.0, 'input_text': ..., 'entities': [...]} 
 """
 
 from typing import Dict, Any

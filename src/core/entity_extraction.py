@@ -1,5 +1,16 @@
 """
 Extracción de entidades usando spaCy y dateparser.
+
+- Personas, lugares, organizaciones: spaCy
+- Fechas y horas: dateparser + regex
+
+Ejemplo de uso:
+
+    from core.entity_extraction import extract_entities
+    text = "Recordame el 10 de diciembre a las 18:00 con Juan Pérez en Madrid."
+    entities = extract_entities(text)
+    print(entities)
+    # [{'text': 'Juan Pérez', 'label': 'PER'}, {'text': 'Madrid', 'label': 'LOC'}, {'text': '10 de diciembre', 'label': 'DATE', 'value': ...}, ...]
 """
 import spacy
 from typing import List, Dict

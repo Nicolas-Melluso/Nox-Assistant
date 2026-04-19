@@ -57,3 +57,23 @@ MIT
 
 > Nota: El modelo spaCy español (es_core_news_sm) reconoce entidades LOC (lugares), ORG (organizaciones), PER (personas) y MISC (varios), pero no fechas ni horas.
 > Ahora la extracción de entidades incluye fechas y horas usando dateparser, además de personas, lugares y organizaciones con spaCy.
+
+## Arquitectura y flujo de datos
+
+```mermaid
+graph TD
+    A[Texto de usuario] --> B[CoreEngine.predict_intent]
+    B --> C[Clasificador de intenciones]
+    B --> D[Extracción de entidades (spaCy + dateparser)]
+    C --> E[Intent]
+    D --> F[Entities]
+    E & F --> G[Ejecutor de acciones]
+    G --> H[Respuesta/Acción]
+```
+
+### Ejemplo de flujo
+
+1. Usuario: "Recordame el 10 de diciembre a las 18:00 con Juan Pérez en Madrid."
+2. CoreEngine.predict_intent analiza el texto.
+3. Se predice la intención (placeholder) y se extraen entidades (persona, lugar, fecha, hora).
+4. El ejecutor de acciones recibe el intent y las entidades para decidir qué hacer.
