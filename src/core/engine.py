@@ -10,7 +10,7 @@ CoreEngine: motor principal del asistente de voz.
 
 Ejemplo de uso:
 
-    from core.engine import CoreEngine
+    from src.core.engine import CoreEngine
     engine = CoreEngine()
     result = engine.predict_intent("Recordame el 10 de diciembre a las 18:00 con Juan Pérez en Madrid.")
     print(result)
@@ -18,7 +18,7 @@ Ejemplo de uso:
 """
 
 from typing import Dict, Any
-from core.entity_extraction import extract_entities
+from .entity_extraction import extract_entities
 
 class CoreEngine:
     def __init__(self, config: Dict[str, Any] | None = None):

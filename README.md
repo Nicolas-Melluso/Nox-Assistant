@@ -52,12 +52,6 @@ Proyecto de asistente de voz para Windows con clasificación de intenciones en e
 - Sube solo código y datasets crudos
 - Los resultados y archivos generados están ignorados en `.gitignore`
 
-## Licencia
-MIT
-
-> Nota: El modelo spaCy español (es_core_news_sm) reconoce entidades LOC (lugares), ORG (organizaciones), PER (personas) y MISC (varios), pero no fechas ni horas.
-> Ahora la extracción de entidades incluye fechas y horas usando dateparser, además de personas, lugares y organizaciones con spaCy.
-
 ## Arquitectura y flujo de datos
 
 ```mermaid
@@ -77,3 +71,21 @@ graph TD
 2. CoreEngine.predict_intent analiza el texto.
 3. Se predice la intención (placeholder) y se extraen entidades (persona, lugar, fecha, hora).
 4. El ejecutor de acciones recibe el intent y las entidades para decidir qué hacer.
+
+## Comandos rápidos
+
+### Ejecutar el script interactivo de extracción de entidades
+
+Desde la raíz del proyecto:
+
+```
+python custom-voice-assistant/z/entity_extraction_interactive_script.py
+```
+
+### Ejecutar los tests unitarios
+
+Desde la raíz del proyecto:
+
+```
+pytest custom-voice-assistant/tests/unit
+```
