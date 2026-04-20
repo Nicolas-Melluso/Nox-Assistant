@@ -1,5 +1,9 @@
 # NOX - Custom Voice Assistant
 
+## Versionado
+- Versión actual: **0.2.1** (20/04/2026)
+- Ver detalles en [CHANGELOG.md](CHANGELOG.md)
+
 Proyecto de asistente de voz para Windows con clasificación de intenciones en español, ejecución de acciones reales y arquitectura modular.
 
 ## Características principales
@@ -35,7 +39,8 @@ Proyecto de asistente de voz para Windows con clasificación de intenciones en e
 - Balanceo automático de dataset de intenciones
 - Modularización del código (src/core/)
 - Tests automáticos con pytest y fixture engine
-- Extracción de entidades con spaCy (nombres, lugares, fechas, etc.) y dateparser
+- Extracción de entidades avanzada con spaCy (EntityRuler, patrones superpuestos, limpieza, lematización, stemming)
+- Accuracy de extracción de entidades: **91.3%** (tests unitarios)
 - Documentación técnica y de uso
 - Pipeline reproducible y versionado
 
@@ -89,3 +94,14 @@ Desde la raíz del proyecto:
 ```
 pytest custom-voice-assistant/tests/unit
 ```
+
+## Extracción de entidades avanzada (NLP)
+
+- Accuracy actual: **91.3%** en extracción de entidades (comando y dispositivo) sobre el set de pruebas unitarias.
+- Patrones independientes y superpuestos para `COMANDO` y `DISPOSITIVO` usando spaCy EntityRuler (ambos pueden detectarse en la misma frase, incluso si están solapados).
+- Pipeline robusto: limpieza, normalización, lematización y stemming.
+- Preparado para variantes y sinónimos (próxima versión: 0.2.2).
+
+Ejemplo:
+- Entrada: `Enciende las luces`
+- Salida: `[{"text": "Enciende las luces", "label": "COMANDO"}, {"text": "luces", "label": "DISPOSITIVO"}]`
