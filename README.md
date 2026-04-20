@@ -55,6 +55,8 @@ Proyecto de asistente de voz para Windows con clasificación de intenciones en e
   Ejemplo:
   - Entrada: `Enciende las luces`
   - Salida: `[{"text": "Enciende las luces", "label": "COMANDO", "canonical": "prende"}, {"text": "luces", "label": "DISPOSITIVO", "canonical": "luz"}]`
+```
+
 ```mermaid
 graph TD
     A[Texto de usuario] --> B[CoreEngine.predict_intent]

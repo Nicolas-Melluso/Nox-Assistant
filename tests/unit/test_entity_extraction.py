@@ -1,3 +1,36 @@
+
+import sys
+import os
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '../../src')))
+from core.entity_extraction import extract_entities
+
+def test_desambiguacion_contextual():
+    casos = [
+        ("Activa el modo ventilador", [
+            {"text": "ventilador", "label": "MODO"}
+        ]),
+        ("Cierra la puerta principal", [
+            {"text": "puerta", "label": "DISPOSITIVO"}
+        ]),
+        ("Pon la luz en azul", [
+            {"text": "luz", "label": "DISPOSITIVO"}, {"text": "azul", "label": "COLOR"}
+        ]),
+        ("Sube el volumen", [
+            {"text": "volumen", "label": "DISPOSITIVO"}
+        ]),
+        ("Pon la alarma", [
+            {"text": "alarma", "label": "DISPOSITIVO"}
+        ]),
+        ("Activa el modo televisor", [
+            {"text": "modo", "label": "MODO"}, {"text": "televisor", "label": "MODO"}
+        ]),
+    ]
+    for frase, esperado in casos:
+        entidades = extract_entities(frase)
+        resultado = [{k: e[k] for k in ("text", "label")} for e in entidades]
+        for entidad_esperada in esperado:
+            assert entidad_esperada in resultado, (
+                f"Fallo en: {frase}\nFalta entidad: {entidad_esperada}\nObtenido: {resultado}")
 def test_sinonimia_comando():
     frases = [
         ("Enciende la luz", "prende"),
