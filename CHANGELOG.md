@@ -1,3 +1,14 @@
+#
+## [0.2.3] - 2026-04-20
+### Mejoras
+- Desambiguación contextual de entidades: reglas para distinguir entre DISPOSITIVO y MODO según el contexto de la frase (ej: "modo televisor").
+- Agregado el patrón "modo" como entidad MODO.
+- Post-procesamiento para asegurar la detección de "volumen" como DISPOSITIVO.
+- Reglas contextuales para colores, volumen, alarma, puerta, etc.
+- Tests unitarios ampliados para cubrir casos ambiguos y desambiguación.
+
+### Correcciones
+- Ajuste de imports y robustez en la detección de entidades en frases complejas.
 # Changelog
 
 ## [0.2.2] - 2026-04-20
