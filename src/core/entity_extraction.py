@@ -23,7 +23,7 @@ from typing import List, Dict
 import dateparser
 import re
 # Importar función de limpieza
-from .utils import limpiar_y_normalizar, lematizar, stemmizar
+from .utils import limpiar_y_normalizar, lematizar, stemmizar, normalizar_entidad_sinonimos
 
 # Cargar modelo spaCy español
 nlp = spacy.load("es_core_news_sm")
@@ -103,4 +103,8 @@ def extract_entities(text: str) -> List[Dict]:
         dt = dateparser.parse(time_str, languages=["es"])
         if dt:
             entities.append({"text": time_str, "label": "TIME", "value": dt.isoformat()})
+    # Normalización de sinónimos para COMANDO y DISPOSITIVO
+    for ent in entities:
+        if ent["label"] in ("COMANDO", "DISPOSITIVO"):
+            ent["canonical"] = normalizar_entidad_sinonimos(ent["text"], ent["label"])
     return entities

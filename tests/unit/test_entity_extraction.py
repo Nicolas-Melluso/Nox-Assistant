@@ -1,3 +1,37 @@
+def test_sinonimia_comando():
+    frases = [
+        ("Enciende la luz", "prende"),
+        ("Prendé la lámpara", "prende"),
+        ("Actívalo", "prende"),
+        ("Apaga la tele", "apaga"),
+        ("Desactívalo", "apaga"),
+        ("Aumenta el volumen", "sube"),
+        ("Disminuye el volumen", "baja"),
+        ("Cierra la puerta", "cierra"),
+        ("Ábreme la ventana", "abre"),
+    ]
+    for frase, canonica in frases:
+        entidades = extract_entities(frase)
+        comandos = [e for e in entidades if e["label"] == "COMANDO"]
+        assert any(e["canonical"] == canonica for e in comandos), f"Fallo en: {frase} -> {comandos}"
+
+def test_sinonimia_dispositivo():
+    frases = [
+        ("Enciende las luces", "luz"),
+        ("Prende la lámpara", "lampara"),
+        ("Apaga el televisor", "televisor"),
+        ("Pon música", "musica"),
+        ("Imprime modelo 3D", "modelo"),
+        ("Abre la persiana", "ventana"),
+        ("Cierra el portón", "puerta"),
+        ("Sube el brillo", "brillo"),
+        ("Busca noticias", "noticias"),
+        ("Agrega un contacto", "contacto"),
+    ]
+    for frase, canonica in frases:
+        entidades = extract_entities(frase)
+        dispositivos = [e for e in entidades if e["label"] == "DISPOSITIVO"]
+        assert any(e["canonical"] == canonica for e in dispositivos), f"Fallo en: {frase} -> {dispositivos}"
 def test_entity_extraction_accuracy():
     casos = [
         ("Enciende las luces", ["DISPOSITIVO", "COMANDO"]),
