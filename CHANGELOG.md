@@ -1,4 +1,11 @@
-#
+# Changelog
+
+## [0.2.4] - 2026-04-20
+### Mejoras
+- Preguntas y negaciones agregadas
+- Test unitarios ampliados
+- Intents mejorados
+
 ## [0.2.3] - 2026-04-20
 ### Mejoras
 - Desambiguación contextual de entidades: reglas para distinguir entre DISPOSITIVO y MODO según el contexto de la frase (ej: "modo televisor").
@@ -9,7 +16,6 @@
 
 ### Correcciones
 - Ajuste de imports y robustez en la detección de entidades en frases complejas.
-# Changelog
 
 ## [0.2.2] - 2026-04-20
 ### Mejoras
@@ -19,8 +25,6 @@
 
 ### Correcciones
 - Normalización robusta de frases multi-palabra.
-
-# Changelog
 
 ## [0.2.1] - 2026-04-20
 ### Mejoras

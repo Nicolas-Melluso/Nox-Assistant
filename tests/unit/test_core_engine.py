@@ -8,7 +8,9 @@ def test_predict_intent(engine):
     assert 'entities' in r
     assert isinstance(r['entities'], list)
     # Debe detectar al menos una entidad
-    assert any(e['label'] in ['PER', 'PERSON', 'LOC', 'DATE'] for e in r['entities'])
+    # r['entities'] es ahora una lista de frases, cada una con 'entidades'
+    entidades = [e for frase in r['entities'] for e in frase.get('entidades', [])]
+    assert any(e['label'] in ['PER', 'PERSON', 'LOC', 'DATE'] for e in entidades)
 
 def test_execute_skill(engine):
     r = engine.execute_skill({'intent': 'noop'})
