@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.2.2] - 2026-04-20
+### Mejoras
+- Integración de sinonimia y variantes para comandos y dispositivos.
+- Campo `canonical` en entidades para obtener la forma normalizada.
+- Tests unitarios para sinonimia y variantes.
+
+### Correcciones
+- Normalización robusta de frases multi-palabra.
+
+# Changelog
+
 ## [0.2.1] - 2026-04-20
 ### Mejoras
 - Extracción de entidades robusta con spaCy y EntityRuler.
