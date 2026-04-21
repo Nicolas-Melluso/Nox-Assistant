@@ -1,4 +1,14 @@
 # Changelog
+
+## [0.2.11] - 2026-04-21
+### Automatización de validación y CI
+- Se agregó workflow de GitHub Actions para integración continua:
+	- Build de imagen Docker sin cache.
+	- Ejecución de tests unitarios en contenedor.
+	- Medición de cobertura de código (falla si es <80%).
+	- Verificación automática de que el CHANGELOG.md esté actualizado.
+	- Corre en cada push y pull request a master/main.
+
 ## [0.2.10] - 2026-04-21
 ### Validación multiplataforma y Docker
 - Se agregó Dockerfile y docker-compose.yml para ejecutar y testear el sistema en cualquier OS (Linux, Windows, macOS).

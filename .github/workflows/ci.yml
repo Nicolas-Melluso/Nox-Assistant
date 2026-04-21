@@ -1,0 +1,44 @@
+name: CI - Docker, Tests y Cobertura
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  build-test-coverage:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: custom-voice-assistant
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Build Docker image (no cache)
+        run: docker build --no-cache -t custom-voice-assistant .
+
+      - name: Run tests in Docker
+        run: docker run --rm -e TESTS=1 custom-voice-assistant
+
+      - name: Run coverage in Docker
+        run: |
+          docker run --rm custom-voice-assistant sh -c "pip install coverage && coverage run -m pytest tests/unit && coverage report --fail-under=80"
+
+      - name: Falla si cobertura <80%
+        if: ${{ failure() }}
+        run: |
+          echo "La cobertura de código es menor al 80%. Corrige los tests antes de mergear."
+          exit 1
+
+      - name: Verifica changelog actualizado
+        run: |
+          git fetch origin master
+          git diff --exit-code origin/master -- CHANGELOG.md || (echo "El CHANGELOG.md debe estar actualizado." && exit 1)
