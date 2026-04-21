@@ -28,7 +28,7 @@ jobs:
 
       - name: Run coverage in Docker
         run: |
-          docker run --rm custom-voice-assistant sh -c "pip install coverage && coverage run -m pytest tests/unit && coverage report --fail-under=80"
+          docker run --rm -e TESTS=1 custom-voice-assistant sh -c "pip install coverage && coverage run -m pytest tests/unit && coverage report --fail-under=80"
 
       - name: Falla si cobertura <80%
         if: ${{ failure() }}
