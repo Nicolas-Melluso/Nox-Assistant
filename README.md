@@ -57,6 +57,17 @@ Edge cases:
 - Si spaCy no detecta entidades, asegúrate de tener el modelo `es_core_news_sm` instalado.
 - Si hay errores de importación, ejecuta los comandos desde la raíz del proyecto.
 
+## Cobertura y accuracy (0.2.9)
+
+- **Cobertura de código:** 89% (medido con coverage)
+- **Accuracy de extracción de entidades:** 100% de los tests unitarios pasan (15/15)
+- Módulos principales (`src/core/entity_pipeline/`) con cobertura >85%
+
+Puedes medir cobertura localmente con:
+```bash
+coverage run -m pytest tests/unit && coverage report
+```
+
 ## Más información
 
 Consulta la documentación en `docs/` para detalles de arquitectura, ejemplos, integración y buenas prácticas.

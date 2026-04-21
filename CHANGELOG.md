@@ -1,4 +1,11 @@
 # Changelog
+## [0.2.9] - 2026-04-21
+### Métricas
+- Cobertura de código: 89% (coverage)
+- Accuracy de extracción de entidades: 100% de los tests unitarios pasan (15/15)
+- Documentación actualizada con resultados y cómo medir cobertura localmente.
+
+# Changelog
 ## [0.2.7] - 2026-04-21
 ## [0.2.8] - 2026-04-21
 ### Documentación
