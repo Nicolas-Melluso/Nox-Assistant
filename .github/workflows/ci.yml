@@ -19,15 +19,16 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+
       - name: Build Docker image (no cache)
-        run: cd custom-voice-assistant && docker build --no-cache -t custom-voice-assistant .
+        run: docker build --no-cache -t custom-voice-assistant .
 
       - name: Run tests in Docker
-        run: cd custom-voice-assistant && docker run --rm -e TESTS=1 custom-voice-assistant
+        run: docker run --rm -e TESTS=1 custom-voice-assistant
 
       - name: Run coverage in Docker
         run: |
-          cd custom-voice-assistant && docker run --rm custom-voice-assistant sh -c "pip install coverage && coverage run -m pytest tests/unit && coverage report --fail-under=80"
+          docker run --rm custom-voice-assistant sh -c "pip install coverage && coverage run -m pytest tests/unit && coverage report --fail-under=80"
 
       - name: Falla si cobertura <80%
         if: ${{ failure() }}
@@ -38,4 +39,4 @@ jobs:
       - name: Verifica changelog actualizado
         run: |
           git fetch origin master
-          git diff --exit-code origin/master -- custom-voice-assistant/CHANGELOG.md || (echo "El CHANGELOG.md debe estar actualizado." && exit 1)
+          git diff --exit-code origin/master -- CHANGELOG.md || (echo "El CHANGELOG.md debe estar actualizado." && exit 1)
