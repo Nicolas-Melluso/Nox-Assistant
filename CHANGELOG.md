@@ -1,4 +1,10 @@
 # Changelog
+
+## [0.3.1] - 2026-04-21
+- Integración de NLTK para limpieza avanzada de texto y análisis de sentimiento.
+- Nuevas funciones: limpieza_avanzada y analizar_sentimiento en el pipeline.
+- Documentación actualizada con comandos Docker definitivos para build, test y coverage.
+
 ## [0.3.0] - 2026-04-21
 - Extracción avanzada de cantidades y unidades: soporta fracciones, palabras numéricas, docenas, expresiones complejas y edge cases.
 - Validación exhaustiva: todos los tests y el modo interactivo funcionan igual en local y Docker.
