@@ -1,3 +1,12 @@
+from .entity_pipeline.dependencias import extraer_sujeto_verbo_objeto
+"""
+Ejemplo de extracción de dependencias gramaticales (sujeto-verbo-objeto):
+
+    from .entity_extraction import extraer_sujeto_verbo_objeto
+    tripletas = extraer_sujeto_verbo_objeto("Juan enciende la luz de la cocina")
+    print(tripletas)
+    # [{'sujeto': 'Juan', 'verbo': 'enciende', 'objeto': 'luz'}]
+"""
 
 
 
