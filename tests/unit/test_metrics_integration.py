@@ -1,0 +1,28 @@
+"""
+Test de integración: evalúa métricas de intents usando el script de métricas.
+Se puede ejecutar con pytest y valida que la accuracy global supere un umbral mínimo.
+"""
+import subprocess
+import os
+import csv
+import pytest
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+SCRIPT_PATH = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "training", "runs", "scripts", "eval_metrics.py"))
+CSV_REPORT_PATH = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "training", "runs", "csv", "metrics_intents.csv"))
+
+@pytest.mark.metrics
+def test_intent_metrics():
+    # Ejecutar el script de métricas
+    result = subprocess.run(["python", SCRIPT_PATH], capture_output=True, text=True)
+    assert result.returncode == 0, f"El script falló: {result.stderr}"
+    # Leer el CSV generado
+    with open(CSV_REPORT_PATH, encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        rows = list(reader)
+    # Buscar accuracy global
+    accuracy_row = next((r for r in rows if r["Intent"] == "accuracy"), None)
+    assert accuracy_row is not None, "No se encontró la fila de accuracy en el reporte."
+    accuracy = float(accuracy_row["F1"])
+    # Umbral mínimo de ejemplo (ajustar según necesidad)
+    assert accuracy >= 0.10, f"Accuracy global demasiado baja: {accuracy}"

@@ -1,3 +1,34 @@
+# Métricas automáticas de intents
+
+El proyecto ahora integra un pipeline de métricas automáticas para intents:
+
+- Evalúa F1, precisión y recall sobre el dataset real (`training/datasets/processed/intents_p99_balanced.csv`).
+- Genera reportes en CSV y Markdown en `training/runs/csv/` (útiles para análisis y documentación).
+- El test `test_metrics_integration.py` valida automáticamente la accuracy mínima y puede ejecutarse desde cualquier directorio.
+- Los paths son robustos y funcionan tanto en local como en CI.
+
+### Ejecución manual
+
+```bash
+python custom-voice-assistant/training/runs/scripts/eval_metrics.py
+```
+
+### Ejecución automática en tests
+
+```bash
+pytest custom-voice-assistant/tests/unit
+```
+
+### Ejemplo de reporte Markdown generado
+
+| Intent | Precision | Recall | F1 | Soporte |
+|--------|-----------|--------|----|---------|
+| abrir_app | 0.111 | 1.000 | 0.200 | 150 |
+| cerrar_app | 0.000 | 0.000 | 0.000 | 150 |
+| ... | ... | ... | ... | ... |
+| accuracy | - | - | 0.111 | - |
+
+Puedes adaptar el pipeline para entidades siguiendo la misma estructura.
 # 21/04/2026
 - Se realizó una limpieza exhaustiva de dependencias en requirements.txt.
 - Validado: todos los tests y el modo interactivo funcionan localmente y en Docker.
