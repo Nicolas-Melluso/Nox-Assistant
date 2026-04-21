@@ -201,3 +201,53 @@ def test_extraer_sujeto_verbo_objeto():
         for t, e in zip(tripletas, esperado):
             for campo in ("sujeto", "verbo", "objeto"):
                 assert t.get(campo) == e.get(campo), f"Fallo en campo {campo} para: {texto}"
+
+def test_extract_entities_nuevos_tipos():
+    casos = [
+        # GOOGLE_MAPS
+        ("Abrí Google Maps y buscá la dirección de Corrientes 1234", [
+            {"label": "GOOGLE_MAPS", "text": "Google Maps"},
+            {"label": "GOOGLE_MAPS", "text": "dirección"},
+        ]),
+        ("Cómo llegar a la Facultad usando Maps", [
+            {"label": "GOOGLE_MAPS", "text": "cómo llegar"},
+            {"label": "GOOGLE_MAPS", "text": "Maps"},
+        ]),
+        # CONTROL_WINDOWS
+        ("Abrí el panel de control y después el administrador de tareas", [
+            {"label": "CONTROL_WINDOWS", "text": "panel de control"},
+            {"label": "CONTROL_WINDOWS", "text": "administrador de tareas"},
+        ]),
+        ("Cerrá el explorador y abrí la terminal", [
+            {"label": "CONTROL_WINDOWS", "text": "explorador"},
+            {"label": "CONTROL_WINDOWS", "text": "terminal"},
+        ]),
+        # ASUS_ROG_CONTROL
+        ("Poné el modo turbo en Armoury Crate", [
+            {"label": "ASUS_ROG_CONTROL", "text": "modo turbo"},
+            {"label": "ASUS_ROG_CONTROL", "text": "Armoury"},
+            {"label": "ASUS_ROG_CONTROL", "text": "Crate"},
+        ]),
+        ("Activá el ventilador y el RGB de la Asus Rog", [
+            {"label": "ASUS_ROG_CONTROL", "text": "ventilador"},
+            {"label": "ASUS_ROG_CONTROL", "text": "RGB"},
+            {"label": "ASUS_ROG_CONTROL", "text": "Asus"},
+            {"label": "ASUS_ROG_CONTROL", "text": "Rog"},
+        ]),
+        # CODIGO_PROGRAMACION
+        ("Generá un código Python para calcular la ruta", [
+            {"label": "CODIGO_PROGRAMACION", "text": "código Python"},
+        ]),
+        ("Escribí una función en JavaScript y un snippet en HTML", [
+            {"label": "CODIGO_PROGRAMACION", "text": "función"},
+            {"label": "CODIGO_PROGRAMACION", "text": "JavaScript"},
+            {"label": "CODIGO_PROGRAMACION", "text": "snippet"},
+            {"label": "CODIGO_PROGRAMACION", "text": "HTML"},
+        ]),
+    ]
+    from core.entity_extraction import extract_entities
+    for frase, esperado in casos:
+        resultados = extract_entities(frase)
+        entidades = [e for r in resultados for e in r["entidades"]]
+        for entidad_esperada in esperado:
+            assert any(e["label"] == entidad_esperada["label"] and entidad_esperada["text"].lower() in e["text"].lower() for e in entidades), f"Fallo en: {frase}\nFalta entidad: {entidad_esperada}\nObtenido: {entidades}"

@@ -1,5 +1,11 @@
 # Changelog
 
+## [0.3.4] - 2026-04-21
+- Tests unitarios expandidos para cubrir entidades avanzadas: GOOGLE_MAPS, CONTROL_WINDOWS, ASUS_ROG_CONTROL, CODIGO_PROGRAMACION.
+- Se agregaron patrones compuestos para mejorar la extracción de entidades multi-palabra (ej: "Google Maps", "panel de control", "modo turbo").
+- Todos los tests pasan en local y Docker.
+- Documentación y ejemplos actualizados en README y docs/README.md.
+
 ## [0.3.3] - 2026-04-21
 - Agregados nuevos tipos de entidades: GOOGLE_MAPS, CONTROL_WINDOWS, ASUS_ROG_CONTROL, CODIGO_PROGRAMACION.
 - Refactor de imports y robustez en el pipeline de postprocesamiento.

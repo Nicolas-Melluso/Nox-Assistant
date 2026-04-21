@@ -420,16 +420,36 @@ patterns = [
 ]
 # Patrones agregados: Google Maps, Control Windows, Asus Rog, Código Programación
 patterns.extend([
-    {"label": "GOOGLE_MAPS", "pattern": [
-        {"LOWER": {"IN": ["google", "maps", "mapa", "dirección", "direccion", "ubicación", "ubicacion", "navegar", "ruta", "cómo llegar", "llegar a", "ir a"]}}
-    ]},
-    {"label": "CONTROL_WINDOWS", "pattern": [
-        {"LOWER": {"IN": ["abrir", "cerrar", "minimizar", "maximizar", "explorador", "configuración", "configuracion", "panel de control", "administrador de tareas", "cmd", "terminal", "apagar", "reiniciar", "bloquear"]}}
-    ]},
-    {"label": "ASUS_ROG_CONTROL", "pattern": [
-        {"LOWER": {"IN": ["asus", "rog", "armoury", "crate", "ventilador", "rgb", "gaming", "modo turbo", "modo silencio", "modo rendimiento", "teclado", "pantalla", "overclock"]}}
-    ]},
-    {"label": "CODIGO_PROGRAMACION", "pattern": [
-        {"LOWER": {"IN": ["código", "codigo", "programa", "script", "función", "funcion", "clase", "python", "javascript", "typescript", "html", "css", "crear función", "crear clase", "generar código", "escribir código", "snippet"]}}
-    ]},
+    # GOOGLE_MAPS: patrones compuestos y variantes
+    {"label": "GOOGLE_MAPS", "pattern": [{"LOWER": "google"}, {"LOWER": "maps"}]},
+    {"label": "GOOGLE_MAPS", "pattern": [{"LOWER": "cómo"}, {"LOWER": "llegar"}]},
+    {"label": "GOOGLE_MAPS", "pattern": [{"LOWER": "panel"}, {"LOWER": "de"}, {"LOWER": "control"}]},
+    {"label": "GOOGLE_MAPS", "pattern": [{"LOWER": "dirección"}]},
+    {"label": "GOOGLE_MAPS", "pattern": [{"LOWER": "maps"}]},
+    {"label": "GOOGLE_MAPS", "pattern": [{"LOWER": {"IN": ["google", "maps", "mapa", "dirección", "direccion", "ubicación", "ubicacion", "navegar", "ruta", "llegar", "ir"]}}]},
+
+    # CONTROL_WINDOWS: patrones compuestos y variantes
+    {"label": "CONTROL_WINDOWS", "pattern": [{"LOWER": "panel"}, {"LOWER": "de"}, {"LOWER": "control"}]},
+    {"label": "CONTROL_WINDOWS", "pattern": [{"LOWER": "administrador"}, {"LOWER": "de"}, {"LOWER": "tareas"}]},
+    {"label": "CONTROL_WINDOWS", "pattern": [{"LOWER": "explorador"}]},
+    {"label": "CONTROL_WINDOWS", "pattern": [{"LOWER": "terminal"}]},
+    {"label": "CONTROL_WINDOWS", "pattern": [{"LOWER": {"IN": ["abrir", "cerrar", "minimizar", "maximizar", "explorador", "configuración", "configuracion", "panel", "control", "administrador", "tareas", "cmd", "terminal", "apagar", "reiniciar", "bloquear"]}}]},
+
+    # ASUS_ROG_CONTROL: patrones compuestos y variantes
+    {"label": "ASUS_ROG_CONTROL", "pattern": [{"LOWER": "modo"}, {"LOWER": "turbo"}]},
+    {"label": "ASUS_ROG_CONTROL", "pattern": [{"LOWER": "armoury"}]},
+    {"label": "ASUS_ROG_CONTROL", "pattern": [{"LOWER": "crate"}]},
+    {"label": "ASUS_ROG_CONTROL", "pattern": [{"LOWER": "ventilador"}]},
+    {"label": "ASUS_ROG_CONTROL", "pattern": [{"LOWER": "rgb"}]},
+    {"label": "ASUS_ROG_CONTROL", "pattern": [{"LOWER": "asus"}]},
+    {"label": "ASUS_ROG_CONTROL", "pattern": [{"LOWER": "rog"}]},
+    {"label": "ASUS_ROG_CONTROL", "pattern": [{"LOWER": {"IN": ["asus", "rog", "armoury", "crate", "ventilador", "rgb", "gaming", "modo", "turbo", "silencio", "rendimiento", "teclado", "pantalla", "overclock"]}}]},
+
+    # CODIGO_PROGRAMACION: patrones compuestos y variantes
+    {"label": "CODIGO_PROGRAMACION", "pattern": [{"LOWER": "código"}, {"LOWER": "python"}]},
+    {"label": "CODIGO_PROGRAMACION", "pattern": [{"LOWER": "función"}]},
+    {"label": "CODIGO_PROGRAMACION", "pattern": [{"LOWER": "javascript"}]},
+    {"label": "CODIGO_PROGRAMACION", "pattern": [{"LOWER": "snippet"}]},
+    {"label": "CODIGO_PROGRAMACION", "pattern": [{"LOWER": "html"}]},
+    {"label": "CODIGO_PROGRAMACION", "pattern": [{"LOWER": {"IN": ["código", "codigo", "programa", "script", "función", "funcion", "clase", "python", "javascript", "typescript", "html", "css", "crear", "generar", "escribir", "snippet"]}}]},
 ])
