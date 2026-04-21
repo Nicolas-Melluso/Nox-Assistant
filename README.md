@@ -1,4 +1,25 @@
-# Extracción de cantidades y unidades (v0.2.13)
+# Extracción de entidades avanzadas (v0.3.3)
+
+Ahora el sistema reconoce entidades de:
+- Google Maps: direcciones, ubicaciones, rutas, navegación.
+- Control de Windows: abrir/cerrar apps, panel de control, terminal, apagar/reiniciar/bloquear.
+- Asus Rog: Armoury Crate, ventilador, modos de rendimiento, RGB, overclock.
+- Código de programación: crear/generar código, funciones, clases, snippets en varios lenguajes.
+
+**Ejemplo:**
+```
+Frase: "Abrí Google Maps y generá un código Python para calcular la ruta"
+Entidades: [
+  {"label": "GOOGLE_MAPS", "text": "Google Maps"},
+  {"label": "CODIGO_PROGRAMACION", "text": "código Python"},
+  {"label": "COMANDO", "text": "abrí"},
+  {"label": "COMANDO", "text": "generá"},
+  {"label": "COMANDO", "text": "calcular"},
+  {"label": "DISPOSITIVO", "text": "ruta"}
+]
+```
+
+Todos los tests unitarios pasan y la integración es robusta en local y Docker.
 
 El sistema ahora reconoce expresiones numéricas complejas y unidades en español, incluyendo:
 

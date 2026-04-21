@@ -10,7 +10,23 @@ NOX es un asistente de voz modular para Windows, con pipeline reproducible y ext
 - Extracción robusta de entidades (spaCy + patrones custom)
 - Reconocimiento de variantes, sinónimos y errores comunes
 - Soporte para negaciones, preguntas, fechas, horas y dispositivos
+- Nuevos tipos de entidades: Google Maps, Control de Windows, Asus Rog, Código de programación
 - Modularidad y fácil extensión
+
+### Ejemplo de entidades avanzadas
+```
+Frase: "Abrí Google Maps y generá un código Python para calcular la ruta"
+Entidades: [
+	{"label": "GOOGLE_MAPS", "text": "Google Maps"},
+	{"label": "CODIGO_PROGRAMACION", "text": "código Python"},
+	{"label": "COMANDO", "text": "abrí"},
+	{"label": "COMANDO", "text": "generá"},
+	{"label": "COMANDO", "text": "calcular"},
+	{"label": "DISPOSITIVO", "text": "ruta"}
+]
+```
+
+Todos los tests unitarios pasan y la integración es robusta en local y Docker.
 
 ### Estructura
 - `src/` - Código fuente principal

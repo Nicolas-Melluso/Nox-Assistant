@@ -66,7 +66,7 @@ from .utils import limpiar_y_normalizar, lematizar, stemmizar, normalizar_entida
 nlp = spacy.load("es_core_news_sm")
 
 # --- EntityRuler: patrones personalizados ---
-from .entity_patterns import patterns
+from core.entity_patterns import patterns
 # Agregar EntityRuler usando la API moderna de spaCy y configurando phrase_matcher_attr para permitir match por LOWER
 if "entity_ruler" not in nlp.pipe_names:
     nlp.add_pipe("entity_ruler", before="ner", config={"phrase_matcher_attr": "LOWER"})

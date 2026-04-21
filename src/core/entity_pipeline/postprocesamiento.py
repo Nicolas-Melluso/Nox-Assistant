@@ -2,7 +2,7 @@ import re
 import dateparser
 from .regexes import DATE_REGEX, TIME_REGEX
 from .nlp_singleton import nlp
-from ..entity_patterns import patterns
+from core.entity_patterns import patterns
 from ..utils import limpiar_y_normalizar, normalizar_entidad_sinonimos
 
 def postprocesar_entidades(entities, text):
@@ -15,9 +15,13 @@ def postprocesar_entidades(entities, text):
                 if (
                     len(p["pattern"]) == 1
                     and "LOWER" in p["pattern"][0]
-                    and isinstance(p["pattern"][0]["LOWER"], str)
                 ):
-                    dispositivo_terms.add(p["pattern"][0]["LOWER"].lower())
+                    lower_val = p["pattern"][0]["LOWER"]
+                    if isinstance(lower_val, str):
+                        dispositivo_terms.add(lower_val.lower())
+                    elif isinstance(lower_val, list):
+                        for v in lower_val:
+                            dispositivo_terms.add(v.lower())
     texto_limpio = limpiar_y_normalizar(text)
     doc_limpio = nlp(texto_limpio)
     tokens_lower = [t.text.lower() for t in doc_limpio]
