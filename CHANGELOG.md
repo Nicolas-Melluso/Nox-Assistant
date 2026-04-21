@@ -6,7 +6,6 @@
 	- Build de imagen Docker sin cache.
 	- Ejecución de tests unitarios en contenedor.
 	- Medición de cobertura de código (falla si es <80%).
-	- Verificación automática de que el CHANGELOG.md esté actualizado.
 	- Corre en cada push y pull request a master/main.
 
 ## [0.2.10] - 2026-04-21
