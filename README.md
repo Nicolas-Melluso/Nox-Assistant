@@ -41,21 +41,24 @@ python custom-voice-assistant/z/entity_extraction_interactive_script.py
 
 **Modo interactivo en Docker:**
 ```bash
-cd custom-voice-assistant
 docker build --no-cache -t custom-voice-assistant .
 docker run --rm -it custom-voice-assistant
 ```
 
 **Tests unitarios locales:**
 ```bash
-cd custom-voice-assistant
 pytest tests/unit
 ```
 
 **Tests unitarios en Docker:**
 ```bash
-cd custom-voice-assistant
-docker run --rm -it custom-voice-assistant pytest tests/unit
+docker build --no-cache -t custom-voice-assistant .
+docker run --rm -e TESTS=1 custom-voice-assistant
+```
+
+**Cobertura en Docker:**
+```bash
+docker run --rm -e TESTS=1 custom-voice-assistant sh -c "pip install coverage && coverage run -m pytest tests/unit && coverage report --fail-under=80"
 ```
 
 Todos los tests deben pasar y la extracción debe funcionar igual en ambos entornos.
