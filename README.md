@@ -39,6 +39,21 @@ Proyecto de asistente de voz para Windows con clasificación de intenciones en e
 - Documentación técnica y de uso
 - Pipeline reproducible y versionado
 
+### Arquitectura modular del pipeline de entidades (2026-04-20)
+
+El pipeline de extracción de entidades ha sido refactorizado y ahora cada etapa está separada en archivos individuales dentro de `src/core/entity_pipeline/`:
+
+- `limpieza.py`: limpieza y normalización de texto
+- `segmentacion.py`: segmentación de frases y oraciones
+- `extraccion.py`: extracción base de entidades con spaCy
+- `postprocesamiento.py`: post-procesamiento, sinonimia, fechas, horas, volumen
+- `desambiguacion.py`: desambiguación contextual de entidades
+- `ensamblado.py`: ensamblado del output estructurado
+- `nlp_singleton.py`: inicialización única de spaCy y EntityRuler
+- `regexes.py`: regexes para fechas y horas
+
+Esto mejora la mantenibilidad, escalabilidad y claridad del código. Todas las funciones principales se importan desde estos submódulos en `entity_extraction.py`.
+
 ## Tests automáticos
 
 - Los tests unitarios usan pytest y una fixture engine para instanciar CoreEngine.
