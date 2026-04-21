@@ -1,3 +1,8 @@
+# 21/04/2026
+- Se realizó una limpieza exhaustiva de dependencias en requirements.txt.
+- Validado: todos los tests y el modo interactivo funcionan localmente y en Docker.
+- El proyecto está listo para nuevas mejoras y expansión.
+
 ## Integración Continua (CI)
 
 El proyecto cuenta con un workflow de GitHub Actions que valida automáticamente en cada push y pull request a `master`/`main`:

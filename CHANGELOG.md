@@ -1,4 +1,8 @@
 # Changelog
+## [0.2.12] - 2026-04-21
+- Limpieza de dependencias en requirements.txt: solo quedan librerías realmente usadas.
+- Validación completa: tests y modo interactivo funcionan localmente y en Docker.
+- Documentación y CI actualizados.
 
 ## [0.2.11] - 2026-04-21
 ### Automatización de validación y CI
