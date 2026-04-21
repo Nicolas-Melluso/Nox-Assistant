@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  assistant:
+    build: .
+    container_name: custom-voice-assistant
+    working_dir: /app
+    volumes:
+      - ./:/app
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    command: ["pytest", "tests/unit"]

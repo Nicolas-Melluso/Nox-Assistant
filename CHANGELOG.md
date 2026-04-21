@@ -1,4 +1,10 @@
 # Changelog
+## [0.2.10] - 2026-04-21
+### Validación multiplataforma y Docker
+- Se agregó Dockerfile y docker-compose.yml para ejecutar y testear el sistema en cualquier OS (Linux, Windows, macOS).
+- Instrucciones de uso y troubleshooting multiplataforma en README.md.
+- Tests unitarios y pipeline validados en contenedor Docker (garantiza robustez multiplataforma).
+
 ## [0.2.9] - 2026-04-21
 ### Métricas
 - Cobertura de código: 89% (coverage)
