@@ -1,3 +1,15 @@
+## Integración Continua (CI)
+
+El proyecto cuenta con un workflow de GitHub Actions que valida automáticamente en cada push y pull request a `master`/`main`:
+
+- Build de la imagen Docker sin cache.
+- Ejecución de todos los tests unitarios dentro del contenedor.
+- Medición de cobertura de código (falla si es menor al 80%).
+- Verificación de que el archivo `CHANGELOG.md` esté actualizado respecto a la rama principal.
+
+Esto garantiza calidad, reproducibilidad y documentación actualizada en cada entrega.
+
+Puedes ver la configuración en `.github/workflows/ci.yml`.
 # NOX - Custom Voice Assistant
 
 Proyecto de asistente de voz para Windows con clasificación de intenciones en español, ejecución de acciones reales y arquitectura modular.
