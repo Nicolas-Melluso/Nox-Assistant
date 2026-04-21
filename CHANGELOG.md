@@ -1,5 +1,10 @@
 # Changelog
-## 0.2.13 - 2026-04-21
+## [0.3.0] - 2026-04-21
+- Extracción avanzada de cantidades y unidades: soporta fracciones, palabras numéricas, docenas, expresiones complejas y edge cases.
+- Validación exhaustiva: todos los tests y el modo interactivo funcionan igual en local y Docker.
+- Documentación ampliada en README con ejemplos y comandos multiplataforma.
+
+## [0.2.13] - 2026-04-21
 - Integración de métricas automáticas de F1/precision/recall para intents sobre dataset real.
 - Reportes generados en CSV y Markdown para análisis y documentación.
 - Test de integración automatizado: valida accuracy mínima y paths robustos desde cualquier directorio.
