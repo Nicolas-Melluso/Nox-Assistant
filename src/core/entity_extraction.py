@@ -1,25 +1,13 @@
-# --- Segmentación de frases y oraciones ---
-def segmentar_frases(text):
-    """
-    Segmenta el texto en frases u oraciones usando spaCy y reglas adicionales para comandos pegados.
-    Devuelve una lista de frases.
-    """
-    doc = nlp(text)
-    oraciones = [sent.text.strip() for sent in doc.sents]
-    # Extra: si hay frases pegadas sin puntuación, separar por conectores comunes
-    resultado = []
-    for oracion in oraciones:
-        # Separar por ' y ', ' luego ', ' después ', etc.
-        partes = re.split(r"\b(?:y|luego|después|despues|entonces|;|\.)\b", oracion, flags=re.IGNORECASE)
-        for p in partes:
-            frase = p.strip()
-            # Eliminar conectores al inicio
-            frase = re.sub(r'^(y|luego|después|despues|entonces)\s+', '', frase, flags=re.IGNORECASE)
-            # Eliminar signos de puntuación finales
-            frase = re.sub(r'[\.;:,!?¡¿]+$', '', frase).strip()
-            if frase:
-                resultado.append(frase)
-    return resultado
+
+
+
+from .entity_pipeline.limpieza import limpiar_texto
+from .entity_pipeline.segmentacion import segmentar_frases
+from .entity_pipeline.extraccion import extraer_entidades_base
+from .entity_pipeline.postprocesamiento import postprocesar_entidades
+from .entity_pipeline.desambiguacion import desambiguar_entidades_por_contexto
+from .entity_pipeline.ensamblado import ensamblar_output
+from .entity_pipeline.regexes import DATE_REGEX, TIME_REGEX
 
 """
 Extracción de entidades avanzada con spaCy y patrones independientes.
@@ -76,8 +64,7 @@ if "entity_ruler" not in nlp.pipe_names:
 ruler = nlp.get_pipe("entity_ruler")
 ruler.add_patterns(patterns)
 
-DATE_REGEX = r"\b(\d{1,2} de [a-zA-Z]+( de \d{4})?|hoy|mañana|pasado mañana|ayer|anoche|esta noche|esta tarde|esta mañana)\b"
-TIME_REGEX = r"\b(\d{1,2}(:\d{2})? ?(am|pm)?|mediodía|medianoche)\b"
+
 
 # --- Desambiguación contextual ---
 def desambiguar_entidades_por_contexto(entities, text):
@@ -124,165 +111,15 @@ def desambiguar_entidades_por_contexto(entities, text):
         nuevas_entidades.append(ent)
     return nuevas_entidades
 
+
 def extract_entities(text: str) -> List[Dict]:
-    """Extrae entidades nombradas y fechas/horas del texto, tras limpiar, normalizar y lematizar/stemmizar el texto."""
-    # Procesar texto original con spaCy para entidades nombradas (PERSON, LOC, etc.)
-    doc = nlp(text)
-    entities = [{"text": ent.text, "label": ent.label_} for ent in doc.ents]
-
-    # Procesar texto limpio/normalizado solo para patrones de comandos/dispositivos
-    texto_limpio = limpiar_y_normalizar(text)
-    doc_limpio = nlp(texto_limpio)
-
-    # --- Post-procesamiento para DISPOSITIVO ---
-    # Lista de dispositivos desde los patrones
-    from .entity_patterns import patterns
-    dispositivo_terms = set()
-    for p in patterns:
-        if p.get("label") == "DISPOSITIVO":
-            # Si el patrón es string
-            if isinstance(p["pattern"], str):
-                dispositivo_terms.add(p["pattern"].lower())
-            # Si el patrón es lista de tokens
-            elif isinstance(p["pattern"], list):
-                # Solo agregamos si es un solo token y el valor de LOWER es string
-                if (
-                    len(p["pattern"]) == 1
-                    and "LOWER" in p["pattern"][0]
-                    and isinstance(p["pattern"][0]["LOWER"], str)
-                ):
-                    dispositivo_terms.add(p["pattern"][0]["LOWER"].lower())
-    # Buscar dispositivos por token en el texto limpio, aunque estén dentro de un span de comando
-    tokens_lower = [t.text.lower() for t in doc_limpio]
-    dispositivos_detectados = set(e["text"].lower() for e in entities if e["label"] == "DISPOSITIVO")
-    for i, token in enumerate(tokens_lower):
-        if token in dispositivo_terms:
-            # Evitar duplicados
-            if token not in dispositivos_detectados:
-                entities.append({"text": doc_limpio[i].text, "label": "DISPOSITIVO"})
-                dispositivos_detectados.add(token)
-
-    # Post-procesamiento extra: si hay COMANDO pero no DISPOSITIVO, buscar el término de dispositivo en la frase y agregarlo
-    hay_comando = any(e["label"] == "COMANDO" for e in entities)
-    hay_dispositivo = any(e["label"] == "DISPOSITIVO" for e in entities)
-    if hay_comando and not hay_dispositivo:
-        # Buscar el primer término de dispositivo presente en la frase original (case-insensitive)
-        texto_busqueda = text.lower()
-        for term in sorted(dispositivo_terms, key=len, reverse=True):
-            if term in texto_busqueda:
-                # Extraer el fragmento original que coincide (para mantener mayúsculas/acentos si existen)
-                idx = texto_busqueda.find(term)
-                entidad = text[idx:idx+len(term)]
-                entities.append({"text": entidad, "label": "DISPOSITIVO"})
-                break
-
-    # Extraer fechas
-    for match in re.finditer(DATE_REGEX, text, re.IGNORECASE):
-        date_str = match.group(0)
-        dt = dateparser.parse(date_str, languages=["es"])
-        if dt:
-            entities.append({"text": date_str, "label": "DATE", "value": dt.isoformat()})
-    # Extraer horas
-    for match in re.finditer(TIME_REGEX, text, re.IGNORECASE):
-        time_str = match.group(0)
-        dt = dateparser.parse(time_str, languages=["es"])
-        if dt:
-            entities.append({"text": time_str, "label": "TIME", "value": dt.isoformat()})
-    # Normalización de sinónimos para COMANDO y DISPOSITIVO
-    for ent in entities:
-        if ent["label"] in ("COMANDO", "DISPOSITIVO"):
-            ent["canonical"] = normalizar_entidad_sinonimos(ent["text"], ent["label"])
-
-    # --- Post-procesamiento para volumen como DISPOSITIVO ---
-    # Si la frase contiene 'volumen' y no fue detectado como entidad, agregarlo como DISPOSITIVO
-    texto_busqueda = text.lower()
-    volumen_detectado = any(e["label"] == "DISPOSITIVO" and e["text"].lower() == "volumen" for e in entities)
-    if "volumen" in texto_busqueda and not volumen_detectado:
-        # Buscar la palabra 'volumen' en el texto original para mantener mayúsculas/acentos
-        idx = texto_busqueda.find("volumen")
-        entidad = text[idx:idx+len("volumen")]
-        entities.append({"text": entidad, "label": "DISPOSITIVO"})
-
-    # --- Desambiguación contextual ---
-    entities = desambiguar_entidades_por_contexto(entities, text)
-    # --- Segmentar frases/oraciones ---
-    frases = segmentar_frases(text)
-    resultados = []
+    """
+    Pipeline modular de extracción de entidades y análisis de frases.
+    1. Segmenta el texto en frases.
+    2. Para cada frase: extrae entidades, postprocesa, desambigua, detecta negación/pregunta y ensambla el output.
+    """
     negaciones = [
         r"\bno\b", r"\bnunca\b", r"\bjam[aá]s\b", r"\bsin\b", r"\bning[uú]n\b", r"\bninguna\b", r"\bninguno\b", r"\btampoco\b", r"\bni\b", r"\bprohibido\b", r"\bevita[rd]?\b"
     ]
-    for frase in frases:
-        # Detectar negación (palabra sola, al inicio, o tras signos)
-        frase_lower = frase.lower()
-        es_negacion = any(re.search(neg, frase_lower) for neg in negaciones)
-        # Detectar pregunta (más robusto)
-        frase_strip = frase.strip()
-        es_pregunta = (
-            frase_strip.endswith("?")
-            or frase_strip.startswith("¿")
-            or "?" in frase_strip
-            or "¿" in frase_strip
-        )
-
-        # Procesar entidades como antes
-        doc = nlp(frase)
-        entities = [{"text": ent.text, "label": ent.label_} for ent in doc.ents]
-        texto_limpio = limpiar_y_normalizar(frase)
-        doc_limpio = nlp(texto_limpio)
-        from .entity_patterns import patterns
-        dispositivo_terms = set()
-        for p in patterns:
-            if p.get("label") == "DISPOSITIVO":
-                if isinstance(p["pattern"], str):
-                    dispositivo_terms.add(p["pattern"].lower())
-                elif isinstance(p["pattern"], list):
-                    if (
-                        len(p["pattern"]) == 1
-                        and "LOWER" in p["pattern"][0]
-                        and isinstance(p["pattern"][0]["LOWER"], str)
-                    ):
-                        dispositivo_terms.add(p["pattern"][0]["LOWER"].lower())
-        tokens_lower = [t.text.lower() for t in doc_limpio]
-        dispositivos_detectados = set(e["text"].lower() for e in entities if e["label"] == "DISPOSITIVO")
-        for i, token in enumerate(tokens_lower):
-            if token in dispositivo_terms:
-                if token not in dispositivos_detectados:
-                    entities.append({"text": doc_limpio[i].text, "label": "DISPOSITIVO"})
-                    dispositivos_detectados.add(token)
-        hay_comando = any(e["label"] == "COMANDO" for e in entities)
-        hay_dispositivo = any(e["label"] == "DISPOSITIVO" for e in entities)
-        if hay_comando and not hay_dispositivo:
-            texto_busqueda = frase.lower()
-            for term in sorted(dispositivo_terms, key=len, reverse=True):
-                if term in texto_busqueda:
-                    idx = texto_busqueda.find(term)
-                    entidad = frase[idx:idx+len(term)]
-                    entities.append({"text": entidad, "label": "DISPOSITIVO"})
-                    break
-        for match in re.finditer(DATE_REGEX, frase, re.IGNORECASE):
-            date_str = match.group(0)
-            dt = dateparser.parse(date_str, languages=["es"])
-            if dt:
-                entities.append({"text": date_str, "label": "DATE", "value": dt.isoformat()})
-        for match in re.finditer(TIME_REGEX, frase, re.IGNORECASE):
-            time_str = match.group(0)
-            dt = dateparser.parse(time_str, languages=["es"])
-            if dt:
-                entities.append({"text": time_str, "label": "TIME", "value": dt.isoformat()})
-        for ent in entities:
-            if ent["label"] in ("COMANDO", "DISPOSITIVO"):
-                ent["canonical"] = normalizar_entidad_sinonimos(ent["text"], ent["label"])
-        texto_busqueda = frase.lower()
-        volumen_detectado = any(e["label"] == "DISPOSITIVO" and e["text"].lower() == "volumen" for e in entities)
-        if "volumen" in texto_busqueda and not volumen_detectado:
-            idx = texto_busqueda.find("volumen")
-            entidad = frase[idx:idx+len("volumen")]
-            entities.append({"text": entidad, "label": "DISPOSITIVO"})
-        entities = desambiguar_entidades_por_contexto(entities, frase)
-        resultados.append({
-            "frase": frase,
-            "negacion": es_negacion,
-            "pregunta": es_pregunta,
-            "entidades": entities
-        })
-    return resultados
+    frases = segmentar_frases(text)
+    return ensamblar_output(frases, negaciones, nlp, limpiar_texto)

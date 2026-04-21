@@ -1,4 +1,9 @@
 # Changelog
+## [0.2.5] - 2026-04-20
+### Refactorización
+- Pipeline de extracción de entidades completamente modularizado: cada etapa ahora está en un archivo individual bajo `src/core/entity_pipeline/` (limpieza, segmentación, extracción, postprocesamiento, desambiguación, ensamblado, nlp_singleton, regexes).
+- Eliminados imports circulares y mejorada la mantenibilidad.
+- Todos los tests unitarios pasan tras la refactorización.
 
 ## [0.2.4] - 2026-04-20
 ### Mejoras
