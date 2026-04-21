@@ -390,3 +390,12 @@ pytest custom-voice-assistant/tests/unit
 - [ ] Integrar LLM para procesamiento avanzado (0.6.0)
 - [ ] Integrar Voice LLM para comandos por voz (0.6.1)
 - [ ] Implementar autoaprendizaje y feedback continuo (0.7.0)
+
+## Novedades v0.3.6 (21/04/2026)
+
+- Clasificación de intenciones ahora usa embeddings (sentence-transformers) y similitud de coseno, con umbral ajustable para máxima precisión.
+- Ejemplos de entrenamiento expandidos para distinguir intenciones similares ("create" vs "generate", "answer" vs "send").
+- Si la intención es desconocida, la confianza se reporta como 0.0.
+- Todas las frases no reconocidas o con baja confianza se guardan automáticamente en `errores_intencion.log` para futuros entrenamientos.
+- Todos los tests unitarios pasan en local y Docker.
+- Documentación y ejemplos actualizados.

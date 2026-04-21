@@ -1,6 +1,13 @@
 # Changelog
 ## [v0.3.6] - 2026-04-21
+- Clasificación de intenciones ahora basada en embeddings (sentence-transformers) y similitud de coseno, con umbral ajustable para máxima precisión.
+- Ejemplos de entrenamiento expandidos para distinguir intenciones similares ("create" vs "generate", "answer" vs "send").
+- Ajuste automático: si la intención es "unknown", la confianza se reporta como 0.0.
+- Nuevo: todas las frases no reconocidas o con baja confianza se guardan automáticamente en `errores_intencion.log` para futuros entrenamientos.
+- Todos los tests unitarios pasan en local y Docker.
+- Documentación y ejemplos actualizados en README.md.
 
+## [v0.3.5] - 2026-04-21
 - Todos los imports internos refactorizados a relativos para máxima robustez multiplataforma (funciona igual en local, Docker y cualquier entrypoint).
 - Script interactivo de CoreEngine (`z/engine_interactive_test.py`) ahora funciona desde cualquier carpeta y en Docker.
 - Validación completa: todos los tests unitarios pasan en local y Docker.

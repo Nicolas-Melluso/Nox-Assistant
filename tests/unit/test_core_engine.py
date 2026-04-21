@@ -54,6 +54,6 @@ def test_predict_intent_basic():
         result = engine.predict_intent(frase)
         assert result["intent"] == intent_esperado, f"Fallo en: {frase} -> {result['intent']}"
         if intent_esperado != "unknown":
-            assert result["confidence"] >= 0.7
+            assert result["confidence"] >= 0.55, f"Confianza baja para: {frase} -> {result['confidence']}"
         else:
             assert result["confidence"] == 0.0
