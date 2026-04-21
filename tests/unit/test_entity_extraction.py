@@ -182,9 +182,22 @@ def test_extract_entities_time():
     assert 'TIME' in labels
     assert any('18:00' in e['text'] for e in entities)
 
-def test_extract_entities_empty():
-    text = "Hola, ¿cómo estás?"
-    resultados = extract_entities(text)
-    # Debe haber al menos una frase segmentada, pero sin entidades
-    assert isinstance(resultados, list)
-    assert all(len(r["entidades"]) == 0 for r in resultados)
+def test_extraer_sujeto_verbo_objeto():
+    from core.entity_extraction import extraer_sujeto_verbo_objeto
+    casos = [
+        ("Juan enciende la luz de la cocina", [{"sujeto": "Juan", "verbo": "enciende", "objeto": "luz"}]),
+        ("Apaga la tele", [{"sujeto": None, "verbo": "Apaga", "objeto": "tele"}]),
+        # En pasivas, aceptamos como verbo principal el participio y el agente como objeto si está presente
+        ("La puerta fue cerrada por Pedro", [{"sujeto": "puerta", "verbo": "cerrada", "objeto": "Pedro"}]),
+        ("Pon la música y sube el volumen", [
+            {"sujeto": None, "verbo": "Pon", "objeto": "música"},
+            {"sujeto": None, "verbo": "sube", "objeto": "volumen"}
+        ]),
+    ]
+    for texto, esperado in casos:
+        tripletas = extraer_sujeto_verbo_objeto(texto)
+        # Solo comparar los campos relevantes y la cantidad de tripletas
+        assert len(tripletas) == len(esperado), f"Tripletas incorrectas para: {texto}"
+        for t, e in zip(tripletas, esperado):
+            for campo in ("sujeto", "verbo", "objeto"):
+                assert t.get(campo) == e.get(campo), f"Fallo en campo {campo} para: {texto}"

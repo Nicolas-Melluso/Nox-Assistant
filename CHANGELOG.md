@@ -1,4 +1,10 @@
+
 # Changelog
+## [0.2.6] - 2026-04-20
+### Mejoras
+- Ampliada la cobertura de patrones para comandos y dispositivos: se agregaron variantes ortográficas, sinónimos, regionalismos, conjugaciones frecuentes y errores comunes para mejorar la robustez y recall de la extracción de entidades.
+- Documentación actualizada con ejemplos de nuevas variantes reconocidas.
+
 ## [0.2.5] - 2026-04-20
 ### Refactorización
 - Pipeline de extracción de entidades completamente modularizado: cada etapa ahora está en un archivo individual bajo `src/core/entity_pipeline/` (limpieza, segmentación, extracción, postprocesamiento, desambiguación, ensamblado, nlp_singleton, regexes).

@@ -29,6 +29,7 @@ Proyecto de asistente de voz para Windows con clasificación de intenciones en e
 - Modelo entrenado: `models/intent_model.joblib`
 - Vectorizador: `training/datasets/processed/intent_vectorizer.joblib`
 
+
 ## Capacidades actuales de la IA
 
 - Clasificación de intenciones en español usando ML (scikit-learn)
@@ -36,8 +37,23 @@ Proyecto de asistente de voz para Windows con clasificación de intenciones en e
 - Modularización del código (src/core/)
 - Tests automáticos con pytest y fixture engine
 - Extracción de entidades con spaCy (nombres, lugares, fechas, etc.) y dateparser
+- Reconocimiento robusto de comandos y dispositivos con variantes, sinónimos, regionalismos y errores comunes (EntityRuler spaCy 0.2.6)
 - Documentación técnica y de uso
 - Pipeline reproducible y versionado
+
+### Ejemplos de variantes reconocidas (0.2.6)
+
+- "enciende", "prende", "activa", "enciéndeme", "prendé", "actívalo", "activalo"
+- "apaga", "apagá", "desactiva", "apágame", "desactívalo", "desactivalo"
+- "heladera", "nevera", "refrigerador", "frigorífico"
+- "ventilador", "ventiladro", "ventiladorcito"
+- "microondas", "microonda", "microodas"
+- "timbre", "timber"
+- "portero", "portero eléctrico"
+- "pantalla", "pantallón", "monitor"
+- "celular", "móvil", "smartphone"
+
+Esto permite que el sistema entienda comandos y dispositivos aunque el usuario use variantes, errores o regionalismos.
 
 ### Arquitectura modular del pipeline de entidades (2026-04-20)
 
