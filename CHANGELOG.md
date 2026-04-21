@@ -1,4 +1,11 @@
 # Changelog
+## [v0.3.6] - 2026-04-21
+
+- Todos los imports internos refactorizados a relativos para máxima robustez multiplataforma (funciona igual en local, Docker y cualquier entrypoint).
+- Script interactivo de CoreEngine (`z/engine_interactive_test.py`) ahora funciona desde cualquier carpeta y en Docker.
+- Validación completa: todos los tests unitarios pasan en local y Docker.
+- Documentación y ejemplos de uso interactivo actualizados.
+
 
 ## [0.3.4] - 2026-04-21
 - Tests unitarios expandidos para cubrir entidades avanzadas: GOOGLE_MAPS, CONTROL_WINDOWS, ASUS_ROG_CONTROL, CODIGO_PROGRAMACION.
