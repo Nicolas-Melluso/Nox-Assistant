@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.3.2] - 2026-04-21
+- Mejora de desambiguación contextual: extracción precisa de colores junto a dispositivos, evita duplicados de entidades MODO/MODO_TIPO y reglas más robustas para frases compuestas.
+- Tests unitarios y modo interactivo validados localmente y en Docker.
+- Documentación y ejemplos actualizados.
+
 ## [0.3.1] - 2026-04-21
 - Integración de NLTK para limpieza avanzada de texto y análisis de sentimiento.
 - Nuevas funciones: limpieza_avanzada y analizar_sentimiento en el pipeline.
