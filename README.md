@@ -2,6 +2,34 @@
 
 Proyecto de asistente de voz para Windows con clasificación de intenciones en español, ejecución de acciones reales y arquitectura modular.
 
+
+## Uso con Docker (validación multiplataforma)
+
+Puedes correr y testear todo el sistema en un contenedor Docker, garantizando que funcione igual en Linux, Windows y macOS.
+
+### Comandos definitivos multiplataforma
+
+**Modo interactivo real (consola):**
+```bash
+docker build --no-cache -t custom-voice-assistant . && docker run --rm -it custom-voice-assistant
+```
+Esto reconstruye la imagen desde cero y lanza el modo interactivo real (requiere `-it` para entrada por consola).
+
+**Modo testing (unit tests):**
+```bash
+docker build --no-cache -t custom-voice-assistant . && docker run --rm -e TESTS=1 custom-voice-assistant
+```
+Esto reconstruye la imagen y ejecuta todos los tests unitarios en el contenedor.
+
+---
+
+### Troubleshooting multiplataforma
+- Si algún test falla en Docker y no en tu entorno local, revisa rutas relativas, permisos de archivos y dependencias del sistema.
+- El contenedor instala todas las dependencias necesarias para spaCy y dateparser.
+- Puedes montar tu código local con `-v $(pwd):/app` para desarrollo interactivo.
+
+---
+
 ## Instalación rápida
 
 1. Clona el repositorio:
