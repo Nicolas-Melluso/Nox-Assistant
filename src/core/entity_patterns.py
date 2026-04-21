@@ -418,3 +418,18 @@ patterns = [
     {"label": "COMANDO", "pattern": [{"LOWER": "avísame"}, {"LOWER": "si"}, {"LOWER": "hay"}, {"LOWER": "consumos"}]},
     {"label": "COMANDO", "pattern": [{"LOWER": {"IN": ["pon", "poné"]}}, {"LOWER": "alarma"}]},
 ]
+# Patrones agregados: Google Maps, Control Windows, Asus Rog, Código Programación
+patterns.extend([
+    {"label": "GOOGLE_MAPS", "pattern": [
+        {"LOWER": {"IN": ["google", "maps", "mapa", "dirección", "direccion", "ubicación", "ubicacion", "navegar", "ruta", "cómo llegar", "llegar a", "ir a"]}}
+    ]},
+    {"label": "CONTROL_WINDOWS", "pattern": [
+        {"LOWER": {"IN": ["abrir", "cerrar", "minimizar", "maximizar", "explorador", "configuración", "configuracion", "panel de control", "administrador de tareas", "cmd", "terminal", "apagar", "reiniciar", "bloquear"]}}
+    ]},
+    {"label": "ASUS_ROG_CONTROL", "pattern": [
+        {"LOWER": {"IN": ["asus", "rog", "armoury", "crate", "ventilador", "rgb", "gaming", "modo turbo", "modo silencio", "modo rendimiento", "teclado", "pantalla", "overclock"]}}
+    ]},
+    {"label": "CODIGO_PROGRAMACION", "pattern": [
+        {"LOWER": {"IN": ["código", "codigo", "programa", "script", "función", "funcion", "clase", "python", "javascript", "typescript", "html", "css", "crear función", "crear clase", "generar código", "escribir código", "snippet"]}}
+    ]},
+])

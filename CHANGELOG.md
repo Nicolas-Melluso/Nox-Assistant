@@ -1,5 +1,10 @@
 # Changelog
 
+## [0.3.3] - 2026-04-21
+- Agregados nuevos tipos de entidades: GOOGLE_MAPS, CONTROL_WINDOWS, ASUS_ROG_CONTROL, CODIGO_PROGRAMACION.
+- Refactor de imports y robustez en el pipeline de postprocesamiento.
+- Todos los tests unitarios pasan y la integración es multiplataforma.
+
 ## [0.3.2] - 2026-04-21
 - Mejora de desambiguación contextual: extracción precisa de colores junto a dispositivos, evita duplicados de entidades MODO/MODO_TIPO y reglas más robustas para frases compuestas.
 - Tests unitarios y modo interactivo validados localmente y en Docker.
