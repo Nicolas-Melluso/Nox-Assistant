@@ -1,4 +1,4 @@
-# Extracción de entidades avanzadas (v0.3.3)
+# Extracción de entidades avanzadas (v0.3.4)
 
 Ahora el sistema reconoce entidades de:
 - Google Maps: direcciones, ubicaciones, rutas, navegación.
@@ -19,7 +19,10 @@ Entidades: [
 ]
 ```
 
+
+**Cobertura de tests:**
 Todos los tests unitarios pasan y la integración es robusta en local y Docker.
+Se agregaron patrones compuestos para entidades multi-palabra (ej: "Google Maps", "panel de control", "modo turbo").
 
 El sistema ahora reconoce expresiones numéricas complejas y unidades en español, incluyendo:
 
