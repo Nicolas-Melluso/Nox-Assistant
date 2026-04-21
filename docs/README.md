@@ -1,53 +1,38 @@
 # Documentación técnica NOX
 
-## Pipeline de entrenamiento y predicción
 
-- `balance_intent_dataset.py`: Limpia y balancea el dataset de intenciones.
-- `train_intent_classifier.py`: Entrena el modelo usando el dataset balanceado y guarda el modelo y vectorizador.
-- `smoke_test_intent_classifier.py`: Carga el modelo y vectorizador, y predice intenciones para frases de ejemplo.
-- `analyze_intent_balance.py`: Analiza la cantidad de ejemplos por intención.
+## Resumen
 
-## Cómo usar
-1. Balancea el dataset:
-   ```bash
-   python z/t.py --balance_intent_dataset.py
-   ```
-2. Entrena el modelo:
-   ```bash
-   python z/t.py --train_intent_classifier.py
-   ```
-3. Corre el smoke test:
-   ```bash
-   python z/t.py --smoke_test_intent_classifier.py
-   ```
+NOX es un asistente de voz modular para Windows, con pipeline reproducible y extracción avanzada de entidades en español.
 
-## Archivos clave
-- Dataset balanceado: `training/datasets/processed/intents_p99_balanced.csv`
-- Modelo entrenado: `models/intent_model.joblib`
-- Vectorizador: `training/datasets/processed/intent_vectorizer.joblib`
-
-## Estado actual
-- El modelo logra 100% de precisión en el smoke test.
-- El pipeline es reproducible y modular.
-
-## Capacidades actuales
-
+### Capacidades
 - Clasificación de intenciones (scikit-learn)
-- Balanceo de dataset
-- Modularización del pipeline
-- Tests automáticos con fixture engine
-- Extracción de entidades con spaCy
-- Documentación y reproducibilidad
-- Integración de dateparser para fechas y horas
+- Extracción robusta de entidades (spaCy + patrones custom)
+- Reconocimiento de variantes, sinónimos y errores comunes
+- Soporte para negaciones, preguntas, fechas, horas y dispositivos
+- Modularidad y fácil extensión
 
-## Tests automáticos
+### Estructura
+- `src/` - Código fuente principal
+- `training/` - Datasets y scripts de entrenamiento
+- `models/` - Modelos entrenados
+- `results/` - Resultados y logs
 
-- Los tests usan pytest y una fixture engine definida en conftest.py.
-- Ejecutar desde la raíz del proyecto:
-  ```bash
-  pytest tests -q
-  ```
-- El archivo conftest.py agrega src/ al sys.path para que los imports funcionen correctamente.
+### Ejemplo de uso
 
-> Nota: El modelo spaCy español reconoce entidades LOC, ORG, PER y MISC. No detecta fechas ni horas por defecto.
-> Se integró dateparser para extraer fechas y horas junto con spaCy para entidades generales.
+```python
+from src.core.entity_extraction import extract_entities
+frase = "Prendé la luz del baño y apaga el ventiladorcito"
+print(extract_entities(frase))
+```
+
+### Ejemplos avanzados
+
+- "Pon la alarma a las 7:30 y despiértame después"
+- "Subí el volumen del televisor y baja la música"
+- "¿Puedes abrir la puerta y encender la alarma?"
+- "Apaga la heladera y la nevera"
+
+### Troubleshooting
+- Si spaCy no detecta entidades, instala el modelo `es_core_news_sm`.
+- Si hay errores de importación, ejecuta los comandos desde la raíz del proyecto.

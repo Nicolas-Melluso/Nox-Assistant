@@ -2,6 +2,65 @@
 
 Proyecto de asistente de voz para Windows con clasificación de intenciones en español, ejecución de acciones reales y arquitectura modular.
 
+## Instalación rápida
+
+1. Clona el repositorio:
+  ```bash
+  git clone https://github.com/tu_usuario/custom-voice-assistant.git
+  cd custom-voice-assistant
+  ```
+2. Instala dependencias:
+  ```bash
+  pip install -r requirements.txt
+  ```
+3. (Opcional) Instala spaCy y el modelo español si no está:
+  ```bash
+  pip install spacy
+  python -m spacy download es_core_news_sm
+  ```
+
+## Comandos principales
+
+- Entrenar modelo: `python z/t.py --train_intent_classifier.py`
+- Balancear dataset: `python z/t.py --balance_intent_dataset.py`
+- Ejecutar pruebas: `pytest tests/unit -v`
+- Ejecutar asistente: `python src/main.py`
+
+## Capacidades principales
+
+- Clasificación de intenciones en español (ML)
+- Extracción robusta de entidades (spaCy + patrones custom)
+- Reconocimiento de variantes, sinónimos y errores comunes
+- Soporte para negaciones, preguntas, fechas, horas y dispositivos
+- Modularidad y fácil extensión
+
+## Ejemplos avanzados y edge cases
+
+Frases que el sistema reconoce correctamente:
+
+- "Prendé la luz del baño y apaga el ventiladorcito"
+- "Pon la alarma a las 7:30 y despiértame después"
+- "Subí el volumen del televisor y baja la música"
+- "¿Puedes abrir la puerta y encender la alarma?"
+- "Apaga la heladera y la nevera"
+- "Configura el modo noche y baja el brillo"
+- "¿Qué clima hace hoy?"
+- "Pon la alarma en 5 minutos"
+
+Edge cases:
+- Frases con errores de tipeo: "prende la luz y apaga el ventiladro"
+- Regionalismos: "enciende la nevera" (sinónimo de heladera)
+- Comandos compuestos: "sube el volumen y baja la música"
+
+## Troubleshooting
+
+- Si spaCy no detecta entidades, asegúrate de tener el modelo `es_core_news_sm` instalado.
+- Si hay errores de importación, ejecuta los comandos desde la raíz del proyecto.
+
+## Más información
+
+Consulta la documentación en `docs/` para detalles de arquitectura, ejemplos, integración y buenas prácticas.
+
 ## Características principales
 - Clasificación de intenciones con ML (scikit-learn, TF-IDF, Naive Bayes)
 - Dataset balanceado y pipeline reproducible
