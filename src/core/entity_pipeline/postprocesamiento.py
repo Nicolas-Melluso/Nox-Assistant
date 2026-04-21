@@ -60,4 +60,19 @@ def postprocesar_entidades(entities, text):
         idx = texto_busqueda.find("volumen")
         entidad = text[idx:idx+len("volumen")]
         entities.append({"text": entidad, "label": "DISPOSITIVO"})
+
+    # Cantidades y unidades complejas
+    try:
+        from .cantidades import extraer_cantidades
+        cantidades = extraer_cantidades(text)
+        for c in cantidades:
+            entities.append({
+                "text": c["texto"],
+                "label": "CANTIDAD",
+                "cantidad": c["cantidad"],
+                "unidad": c["unidad"]
+            })
+    except Exception as e:
+        # No romper el pipeline si hay error en la extracción
+        pass
     return entities
