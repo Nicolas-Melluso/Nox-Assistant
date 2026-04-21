@@ -26,9 +26,52 @@ class CoreEngine:
 
     def predict_intent(self, text: str) -> Dict[str, Any]:
         """Predice la intención y extrae entidades del texto."""
-        # Placeholder de intent
+        # Lógica simple basada en palabras clave
+        # Ordenar por prioridad: verbos más específicos primero
+        intent_keywords = [
+            ("responde", "answer"),
+            ("escribe", "write"),
+            ("lee", "read"),
+            ("elimina", "delete"),
+            ("borra", "delete"),
+            ("actualiza", "update"),
+            ("sincroniza", "sync"),
+            ("descarga", "download"),
+            ("envía", "send"),
+            ("manda", "send"),
+            ("crea", "create"),
+            ("genera", "generate"),
+            ("muestra", "show"),
+            ("oculta", "hide"),
+            ("reproduce", "play"),
+            ("pausa", "pause"),
+            ("detén", "stop"),
+            ("pará", "stop"),
+            ("pon", "set"),
+            ("poné", "set"),
+            ("configura", "configure"),
+            ("llama", "call"),
+            ("busca", "search"),
+            ("abre", "open"),
+            ("abrí", "open"),
+            ("cierra", "close"),
+            ("cerrá", "close"),
+            ("enciende", "turn_on"),
+            ("encender", "turn_on"),
+            ("prender", "turn_on"),
+            ("apaga", "turn_off"),
+            ("apagar", "turn_off"),
+            ("sube", "increase"),
+            ("baja", "decrease"),
+        ]
         intent = "unknown"
         confidence = 0.0
+        text_lower = text.lower()
+        for keyword, mapped_intent in intent_keywords:
+            if keyword in text_lower:
+                intent = mapped_intent
+                confidence = 0.8
+                break
         entities = extract_entities(text)
         return {
             "intent": intent,

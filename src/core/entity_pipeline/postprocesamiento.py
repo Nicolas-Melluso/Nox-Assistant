@@ -2,7 +2,7 @@ import re
 import dateparser
 from .regexes import DATE_REGEX, TIME_REGEX
 from .nlp_singleton import nlp
-from core.entity_patterns import patterns
+from ..entity_patterns import patterns
 from ..utils import limpiar_y_normalizar, normalizar_entidad_sinonimos
 
 def postprocesar_entidades(entities, text):
