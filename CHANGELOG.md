@@ -1,9 +1,10 @@
-# 0.2.13 - 2026-04-21
+# Changelog
+## 0.2.13 - 2026-04-21
 - Integración de métricas automáticas de F1/precision/recall para intents sobre dataset real.
 - Reportes generados en CSV y Markdown para análisis y documentación.
 - Test de integración automatizado: valida accuracy mínima y paths robustos desde cualquier directorio.
 - Documentación y ejemplos de uso actualizados.
-# Changelog
+
 ## [0.2.12] - 2026-04-21
 - Limpieza de dependencias en requirements.txt: solo quedan librerías realmente usadas.
 - Validación completa: tests y modo interactivo funcionan localmente y en Docker.
