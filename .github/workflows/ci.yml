@@ -35,8 +35,3 @@ jobs:
         run: |
           echo "La cobertura de código es menor al 80%. Corrige los tests antes de mergear."
           exit 1
-
-      - name: Verifica changelog actualizado
-        run: |
-          git fetch origin master
-          git diff --exit-code origin/master -- CHANGELOG.md || (echo "El CHANGELOG.md debe estar actualizado." && exit 1)
