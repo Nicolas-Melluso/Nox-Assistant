@@ -17,7 +17,13 @@ PROJECT_ROOT = CURRENT
 SCRIPT_PATH = os.path.join(PROJECT_ROOT, "training", "runs", "scripts", "eval_metrics.py")
 CSV_REPORT_PATH = os.path.join(PROJECT_ROOT, "training", "runs", "csv", "metrics_intents.csv")
 
+DATASET_PATH = os.path.join(PROJECT_ROOT, "training", "datasets", "processed", "intents_p99_balanced.csv")
+
 @pytest.mark.metrics
+@pytest.mark.skipif(
+    not os.path.exists(DATASET_PATH),
+    reason="Dataset de intents no encontrado: se omite el test de métricas."
+)
 def test_intent_metrics():
     # Ejecutar el script de métricas
     result = subprocess.run(["python", SCRIPT_PATH], capture_output=True, text=True)
