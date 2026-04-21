@@ -7,9 +7,15 @@ import os
 import csv
 import pytest
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-SCRIPT_PATH = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "training", "runs", "scripts", "eval_metrics.py"))
-CSV_REPORT_PATH = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "training", "runs", "csv", "metrics_intents.csv"))
+import os
+
+# Construir rutas relativas a la raíz del proyecto (custom-voice-assistant)
+CURRENT = os.path.abspath(__file__)
+while not os.path.exists(os.path.join(CURRENT, "README.md")) and os.path.dirname(CURRENT) != CURRENT:
+    CURRENT = os.path.dirname(CURRENT)
+PROJECT_ROOT = CURRENT
+SCRIPT_PATH = os.path.join(PROJECT_ROOT, "training", "runs", "scripts", "eval_metrics.py")
+CSV_REPORT_PATH = os.path.join(PROJECT_ROOT, "training", "runs", "csv", "metrics_intents.csv")
 
 @pytest.mark.metrics
 def test_intent_metrics():

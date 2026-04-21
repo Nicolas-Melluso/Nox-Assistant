@@ -12,11 +12,13 @@ from collections import Counter, defaultdict
 from typing import List, Dict, Tuple
 from sklearn.metrics import classification_report, precision_recall_fscore_support
 
-# Ajusta estos paths según tu estructura
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-DATASET_PATH = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "datasets", "processed", "intents_p99_balanced.csv"))
-CSV_REPORT_PATH = os.path.abspath(os.path.join(BASE_DIR, "..", "csv", "metrics_intents.csv"))
-MD_REPORT_PATH = os.path.abspath(os.path.join(BASE_DIR, "..", "csv", "metrics_intents.md"))
+# Paths relativos a la raíz del proyecto (custom-voice-assistant), robusto para local y Docker
+import os
+
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))) )
+DATASET_PATH = os.path.join(PROJECT_ROOT, "training", "datasets", "processed", "intents_p99_balanced.csv")
+CSV_REPORT_PATH = os.path.join(PROJECT_ROOT, "training", "runs", "csv", "metrics_intents.csv")
+MD_REPORT_PATH = os.path.join(PROJECT_ROOT, "training", "runs", "csv", "metrics_intents.md")
 
 # --- Pipeline de predicción (placeholder, reemplazar por el real) ---
 def predict_intent(text: str) -> str:
