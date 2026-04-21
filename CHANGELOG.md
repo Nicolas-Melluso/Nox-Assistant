@@ -1,3 +1,14 @@
+# Changelog
+## [0.2.7] - 2026-04-21
+## [0.2.8] - 2026-04-21
+### Documentación
+- Se agregó documentación sencilla y útil en README.md y docs/README.md:
+	- Instalación rápida y comandos principales
+	- Capacidades resumidas
+	- Ejemplos avanzados y edge cases
+	- Troubleshooting y estructura del proyecto
+	- Ejemplo de uso directo en Python
+
 
 # Changelog
 ## [0.2.6] - 2026-04-20
