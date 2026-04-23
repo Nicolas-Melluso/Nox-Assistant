@@ -1,4 +1,14 @@
 # Changelog
+## [v0.4.2] - 2026-04-23
+- Integración modular de APIs externas vía ExternalAPIClient (src/core/external_api.py).
+- CoreEngine expone call_external_api y lo integra en CLI, API y SPA.
+- Sistema de feature flags centralizado (YAML), editable desde CLI, API y SPA.
+- SPA minimalista para gestión visual de flags, servida por FastAPI.
+- CLI robusto: menú interactivo, gestión de flags, lanza SPA/API automáticamente.
+- Tests unitarios y de integración para API, CLI y feature flags.
+- Documentación y ejemplos actualizados en README y docs/.
+- Validación: todos los tests pasan en local y Docker.
+
 ## [v0.4.1] - 2026-04-23
 - Expuesta API REST robusta con FastAPI y endpoints `/predict_intent` y `/extract_entities`.
 - Documentación de API y ejemplos de uso en `docs/runbooks/api_rest.md` y README.md.

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOX Feature Flags SPA</title>
+  <style>
+    body { font-family: sans-serif; background: #181818; color: #eee; margin: 0; padding: 0; }
+    .container { max-width: 600px; margin: 40px auto; background: #232323; border-radius: 8px; padding: 2em; box-shadow: 0 2px 16px #0008; }
+    h1 { color: #7fffd4; }
+    label { display: block; margin: 1em 0 0.5em; font-weight: bold; }
+    .flag-group { margin-bottom: 2em; }
+    .flag { display: flex; align-items: center; margin-bottom: 0.5em; }
+    .flag input[type=checkbox] { margin-right: 0.5em; }
+    .interface { color: #7fffd4; font-size: 1.2em; margin-top: 1.5em; }
+    button { background: #7fffd4; color: #181818; border: none; border-radius: 4px; padding: 0.5em 1em; font-weight: bold; cursor: pointer; margin-top: 1em; }
+    button:active { background: #5fd7b7; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>NOX Feature Flags</h1>
+    <div id="flags"></div>
+    <button onclick="saveFlags()">Guardar cambios</button>
+    <div id="status"></div>
+  </div>
+  <script>
+    let flags = {};
+    async function fetchFlags() {
+      const res = await fetch('/feature_flags');
+      flags = await res.json();
+      renderFlags();
+    }
+    function renderFlags() {
+      const root = document.getElementById('flags');
+      root.innerHTML = '';
+      for (const [iface, cats] of Object.entries(flags)) {
+        const ifaceDiv = document.createElement('div');
+        ifaceDiv.className = 'interface';
+        ifaceDiv.textContent = iface;
+        root.appendChild(ifaceDiv);
+        for (const [cat, feats] of Object.entries(cats)) {
+          const catDiv = document.createElement('div');
+          catDiv.className = 'flag-group';
+          catDiv.innerHTML = `<label>${cat}</label>`;
+          for (const [feat, val] of Object.entries(feats)) {
+            const flagDiv = document.createElement('div');
+            flagDiv.className = 'flag';
+            flagDiv.innerHTML = `<input type="checkbox" id="${iface}.${cat}.${feat}" ${val ? 'checked' : ''} /> <span>${feat}</span>`;
+            catDiv.appendChild(flagDiv);
+          }
+          root.appendChild(catDiv);
+        }
+      }
+    }
+    function saveFlags() {
+      // Leer todos los checkboxes y actualizar flags
+      for (const [iface, cats] of Object.entries(flags)) {
+        for (const [cat, feats] of Object.entries(cats)) {
+          for (const feat of Object.keys(feats)) {
+            const id = `${iface}.${cat}.${feat}`;
+            const el = document.getElementById(id);
+            flags[iface][cat][feat] = el.checked;
+          }
+        }
+      }
+      fetch('/feature_flags', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(flags)
+      }).then(r => r.ok ? showStatus('Guardado!') : showStatus('Error al guardar', true));
+    }
+    function showStatus(msg, error) {
+      const s = document.getElementById('status');
+      s.textContent = msg;
+      s.style.color = error ? '#ff5555' : '#7fffd4';
+      setTimeout(() => { s.textContent = ''; }, 2000);
+    }
+    fetchFlags();
+  </script>
+</body>
+</html>

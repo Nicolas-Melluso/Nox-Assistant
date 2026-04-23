@@ -1,3 +1,13 @@
+# Novedades v0.4.2 (23/04/2026)
+- Integración modular de APIs externas vía ExternalAPIClient.
+- CoreEngine expone call_external_api y lo integra en CLI, API y SPA.
+- Sistema de feature flags centralizado (YAML), editable desde CLI, API y SPA.
+- SPA minimalista para gestión visual de flags, servida por FastAPI.
+- CLI robusto: menú interactivo, gestión de flags, lanza SPA/API automáticamente.
+- Tests unitarios y de integración para API, CLI y feature flags.
+- Documentación y ejemplos actualizados en README y docs/.
+- Validación: todos los tests pasan en local y Docker.
+
 # Documentación técnica NOX
 
 ## Novedades CLI v0.4.0

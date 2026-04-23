@@ -1,0 +1,15 @@
+API:
+  api_externas:
+    json: false
+    whatsapp: false
+CLI:
+  api_externas:
+    jira: false
+    json: true
+    spa_server_enabled: true
+    whatsapp: false
+  windows_conectivity: true
+Desktop:
+  api_externas:
+    json: false
+    whatsapp: false

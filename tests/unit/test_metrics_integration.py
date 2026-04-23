@@ -7,17 +7,20 @@ import os
 import csv
 import pytest
 
-import os
-
 # Construir rutas relativas a la raíz del proyecto (custom-voice-assistant)
 CURRENT = os.path.abspath(__file__)
 while not os.path.exists(os.path.join(CURRENT, "README.md")) and os.path.dirname(CURRENT) != CURRENT:
     CURRENT = os.path.dirname(CURRENT)
 PROJECT_ROOT = CURRENT
-SCRIPT_PATH = os.path.join(PROJECT_ROOT, "training", "runs", "scripts", "eval_metrics.py")
-CSV_REPORT_PATH = os.path.join(PROJECT_ROOT, "training", "runs", "csv", "metrics_intents.csv")
-
-DATASET_PATH = os.path.join(PROJECT_ROOT, "training", "datasets", "processed", "intents_p99_balanced.csv")
+SCRIPT_PATH = os.path.join(
+    PROJECT_ROOT, "training", "runs", "scripts", "eval_metrics.py"
+)
+CSV_REPORT_PATH = os.path.join(
+    PROJECT_ROOT, "training", "runs", "csv", "metrics_intents.csv"
+)
+DATASET_PATH = os.path.join(
+    PROJECT_ROOT, "training", "datasets", "processed", "intents_p99_balanced.csv"
+)
 
 @pytest.mark.metrics
 @pytest.mark.skipif(
@@ -26,7 +29,9 @@ DATASET_PATH = os.path.join(PROJECT_ROOT, "training", "datasets", "processed", "
 )
 def test_intent_metrics():
     # Ejecutar el script de métricas
-    result = subprocess.run(["python", SCRIPT_PATH], capture_output=True, text=True)
+    result = subprocess.run([
+        "python", SCRIPT_PATH
+    ], capture_output=True, text=True)
     assert result.returncode == 0, f"El script falló: {result.stderr}"
     # Leer el CSV generado
     with open(CSV_REPORT_PATH, encoding="utf-8") as f:
@@ -34,7 +39,9 @@ def test_intent_metrics():
         rows = list(reader)
     # Buscar accuracy global
     accuracy_row = next((r for r in rows if r["Intent"] == "accuracy"), None)
-    assert accuracy_row is not None, "No se encontró la fila de accuracy en el reporte."
+    assert accuracy_row is not None, (
+        "No se encontró la fila de accuracy en el reporte.")
     accuracy = float(accuracy_row["F1"])
     # Umbral mínimo de ejemplo (ajustar según necesidad)
-    assert accuracy >= 0.10, f"Accuracy global demasiado baja: {accuracy}"
+    assert accuracy >= 0.10, (
+        f"Accuracy global demasiado baja: {accuracy}")

@@ -411,6 +411,7 @@ curl -X POST "http://127.0.0.1:8000/extract_entities" -H "Content-Type: applicat
 - [ ] Conectar con APIs externas (servicios, datos, IoT) (0.4.2)
 - [ ] Mejoras de seguridad, autenticación, rate limiting, webhooks, etc.
 
+
 ## TODO Roadmap
 
 - [x] Modularizar pipeline en etapas separadas (0.2.0)
@@ -429,14 +430,14 @@ curl -X POST "http://127.0.0.1:8000/extract_entities" -H "Content-Type: applicat
 - [x] Revisar y limpiar dependencias en requirements.txt (0.2.12)
 - [x] Agregar cualquier mejora relevante sugerida por el equipo (0.2.13)
 - [x] Agregar extracción de cantidades y unidades (0.3.0)
-- [ ] Integrar NLTK para limpieza avanzada y sentimiento (0.3.1)
-- [ ] Mejorar desambiguación contextual (0.3.2)
-- [ ] Agregar nuevos tipos de entidades (0.3.3)
-- [ ] Expandir tests unitarios para nuevos casos (0.3.4)
-- [ ] Integrar con CoreEngine y predict_intent (0.3.5)
-- [ ] Implementar CLI para interacción por consola (0.4.0)
-- [ ] Exponer API REST para integración externa (0.4.1)
-- [ ] Conectar con APIs externas (servicios, datos, IoT) (0.4.2)
+- [x] Integrar NLTK para limpieza avanzada y sentimiento (0.3.1)
+- [x] Mejorar desambiguación contextual (0.3.2)
+- [x] Agregar nuevos tipos de entidades (0.3.3)
+- [x] Expandir tests unitarios para nuevos casos (0.3.4)
+- [x] Integrar con CoreEngine y predict_intent (0.3.5)
+- [x] Implementar CLI para interacción por consola (0.4.0)
+- [x] Exponer API REST para integración externa (0.4.1)
+- [x] Conectar con APIs externas (servicios, datos, IoT) (0.4.2)
 - [ ] Controlar sistema operativo (archivos, apps, red, etc.) (0.4.3)
 - [ ] Crear versión Desktop (GUI) (0.5.0)
 - [ ] Integrar LLM para procesamiento avanzado (0.6.0)
