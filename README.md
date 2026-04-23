@@ -1,4 +1,37 @@
-# Extracción de entidades avanzadas (v0.3.4)
+# ⚠️ Nota sobre el nombre de la carpeta
+
+Al clonar el repositorio desde GitHub, la carpeta puede llamarse `Nox-Assistant`, `custom-voice-assistant` o cualquier otro nombre que elijas. **Todos los comandos y scripts funcionan igual sin importar el nombre de la carpeta raíz.**
+
+Ejemplo:
+```bash
+git clone https://github.com/Nicolas-Melluso/Nox-Assistant.git
+cd Nox-Assistant  # o el nombre que le hayas puesto
+```
+
+En Docker y en los scripts, se usan rutas relativas, por lo que el nombre externo de la carpeta no afecta la ejecución.
+
+Si tienes errores de importación o rutas, asegúrate de estar en la carpeta raíz del proyecto antes de ejecutar los comandos.
+# NOX - Asistente de voz modular (v0.4.0)
+
+## Novedades v0.4.0
+- Banner completamente rojo y soporte de colores en terminales modernas.
+- Ctrl+C ahora cierra el CLI de forma segura en cualquier terminal.
+- Mejor integración multiplataforma (CMD, PowerShell, Bash, VS Code).
+- Troubleshooting centralizado en `docs/runbooks/TROUBLESHOOTING.md`.
+
+## Instalación rápida
+```bash
+git clone <repo>
+cd custom-voice-assistant
+python -m venv .venv
+source .venv/Scripts/activate  # o equivalente
+pip install -r requirements.txt
+python -m src.cli
+```
+
+## Troubleshooting
+Consulta la guía en `docs/runbooks/TROUBLESHOOTING.md` para problemas frecuentes.
+
 
 Ahora el sistema reconoce entidades de:
 - Google Maps: direcciones, ubicaciones, rutas, navegación.

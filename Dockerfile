@@ -35,4 +35,4 @@ COPY . .
 ENV TESTS="0"
 
 # Entrypoint flexible: si TESTS=1 corre tests, si no ejecuta el modo interactivo real
-ENTRYPOINT ["/bin/sh", "-c", "if [ \"$TESTS\" = '1' ]; then pytest tests/unit; else python z/entity_extraction_interactive_script.py; fi"]
+ENTRYPOINT ["/bin/sh", "-c", "if [ \"$TESTS\" = '1' ]; then pytest tests/unit; else python -m src.cli; fi"]

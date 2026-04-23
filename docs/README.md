@@ -1,5 +1,22 @@
 # Documentación técnica NOX
 
+## Novedades CLI v0.4.0
+- Banner completamente rojo y soporte de colores ANSI.
+- Ctrl+C cierra el CLI de forma segura (no requiere doble Ctrl+C).
+- Mejor manejo de rutas y errores en Windows.
+- Troubleshooting centralizado en `docs/runbooks/TROUBLESHOOTING.md`.
+
+## Instalación y uso rápido
+```bash
+python -m venv .venv
+source .venv/Scripts/activate  # o equivalente
+pip install -r requirements.txt
+python -m src.cli
+```
+
+## Troubleshooting
+Consulta la guía en `docs/runbooks/TROUBLESHOOTING.md` para problemas frecuentes.
+
 
 ## Resumen
 

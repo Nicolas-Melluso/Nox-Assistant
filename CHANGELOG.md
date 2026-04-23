@@ -1,4 +1,10 @@
 # Changelog
+## [v0.4.0] - 2026-04-23
+- Banner CLI completamente rojo y soporte de colores ANSI.
+- Ctrl+C ahora cierra el CLI de forma segura en cualquier terminal (no requiere doble Ctrl+C).
+- Mejor integración multiplataforma (CMD, PowerShell, Bash, VS Code).
+- Troubleshooting centralizado en `docs/runbooks/TROUBLESHOOTING.md`.
+
 ## [v0.3.6] - 2026-04-21
 - Clasificación de intenciones ahora basada en embeddings (sentence-transformers) y similitud de coseno, con umbral ajustable para máxima precisión.
 - Ejemplos de entrenamiento expandidos para distinguir intenciones similares ("create" vs "generate", "answer" vs "send").
