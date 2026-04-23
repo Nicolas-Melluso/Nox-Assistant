@@ -1,4 +1,16 @@
 # Changelog
+## [v0.4.1] - 2026-04-23
+- Expuesta API REST robusta con FastAPI y endpoints `/predict_intent` y `/extract_entities`.
+- Documentación de API y ejemplos de uso en `docs/runbooks/api_rest.md` y README.md.
+- CLI y API comparten lógica central (CoreEngine), garantizando resultados consistentes.
+- Tests unitarios para API y CLI: parametrizados, robustos y con cobertura total (incluye modo no interactivo para CLI).
+- Fix multiplataforma: imports y sys.path en tests y CLI para funcionar igual en Windows, Linux, Docker y CI.
+- CLI ahora soporta modo test (`--once`) y es seguro en entornos no interactivos (sin Unicode en stdout si no hay TTY).
+- Corrección de errores de encoding y timeout en tests de CLI (timeout aumentado para modelos grandes).
+- Validación: todos los tests pasan en local y Docker, incluyendo API, CLI y core.
+- Actualización de roadmap, runbooks y changelog.
+- Mejoras menores de UX y mensajes de error en CLI y API.
+
 ## [v0.4.0] - 2026-04-23
 - Banner CLI completamente rojo y soporte de colores ANSI.
 - Ctrl+C ahora cierra el CLI de forma segura en cualquier terminal (no requiere doble Ctrl+C).
@@ -77,7 +89,6 @@
 - Accuracy de extracción de entidades: 100% de los tests unitarios pasan (15/15)
 - Documentación actualizada con resultados y cómo medir cobertura localmente.
 
-# Changelog
 ## [0.2.7] - 2026-04-21
 ## [0.2.8] - 2026-04-21
 ### Documentación
@@ -141,3 +152,16 @@
 
 ## [0.2.0] - 2026-04-15
 - Primera versión funcional del pipeline de clasificación y extracción de entidades.
+
+## [0.4.1] - 2026-04-23
+### Añadido
+- API REST inicial con FastAPI: endpoints /predict_intent y /extract_entities.
+- Documentación de uso y ejemplos curl.
+- Método extract_entities en CoreEngine.
+- Runbook de API REST con tareas futuras.
+
+### Mejorado
+- Refactor de endpoints para devolver estructura completa y robusta.
+
+### Próximos pasos
+- Seguridad, rate limiting, autenticación, webhooks, pruebas e2e, desacoplar como microservicio.

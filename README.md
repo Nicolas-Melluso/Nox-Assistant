@@ -392,6 +392,25 @@ Desde la raíz del proyecto:
 pytest custom-voice-assistant/tests/unit
 ```
 
+## API REST (v0.4.1)
+
+La API REST permite integración externa con el motor de NLU.
+
+### Endpoints principales
+- `POST /predict_intent`: Predice intención y extrae entidades.
+- `POST /extract_entities`: Extrae entidades del texto.
+
+### Ejemplo de uso (curl)
+```bash
+curl -X POST "http://127.0.0.1:8000/predict_intent" -H "Content-Type: application/json" -d '{"text": "Quiero reservar un vuelo a Madrid mañana"}'
+curl -X POST "http://127.0.0.1:8000/extract_entities" -H "Content-Type: application/json" -d '{"text": "Quiero reservar un vuelo a Madrid mañana"}'
+```
+
+### Roadmap
+- [x] Exponer API REST para integración externa (0.4.1)
+- [ ] Conectar con APIs externas (servicios, datos, IoT) (0.4.2)
+- [ ] Mejoras de seguridad, autenticación, rate limiting, webhooks, etc.
+
 ## TODO Roadmap
 
 - [x] Modularizar pipeline en etapas separadas (0.2.0)
