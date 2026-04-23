@@ -94,10 +94,12 @@ def test_sinonimia_comando():
         ("Cierra la puerta", "cierra"),
         ("Ábreme la ventana", "abre"),
     ]
+
     for frase, canonica in frases:
         resultados = extract_entities(frase)
         comandos = [e for r in resultados for e in r["entidades"] if e["label"] == "COMANDO"]
-        assert any(e["canonical"] == canonica for e in comandos), f"Fallo en: {frase} -> {comandos}"
+        assert any(e["canonical"] == canonica for e in comandos), (
+            f"Fallo en: {frase} -> {comandos}")
 
 def test_sinonimia_dispositivo():
     frases = [
@@ -112,10 +114,12 @@ def test_sinonimia_dispositivo():
         ("Busca noticias", "noticias"),
         ("Agrega un contacto", "contacto"),
     ]
+
     for frase, canonica in frases:
         resultados = extract_entities(frase)
         dispositivos = [e for r in resultados for e in r["entidades"] if e["label"] == "DISPOSITIVO"]
-        assert any(e["canonical"] == canonica for e in dispositivos), f"Fallo en: {frase} -> {dispositivos}"
+        assert any(e["canonical"] == canonica for e in dispositivos), (
+            f"Fallo en: {frase} -> {dispositivos}")
 def test_entity_extraction_accuracy():
     casos = [
         ("Enciende las luces", ["DISPOSITIVO", "COMANDO"]),
@@ -137,16 +141,14 @@ def test_entity_extraction_accuracy():
     for frase, esperados in casos:
         resultados = extract_entities(frase)
         entidades = [e for r in resultados for e in r["entidades"]]
-        print(f"Frase: {frase}")
-        print("Entidades detectadas:", entidades)
         labels = [e["label"] for e in entidades]
         for esperado in esperados:
             total += 1
             if esperado in labels:
                 correct += 1
     accuracy = correct / total if total > 0 else 0
-    print(f"Accuracy extracción entidades: {accuracy:.2%}")
     assert accuracy > 0.8  # Esperamos al menos 80% de acierto
+
 import pytest
 from core.entity_extraction import extract_entities
 
