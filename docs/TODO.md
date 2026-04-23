@@ -1,0 +1,35 @@
+# Roadmap y tareas NOX
+
+- [x] Modularizar pipeline en etapas separadas (0.2.0)
+- [x] Extracción de entidades robusta con spaCy EntityRuler (0.2.0)
+- [x] Soporte para negación y preguntas (0.2.1)
+- [x] Segmentación manual para frases compuestas (0.2.2)
+- [x] Extraer dependencias gramaticales (sujeto, verbo, objeto) (0.2.3)
+- [x] Integrar tests unitarios para todos los casos (0.2.4)
+- [x] Actualizar documentación y changelog (0.2.5)
+- [x] Mejorar cobertura de patrones para variantes y sinónimos (0.2.6)
+- [x] Refactorizar para máxima legibilidad (0.2.7)
+- [x] Documentar ejemplos avanzados y edge cases (0.2.8)
+- [x] Medir y documentar cobertura y accuracy (0.2.9)
+- [x] Validar robustez multiplataforma (0.2.10)
+- [x] Automatizar validación y CI (0.2.11)
+- [x] Revisar y limpiar dependencias en requirements.txt (0.2.12)
+- [x] Agregar cualquier mejora relevante sugerida por el equipo (0.2.13)
+- [x] Agregar extracción de cantidades y unidades (0.3.0)
+- [x] Integrar NLTK para limpieza avanzada y sentimiento (0.3.1)
+- [x] Mejorar desambiguación contextual (0.3.2)
+- [x] Agregar nuevos tipos de entidades (0.3.3)
+- [x] Expandir tests unitarios para nuevos casos (0.3.4)
+- [x] Integrar con CoreEngine y predict_intent (0.3.5)
+- [x] Implementar CLI para interacción por consola (0.4.0)
+- [ ] Exponer API REST para integración externa (0.4.1)
+- [ ] Conectar con APIs externas (servicios, datos, IoT) (0.4.2)
+- [ ] Controlar sistema operativo (archivos, apps, red, etc.) (0.4.3)
+- [ ] Crear versión Desktop (GUI) (0.5.0)
+- [ ] Integrar LLM para procesamiento avanzado (0.6.0)
+- [ ] Integrar Voice LLM para comandos por voz (0.6.1)
+- [ ] Implementar autoaprendizaje y feedback continuo (0.7.0)
+
+---
+
+Actualiza este archivo conforme avances en el roadmap. Marca con [x] las tareas completadas.

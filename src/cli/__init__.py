@@ -8,10 +8,15 @@ This module re-exports the `run_console` entrypoint from the
 It also allows running the console directly with ``python -m src.cli``
 when the package is on `PYTHONPATH`.
 """
-from .console import run_console
+import sys
+import os
+# Añadir src al sys.path si no está
+src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if src_path not in sys.path:
+	sys.path.insert(0, src_path)
+from .console import run_console, main
 
-__all__ = ["run_console"]
-
+__all__ = ["run_console", "main"]
 
 if __name__ == "__main__":
-	run_console()
+    main()
