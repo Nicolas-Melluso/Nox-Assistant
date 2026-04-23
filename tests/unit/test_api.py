@@ -1,3 +1,23 @@
+import json
+def test_external_api_endpoint(monkeypatch):
+    # Mock de llamada externa
+    def mock_fetch_data(self, service, endpoint, params=None):
+        assert service == "my_service"
+        assert endpoint == "/datos"
+        return {"ok": True, "data": [1,2,3]}
+    from core.external_api import ExternalAPIClient
+    monkeypatch.setattr(ExternalAPIClient, "fetch_data", mock_fetch_data)
+    payload = {
+        "service": "my_service",
+        "endpoint": "/datos",
+        "method": "GET",
+        "params": {}
+    }
+    response = client.post("/external_api", data=json.dumps(payload), headers={"Content-Type": "application/json"})
+    assert response.status_code == 200
+    data = response.json()
+    assert "result" in data
+    assert data["result"]["ok"] is True
 import sys
 import os
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), "../../..")))
