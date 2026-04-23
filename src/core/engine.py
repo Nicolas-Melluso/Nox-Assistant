@@ -25,6 +25,11 @@ import numpy as np
 
 
 class CoreEngine:
+
+    def extract_entities(self, text: str):
+        """Extrae entidades usando el pipeline modular."""
+        return extract_entities(text)
+    
     def __init__(self, config: Dict[str, Any] | None = None):
         self.config = config or {}
         # Ejemplos mínimos de intenciones (puedes expandir)

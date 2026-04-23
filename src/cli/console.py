@@ -116,6 +116,10 @@ def format_entities(entities):
     return '\n'.join(lines)
 
 def print_banner():
+    import sys
+    if not sys.stdout.isatty():
+        print("NOX CLI v0.4.0 (modo no interactivo)")
+        return
     print(f"{Fore.RED}{Style.BRIGHT}╔════════════════════════════════════════════════════╗{Style.RESET_ALL}")
     print(f"{Fore.RED}{Style.BRIGHT}║   NOX CLI v0.4.0                                   ║{Style.RESET_ALL}")
     print(f"{Fore.RED}{Style.BRIGHT}╚════════════════════════════════════════════════════╝{Style.RESET_ALL}")
@@ -133,9 +137,35 @@ def print_banner():
 
 
 
-def run_console():
+def run_console(once=False):
     print_banner()
     engine = CoreEngine()
+    is_tty = sys.stdout.isatty()
+    line = "─" * 52 if is_tty else "-" * 52
+    if once:
+        try:
+            if sys.stdin.isatty():
+                text = input().strip()
+            else:
+                text = sys.stdin.readline().strip()
+        except EOFError:
+            print(f"\n{Fore.YELLOW}Saliendo...{Style.RESET_ALL}")
+            return
+        except KeyboardInterrupt:
+            print(f"\n{Fore.YELLOW}Saliendo...{Style.RESET_ALL}")
+            sys.exit(0)
+        if not text:
+            return
+        result = engine.predict_intent(text)
+        intent = result.get('intent', 'unknown')
+        conf = result.get('confidence', 0.0)
+        entities = result.get('entities', [])
+        color = Fore.GREEN if conf >= 0.7 else (Fore.YELLOW if conf >= 0.5 else Fore.RED)
+        print(f"{Fore.WHITE}{line}{Style.RESET_ALL}")
+        print(f"{Fore.CYAN}Intención:{Style.RESET_ALL} {color}{intent}{Style.RESET_ALL}   {Fore.CYAN}Confianza:{Style.RESET_ALL} {color}{conf:.2f}{Style.RESET_ALL}")
+        print(f"{Fore.CYAN}Entidades:{Style.RESET_ALL}\n{format_entities(entities)}")
+        print(f"{Fore.WHITE}{line}{Style.RESET_ALL}\n")
+        return
     while True:
         try:
             text = input(f"{Fore.BLUE}{Style.BRIGHT}🗣️  Frase > {Style.RESET_ALL}").strip()
@@ -155,11 +185,11 @@ def run_console():
         conf = result.get('confidence', 0.0)
         entities = result.get('entities', [])
         color = Fore.GREEN if conf >= 0.7 else (Fore.YELLOW if conf >= 0.5 else Fore.RED)
-        print(f"{Fore.WHITE}────────────────────────────────────────────────────{Style.RESET_ALL}")
+        print(f"{Fore.WHITE}{line}{Style.RESET_ALL}")
         print(f"{Fore.CYAN}Intención:{Style.RESET_ALL} {color}{intent}{Style.RESET_ALL}   {Fore.CYAN}Confianza:{Style.RESET_ALL} {color}{conf:.2f}{Style.RESET_ALL}")
         print(f"{Fore.CYAN}Entidades:{Style.RESET_ALL}\n{format_entities(entities)}")
-        print(f"{Fore.WHITE}────────────────────────────────────────────────────{Style.RESET_ALL}\n")
-
+        print(f"{Fore.WHITE}{line}{Style.RESET_ALL}\n")
+    return result['value']
 
 def launch_new_terminal():
     print_banner()
@@ -309,12 +339,13 @@ def main():
     print("[DEBUG] custom-voice-cli entry point ejecutado correctamente.")
     parser = argparse.ArgumentParser(description="NOX CLI - Asistente de voz modular")
     parser.add_argument("--default", action="store_true", help="Ejecutar directamente en la terminal actual (sin menú)")
+    parser.add_argument("--once", action="store_true", help="Procesar solo una línea de stdin y terminar (modo test)")
     args = parser.parse_args()
 
     # Si solo se pide ayuda, argparse la muestra y sale automáticamente
     if not args.default:
         launch_new_terminal()
-    run_console()
+    run_console(once=args.once)
 
 if __name__ == "__main__":
     main()

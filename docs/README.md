@@ -14,6 +14,12 @@ pip install -r requirements.txt
 python -m src.cli
 ```
 
+## API REST
+
+- Endpoints: `/predict_intent`, `/extract_entities`
+- Documentación y ejemplos en docs/runbooks/api_rest.md
+- Tareas futuras: seguridad, autenticación, rate limiting, webhooks, pruebas, microservicio, etc.
+
 ## Troubleshooting
 Consulta la guía en `docs/runbooks/TROUBLESHOOTING.md` para problemas frecuentes.
 

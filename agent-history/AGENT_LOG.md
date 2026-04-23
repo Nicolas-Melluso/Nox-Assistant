@@ -135,6 +135,39 @@ custom-voice-assistant/
 
 **Próximos pasos:** fijar un split reproducible para comparar versiones sobre el mismo conjunto y luego entrenar una v4 basada en errores reales
 
+### Session 5 (23-04-2026)
+
+**Objetivo:**
+Iniciar integración REST API para exponer el modelo y permitir interacción externa.
+
+**Acciones realizadas:**
+- Diseño de endpoints iniciales (`/predict_intent`, `/extract_entities`).
+- Selección de framework: FastAPI.
+- Implementación de estructura base en `src/api/`.
+- Primeros tests locales con Uvicorn.
+- Actualización de dependencias (`requirements.txt`).
+- Documentación inicial en `docs/runbooks/api_rest.md`.
+
+**Resultados clave:**
+- API básica corriendo localmente.
+- Endpoints funcionales para predicción y extracción de entidades.
+
+**Problemas encontrados:**
+- Pendiente: CORS, autenticación, serialización avanzada.
+
+**Aprendizajes:**
+- FastAPI facilita documentación automática y pruebas interactivas.
+- Importancia de mantener la lógica desacoplada del CLI.
+
+**Próximos pasos:**
+- Añadir autenticación y CORS.
+- Pruebas unitarias y e2e.
+- Documentar endpoints y contrato.
+
+**Notas:**
+- Archivos nuevos: `src/api/main.py`, `docs/runbooks/api_rest.md`.
+- Referencia a cambios en roadmap (0.4.1).
+
 ---
 
 ## ⚠️ Problemas Encontrados

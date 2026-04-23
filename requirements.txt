@@ -10,5 +10,7 @@ dateparser
 click==8.3.2
 prompt_toolkit
 sentence-transformers
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
 # Para instalar el modelo español compatible con spaCy 3.5.x, ejecutar:
 # python -m spacy download es_core_news_sm
