@@ -14,7 +14,8 @@ import os
 src_path = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
 if src_path not in sys.path:
 	sys.path.insert(0, src_path)
-from .console import run_console, main
+from .runner import run_console
+from .console import main
 
 __all__ = ["run_console", "main"]
 
