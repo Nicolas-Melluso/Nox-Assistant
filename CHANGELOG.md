@@ -1,4 +1,34 @@
 # Changelog
+
+## [v0.4.3] - 2026-04-24
+### Añadido
+- Modularización del CLI: nuevos módulos `src/cli/ui.py`, `src/cli/runner.py`, `src/cli/launcher.py` y `src/cli/config_cli.py` para una UX con flechas + Enter (sin botones OK/Cancel). Esc o Ctrl+C cierran el CLI de forma segura.
+- Reinstaurado banner grande y rojo "NOX" en la interfaz CLI.
+- Inyección de dependencias en `CoreEngine` (se puede pasar `classifier`, `os_controller` y `entity_extractor` para facilitar tests y extensiones).
+- Nuevo contrato `IntentClassifier` y dos implementaciones: `LazySentenceTransformerIntentClassifier` (carga perezosa de modelos) y `MockIntentClassifier` (reglas simples para CI/tests).
+- `SkillRegistry` y migración de skills a `src/core/skills/` (incluye `OSSkill`).
+- Adaptador de control del sistema en `src/core/os_control/` con `SubprocessOSController(dry_run=True)` para ejecuciones seguras (dry-run en tests).
+- Lexicon de aplicaciones movido a `src/config/apps.yaml` y cargado con `yaml.safe_load()` (con fallback seguro si PyYAML no está disponible).
+- Integración de `FeatureFlags` en el despacho de skills para habilitar/deshabilitar funcionalidades por bandera.
+- Tests: añadidos tests unitarios para `os_control` y la integración engine->skill; `tests/conftest.py` ahora inyecta `MockIntentClassifier`, `SubprocessOSController(dry_run=True)` y un extractor de entidades ligero para evitar cargas de spaCy en CI.
+
+### Cambios
+- `CoreEngine.predict_intent` delega en el clasificador inyectado y añade `entities` usando el extractor inyectable.
+- `CoreEngine.execute_skill` delega en `SkillRegistry` para ejecutar skills registradas.
+- UX del CLI: comportamiento con flechas + Enter restaurado; Esc/Ctrl-C salen sin diálogos adicionales.
+- En entornos de prueba, `MOCK_ENGINE=1` activa `MockIntentClassifier` y `SubprocessOSController(dry_run=True)`.
+
+### Correcciones
+- Evitado carga automática de modelos pesados en imports (lazy-loading) y añadido soporte de mocks para CI.
+- Solucionado error de colección de pytest causado por tests interactivos; se recomienda ejecutar `pytest tests/unit` o marcar scripts interactivos para que no se recojan.
+
+### Notas de migración
+- En CI/entornos sin recursos, exportar `MOCK_ENGINE=1` o inyectar `MockIntentClassifier` y `SubprocessOSController(dry_run=True)` para evitar descargas y efectos sobre el sistema.
+- Scripts interactivos bajo `z/` deben protegerse con `if __name__ == "__main__":` o marcarse como no recogibles por pytest.
+
+### Validación
+- Tests unitarios: 48 passed (local con `MOCK_ENGINE=1`).
+
 ## [v0.4.2] - 2026-04-23
 - Integración modular de APIs externas vía ExternalAPIClient (src/core/external_api.py).
 - CoreEngine expone call_external_api y lo integra en CLI, API y SPA.

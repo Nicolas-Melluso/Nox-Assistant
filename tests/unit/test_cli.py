@@ -18,7 +18,8 @@ def test_cli_predict_intent(input_text):
         stdin=subprocess.PIPE,
         stdout=subprocess.PIPE,
         stderr=subprocess.PIPE,
-        text=True
+        text=True,
+        env={**os.environ, "MOCK_ENGINE": "1"}
     )
     stdout, stderr = process.communicate(input=input_text + "\n", timeout=60)
     if process.returncode != 0:

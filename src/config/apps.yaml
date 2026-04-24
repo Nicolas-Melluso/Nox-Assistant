@@ -1,0 +1,23 @@
+spotify:
+  keywords:
+    - spotify
+    - "reproducir spotify"
+    - "escuchar spotify"
+    - "abrir spotify"
+  url: https://open.spotify.com
+youtube:
+  keywords:
+    - youtube
+    - youtube.com
+    - "ver youtube"
+    - videos
+  url: https://www.youtube.com
+browser:
+  keywords:
+    - navegador
+    - chrome
+    - firefox
+    - "abrir navegador"
+    - "abrir chrome"
+    - "abrir firefox"
+  url: null
