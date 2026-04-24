@@ -34,5 +34,6 @@ COPY . .
 # Permitir cambiar el comando por variable de entorno TESTS
 ENV TESTS="0"
 
-# Entrypoint flexible: si TESTS=1 corre tests, si no ejecuta el modo interactivo real
-ENTRYPOINT ["/bin/sh", "-c", "if [ \"$TESTS\" = '1' ]; then pytest tests/unit; else python -m src.cli; fi"]
+# Entrypoint flexible: si TESTS=1 corre tests (forzando MOCK_ENGINE=1 para CI estable),
+# si no ejecuta el modo interactivo real
+ENTRYPOINT ["/bin/sh", "-c", "if [ \"$TESTS\" = '1' ]; then export MOCK_ENGINE=1; pytest tests/unit; else python -m src.cli; fi"]
