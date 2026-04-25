@@ -15,8 +15,8 @@ def ensamblar_output(frases, negaciones_regex, nlp, limpiar_texto_func):
             or "?" in frase_strip
             or "¿" in frase_strip
         )
-        entities = extraer_entidades_base(frase)
-        entities = postprocesar_entidades(entities, frase)
+        entities = extraer_entidades_base(frase, nlp=nlp)
+        entities = postprocesar_entidades(entities, frase, nlp=nlp)
         entities = desambiguar_entidades_por_contexto(entities, frase)
         resultados.append({
             "frase": frase,

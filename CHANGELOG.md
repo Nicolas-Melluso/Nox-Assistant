@@ -1,5 +1,26 @@
 # Changelog
 
+## [v0.5.0-mvp] - 2026-04-25
+### Aniadido
+- Core unico con `NoxOrchestrator`, contratos `IntentResult`/`SkillResult` y registry de skills.
+- Skills por defecto: abrir destinos seguros, bloquear control de procesos, listar destinos conocidos y estado del core.
+- Catalogo seguro en `src/config/apps.yaml` para YouTube, Steam, Spotify, Chrome, Discord, VS Code, calculadora y explorador.
+- Politica de permisos y auditoria persistente JSONL en `logs/audit.jsonl`.
+- CLI con salida humana por defecto y modo tecnico con `--verbose`.
+- API `/predict_intent` integrada con el orquestador y salida `skill/action`.
+- TODO versionado y documentacion de contrato de skills.
+
+### Demo estable
+- `que podes abrir`
+- `abrir youtube`
+- `abrir steam`
+- `abrir calculadora`
+- `cerrar steam`
+- `como estas`
+
+### Validacion
+- Tests unitarios: `72 passed` en local.
+
 ## [v0.4.3] - 2026-04-24
 ### Añadido
 - Modularización del CLI: nuevos módulos `src/cli/ui.py`, `src/cli/runner.py`, `src/cli/launcher.py` y `src/cli/config_cli.py` para una UX con flechas + Enter (sin botones OK/Cancel). Esc o Ctrl+C cierran el CLI de forma segura.

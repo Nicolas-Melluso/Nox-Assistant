@@ -1,4 +1,4 @@
-from .nlp_singleton import nlp
+from .nlp_singleton import get_spacy_model
 
 def extraer_sujeto_verbo_objeto(texto):
     """
@@ -8,6 +8,7 @@ def extraer_sujeto_verbo_objeto(texto):
     # Segmentar manualmente por conectores comunes antes de procesar con spaCy
     import re
     frases = re.split(r"\b(?:y|luego|después|despues|entonces|;|\.)\b", texto, flags=re.IGNORECASE)
+    nlp = get_spacy_model()
     tripletas = []
     for frase in frases:
         frase = frase.strip()

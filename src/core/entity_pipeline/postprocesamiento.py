@@ -1,11 +1,11 @@
 import re
 import dateparser
 from .regexes import DATE_REGEX, TIME_REGEX
-from .nlp_singleton import nlp
+from .nlp_singleton import get_spacy_model
 from ..entity_patterns import patterns
 from ..utils import limpiar_y_normalizar, normalizar_entidad_sinonimos
 
-def postprocesar_entidades(entities, text):
+def postprocesar_entidades(entities, text, nlp=None):
     dispositivo_terms = set()
     for p in patterns:
         if p.get("label") == "DISPOSITIVO":
@@ -23,7 +23,8 @@ def postprocesar_entidades(entities, text):
                         for v in lower_val:
                             dispositivo_terms.add(v.lower())
     texto_limpio = limpiar_y_normalizar(text)
-    doc_limpio = nlp(texto_limpio)
+    model = nlp or get_spacy_model()
+    doc_limpio = model(texto_limpio)
     tokens_lower = [t.text.lower() for t in doc_limpio]
     dispositivos_detectados = set(e["text"].lower() for e in entities if e["label"] == "DISPOSITIVO")
     for i, token in enumerate(tokens_lower):
