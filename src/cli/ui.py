@@ -23,7 +23,7 @@ except Exception:
 def print_banner() -> None:
     # Modo no interactivo (piped / redirected)
     if not sys.stdout.isatty():
-        print("NOX CLI v0.4.0 (modo no interactivo)")
+        print("NOX CLI v0.5.0-mvp (modo no interactivo)")
         return
 
     # Si colorama está disponible, usar colores; si no, caer en plano
@@ -32,7 +32,7 @@ def print_banner() -> None:
     if use_color:
         try:
             print(f"{Fore.RED}{Style.BRIGHT}╔════════════════════════════════════════════════════╗{Style.RESET_ALL}")
-            print(f"{Fore.RED}{Style.BRIGHT}║   NOX CLI v0.4.0                                   ║{Style.RESET_ALL}")
+            print(f"{Fore.RED}{Style.BRIGHT}║   NOX CLI v0.5.0-mvp                               ║{Style.RESET_ALL}")
             print(f"{Fore.RED}{Style.BRIGHT}╚════════════════════════════════════════════════════╝{Style.RESET_ALL}")
             print()
             print(f"{Fore.RED}{Style.BRIGHT} ███╗   ██╗ ██████╗ ██╗  ██╗{Style.RESET_ALL}")
@@ -47,7 +47,7 @@ def print_banner() -> None:
     if not use_color:
         # Fallback plain text banner
         print("╔════════════════════════════════════════════════════╗")
-        print("║   NOX CLI v0.4.0                                   ║")
+        print("║   NOX CLI v0.5.0-mvp                               ║")
         print("╚════════════════════════════════════════════════════╝")
         print()
         print(" ███╗   ██╗ ██████╗ ██╗  ██╗")

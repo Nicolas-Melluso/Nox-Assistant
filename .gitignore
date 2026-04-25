@@ -75,6 +75,7 @@ training/datasets/interim/
 !training/datasets/raw/
 
 # Runtime artifacts (locales)
+logs/
 results/autonomous_agent_logs.jsonl
 data/autonomous_memory.json
 

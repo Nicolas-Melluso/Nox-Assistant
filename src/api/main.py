@@ -83,12 +83,14 @@ class TextRequest(BaseModel):
 @app.post("/predict_intent")
 def predict_intent(request: TextRequest):
     try:
-        result = engine.predict_intent(request.text)
+        handled = engine.handle(request.text)
         return {
-            "intent": result["intent"],
-            "score": result["confidence"],
-            "entities": result["entities"],
-            "input_text": result["input_text"]
+            "intent": handled["intent"],
+            "score": handled["confidence"],
+            "entities": handled["entities"],
+            "input_text": handled["input_text"],
+            "skill": handled.get("skill"),
+            "action": handled.get("action"),
         }
     except Exception as e:
         raise HTTPException(status_code=500, detail=str(e))

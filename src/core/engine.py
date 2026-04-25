@@ -6,9 +6,9 @@ import os
 
 from .external_api import ExternalAPIClient
 from .os_control import OSController, SubprocessOSController
-from .intent_classifier import LazySentenceTransformerIntentClassifier, MockIntentClassifier
-from .skills import SkillRegistry
-from .skills.os_skill import OSSkill
+from .intent_classifier import LazySentenceTransformerIntentClassifier, MockIntentClassifier, RuleBasedIntentClassifier
+from .orchestrator import NoxOrchestrator, default_registry
+from .security import FileAuditSink
 
 
 class CoreEngine:
@@ -26,12 +26,22 @@ class CoreEngine:
         else:
             if os.environ.get("MOCK_ENGINE", "0") == "1":
                 self.intent_classifier = MockIntentClassifier()
-            else:
+            elif self.config.get("classifier_backend") == "sentence_transformer":
                 self.intent_classifier = LazySentenceTransformerIntentClassifier()
+            else:
+                self.intent_classifier = RuleBasedIntentClassifier()
 
-        self.skill_registry = SkillRegistry()
-        # Registrar skills por defecto
-        self.skill_registry.register(OSSkill(self.os_controller))
+        self.skill_registry = default_registry(os_controller=self.os_controller)
+        audit_sink = None
+        if self.config.get("audit_enabled", True):
+            audit_path = self.config.get("audit_path", "logs/audit.jsonl")
+            audit_sink = FileAuditSink(audit_path)
+        self.orchestrator = NoxOrchestrator(
+            classifier=self.intent_classifier,
+            registry=self.skill_registry,
+            os_controller=self.os_controller,
+            audit_sink=audit_sink,
+        )
         # Inyectable: extractor de entidades (útil para tests para evitar cargar spaCy)
         self.entity_extractor = entity_extractor
 
@@ -66,7 +76,17 @@ class CoreEngine:
             return {"skill": "noop", "success": True}
         try:
             if hasattr(self, "skill_registry") and self.skill_registry:
-                return self.skill_registry.dispatch(intent_result)
+                skill_result = self.skill_registry.dispatch(intent_result)
+                skill = self.skill_registry.find_for_intent(intent)
+                skill_name = skill.name if skill else (skill_result.data or {}).get("skill", "noop")
+                return skill_result.to_legacy_dict(skill_name)
         except Exception as e:
             return {"skill": "error", "success": False, "error": str(e)}
         return {"skill": "noop", "success": False}
+
+    def handle(self, text: str, context: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """Compatibility wrapper around the new orchestrator entrypoint."""
+        result = self.orchestrator.handle(text, context=context)
+        legacy = result.to_legacy_dict()
+        legacy["entities"] = self.extract_entities(text)
+        return legacy

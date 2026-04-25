@@ -1,28 +1,43 @@
-# Arquitectura v0.4.2
+# Arquitectura NOX
 
-El asistente NOX ahora cuenta con una arquitectura modular y extensible:
+## Core unico
 
-- **ExternalAPIClient**: módulo central para integración de APIs externas (REST, IoT, etc.), inyectado en CoreEngine.
-- **CoreEngine**: motor principal, expone `call_external_api` y gestiona la lógica NLU y entidades.
-- **Feature Flags**: sistema centralizado en YAML, accesible y editable desde CLI, API y SPA.
-- **Interfaces**:
-	- **CLI**: menú interactivo, gestión de flags, lanza SPA/API automáticamente.
-	- **API REST**: endpoints para NLU, entidades, flags y APIs externas.
-	- **SPA**: gestión visual de flags, servida por FastAPI.
+El punto central nuevo es `NoxOrchestrator.handle(text, context=None)`.
 
-**Flujo de datos:**
-Usuario → CLI/API/SPA → CoreEngine → ExternalAPIClient (si aplica) → Respuesta/Acción
+```text
+Input de usuario
+  -> clasificador de intencion
+  -> IntentResult
+  -> SkillRegistry
+  -> SkillResult
+  -> respuesta de CLI/API/UI
+```
 
-**Ventajas:**
-- Modularidad, extensibilidad y testabilidad.
-- Configuración centralizada y consistente.
-- Fácil integración de nuevas capacidades y servicios externos.
-# Documentación de la arquitectura
+`CoreEngine` queda como capa de compatibilidad para la API y tests existentes. La direccion de crecimiento es que CLI, API y futuras UI usen el mismo orquestador.
 
-Este directorio contendrá diagramas, descripciones y decisiones de arquitectura del asistente de voz NOX.
+## Contratos
 
-- Estructura de módulos
-- Flujo de datos
-- Integraciones
+- `IntentResult`: `name`, `confidence`, `raw_text`, `entities`.
+- `SkillResult`: `success`, `message`, `data`, `error`.
+- `Skill`: `name`, `description`, `permissions`, `supported_intents`, `healthcheck()`, `run()`.
 
-Agrega aquí los archivos relevantes para mantener la arquitectura documentada y actualizada.
+El registry valida estos contratos al registrar una skill.
+
+Detalle del contrato de skills: `docs/architecture/skills.md`.
+
+## Politica MVP
+
+- La CLI es el primer producto usable.
+- Abrir destinos conocidos es una accion permitida.
+- Cerrar procesos o ejecutar comandos ambiguos queda bloqueado hasta tener permisos y auditoria.
+- `sentence-transformers`, voz, memoria, desktop y web bridge quedan como capacidades futuras, no como camino critico.
+
+## Roadmap aislado
+
+Estas areas existen como direccion futura, pero no deben mezclarse con el core hasta que haya contratos y tests suficientes:
+
+- `src/voice`
+- `src/memory`
+- `src/personality`
+- `src/desktop-bridge`
+- `src/web-bridge`

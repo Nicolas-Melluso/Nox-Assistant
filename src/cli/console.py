@@ -15,6 +15,7 @@ def main(argv=None) -> int:
     parser.add_argument("--external-api-test", action="store_true", help="Prueba integración con API externa")
     parser.add_argument("--config", action="store_true", help="Panel de configuración de feature flags (CLI)")
     parser.add_argument("--config-spa", action="store_true", help="Abrir SPA de configuración de feature flags en el navegador")
+    parser.add_argument("--verbose", action="store_true", help="Mostrar intent, confianza, entidades y skill")
     args = parser.parse_args(argv)
 
     # SPA de configuración (mantener comportamiento previo)
@@ -88,7 +89,14 @@ def main(argv=None) -> int:
                 def call_external_api(self, *a, **k):
                     return {'ok': True}
             engine = DummyEngine()
-        run_console(engine, input_func=input, output_func=print, once=args.once, external_api_test=args.external_api_test)
+        run_console(
+            engine,
+            input_func=input,
+            output_func=print,
+            once=args.once,
+            external_api_test=args.external_api_test,
+            verbose=args.verbose,
+        )
         return 0
 
     # Si no --default, delegar a launcher que decide dónde ejecutar

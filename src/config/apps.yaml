@@ -5,6 +5,13 @@ spotify:
     - "escuchar spotify"
     - "abrir spotify"
   url: https://open.spotify.com
+steam:
+  keywords:
+    - steam
+    - "abrir steam"
+    - "iniciar steam"
+    - "lanzar steam"
+  url: steam://open/main
 youtube:
   keywords:
     - youtube
@@ -21,3 +28,38 @@ browser:
     - "abrir chrome"
     - "abrir firefox"
   url: null
+chrome:
+  keywords:
+    - chrome
+    - google chrome
+    - "abrir chrome"
+  path: chrome
+discord:
+  keywords:
+    - discord
+    - "abrir discord"
+    - "iniciar discord"
+  url: discord://-/app
+vscode:
+  keywords:
+    - vscode
+    - vs code
+    - visual studio code
+    - codigo
+    - "abrir vscode"
+    - "abrir vs code"
+  path: code
+calculator:
+  keywords:
+    - calculadora
+    - calculator
+    - calc
+    - "abrir calculadora"
+  path: calc
+explorer:
+  keywords:
+    - explorador
+    - explorador de archivos
+    - archivos
+    - "abrir explorador"
+  path: explorer

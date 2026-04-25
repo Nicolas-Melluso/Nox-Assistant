@@ -1,20 +1,33 @@
-
 import spacy
-from spacy.pipeline import EntityRuler
+
 from ..entity_patterns import patterns
-import subprocess
-import sys
 
-def get_spacy_model(model_name):
+_NLP = None
+
+
+def get_spacy_model(model_name: str = "es_core_news_sm"):
+    """Load spaCy once, lazily.
+
+    The old implementation attempted to download the model at import time.
+    That made imports slow and unpredictable. Missing models now fail with a
+    clear runtime error so tests can inject lightweight extractors.
+    """
+    global _NLP
+    if _NLP is not None:
+        return _NLP
+
     try:
-        return spacy.load(model_name)
-    except OSError:
-        print(f"Modelo spaCy '{model_name}' no encontrado. Instalando automáticamente...")
-        subprocess.run([sys.executable, "-m", "spacy", "download", model_name], check=True)
-        return spacy.load(model_name)
+        nlp = spacy.load(model_name)
+    except OSError as exc:
+        raise RuntimeError(
+            f"Modelo spaCy '{model_name}' no instalado. Ejecuta: python -m spacy download {model_name}"
+        ) from exc
 
-nlp = get_spacy_model("es_core_news_sm")
-if "entity_ruler" not in nlp.pipe_names:
-    nlp.add_pipe("entity_ruler", before="ner", config={"phrase_matcher_attr": "LOWER"})
-ruler = nlp.get_pipe("entity_ruler")
-ruler.add_patterns(patterns)
+    if "entity_ruler" not in nlp.pipe_names:
+        nlp.add_pipe("entity_ruler", before="ner", config={"phrase_matcher_attr": "LOWER"})
+    ruler = nlp.get_pipe("entity_ruler")
+    if not getattr(ruler, "patterns", None):
+        ruler.add_patterns(patterns)
+
+    _NLP = nlp
+    return _NLP
